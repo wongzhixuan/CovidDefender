@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/statistics"
+        android:title="Statistics"
+        android:icon="@drawable/ic_statistics"/>
+    <item
+        android:id="@+id/info"
+        android:title="Covid Info"
+        android:icon="@drawable/ic_info"/>
+    <item
+        android:id="@+id/vaccine"
+        android:title="Vaccination"
+        android:icon="@drawable/ic_vaccination"/>
+
+</menu>
