@@ -23,8 +23,8 @@ class BottomNav : AppCompatActivity() {
         navView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent))
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener(View.OnClickListener {
+        fab.setOnClickListener {
             navController.navigate(R.id.scan)
-        })
+        }
     }
 }
