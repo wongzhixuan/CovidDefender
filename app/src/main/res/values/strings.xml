@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CovidDefender</string>
+    <string name="home">Home</string>
+    <string name="statistics">Statistics</string>
+    <string name="covid_info">Covid Info</string>
+    <string name="vaccination">Vaccination</string>
 </resources>
