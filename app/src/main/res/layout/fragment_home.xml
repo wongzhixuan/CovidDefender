@@ -9,7 +9,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="50dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,7 +43,7 @@
                 android:layout_marginTop="90dp"
                 android:layout_marginEnd="120dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="Covid Defender"
+                android:text="@string/covid_defender"
                 android:textColor="@color/prussian_blue"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +57,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="Health Status"
+                android:text="@string/health_status"
                 android:textColor="@color/prussian_blue"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +77,7 @@
                     android:id="@+id/card_covid_status"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -112,7 +114,7 @@
                     android:id="@+id/card_health_assessment"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -138,7 +140,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Health Risk Assessment"
+                            android:text="@string/health_risk_assessment"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -149,7 +151,7 @@
                     android:id="@+id/card_hotspot"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -175,7 +177,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Hotspot"
+                            android:text="@string/hotspot"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -191,7 +193,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="Check - in"
+                android:text="@string/check_in"
                 android:textColor="@color/prussian_blue"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -211,7 +213,7 @@
                     android:id="@+id/card_checkin"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -237,7 +239,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Check - in"
+                            android:text="@string/check_in"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -248,7 +250,7 @@
                     android:id="@+id/card_history"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -274,7 +276,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="History"
+                            android:text="@string/history"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -285,7 +287,7 @@
                     android:id="@+id/card_group"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -311,7 +313,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Group"
+                            android:text="@string/group"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -327,7 +329,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="Check - in"
+                android:text="@string/vaccination_title"
                 android:textColor="@color/prussian_blue"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -343,48 +345,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_vaccine">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_vaccine"
-                    android:layout_width="110dp"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="30dp"
-                    app:cardCornerRadius="18dp"
-                    app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/vaccine_icon"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/card_icon_background_grey"
-                            android:src="@drawable/scan_qr_code" />
-
-                        <TextView
-                            android:id="@+id/tv_vaccine"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/gilroy_bold"
-                            android:gravity="center"
-                            android:text="Vaccination"
-                            android:textColor="@color/prussian_blue" />
-                    </LinearLayout>
-
-
-                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_vaccine_status"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -410,7 +376,7 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Status"
+                            android:text="@string/status"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
@@ -421,7 +387,7 @@
                     android:id="@+id/card_appointment"
                     android:layout_width="110dp"
                     android:layout_height="120dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
                     app:strokeWidth="2dp">
@@ -447,13 +413,38 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/gilroy_bold"
                             android:gravity="center"
-                            android:text="Appointment"
+                            android:text="@string/appointment"
                             android:textColor="@color/prussian_blue" />
                     </LinearLayout>
 
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
+            <!-- latest announcement -->
+            <TextView
+                android:id="@+id/home_latest_announcement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="@string/latest_announcement"
+                android:textColor="@color/prussian_blue"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vaccine_list" />
+
+            <!-- Recycler View -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/latest_announcement_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_latest_announcement"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

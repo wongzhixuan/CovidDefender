@@ -4,4 +4,15 @@
     <string name="statistics">Statistics</string>
     <string name="covid_info">Covid Info</string>
     <string name="vaccination">Vaccination</string>
+    <string name="covid_defender">Covid Defender</string>
+    <string name="health_status">Health Status</string>
+    <string name="health_risk_assessment">Health Risk Assessment</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="check_in">Check - in</string>
+    <string name="history">History</string>
+    <string name="group">Group</string>
+    <string name="vaccination_title">Vaccination</string>
+    <string name="status">Status</string>
+    <string name="appointment">Appointment</string>
+    <string name="latest_announcement">Latest Announcement</string>
 </resources>
