@@ -21,10 +21,12 @@ class BottomNav : AppCompatActivity() {
         // Hook your navigation controller to bottom navigation view
         navView.setupWithNavController(navController)
         navView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent))
+        navView.menu.getItem(2).isChecked = true
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
+        fab.setOnClickListener(View.OnClickListener {
+            navView.menu.getItem(2).isChecked = true
             navController.navigate(R.id.scan)
-        }
+        })
     }
 }

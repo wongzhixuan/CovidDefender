@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue_light.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue_light_50.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_coral.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_grey.xml" value="0.2425" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_grey_orange.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_light_grey.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_orange.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/home_card_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_nav_drawer.xml" value="0.2155" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_statistics.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_vaccination.xml" value="0.1" />

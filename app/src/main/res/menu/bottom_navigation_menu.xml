@@ -9,7 +9,7 @@
         android:title="@string/statistics"
         android:icon="@drawable/ic_statistics"/>
     <item
-        android:id="@+id/scan"
+        android:id="@+id/placeholder"
         android:title=""
         />
     <item
