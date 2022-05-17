@@ -2,19 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/statistics"
-        android:title="Statistics"
+        android:title="@string/statistics"
         android:icon="@drawable/ic_statistics"/>
     <item
+        android:id="@+id/scan"
+        android:title=""
+        />
+    <item
         android:id="@+id/info"
-        android:title="Covid Info"
+        android:title="@string/covid_info"
         android:icon="@drawable/ic_info"/>
     <item
         android:id="@+id/vaccine"
-        android:title="Vaccination"
+        android:title="@string/vaccination"
         android:icon="@drawable/ic_vaccination"/>
 
 </menu>
