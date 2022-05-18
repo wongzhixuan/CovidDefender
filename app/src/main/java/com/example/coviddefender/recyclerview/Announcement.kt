@@ -1,8 +1,9 @@
 package com.example.coviddefender.recyclerview
 
-import android.widget.ImageView
+
+import androidx.annotation.DrawableRes
 
 data class Announcement (
-        var thumbnail: ImageView,
+        @DrawableRes var thumbnail: Int,
         var description: String
         )
