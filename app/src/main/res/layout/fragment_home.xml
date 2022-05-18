@@ -80,7 +80,8 @@
                     android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -117,7 +118,8 @@
                     android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -154,7 +156,8 @@
                     android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,7 +219,8 @@
                     android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -253,7 +257,8 @@
                     android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -290,7 +295,8 @@
                     android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -353,7 +359,8 @@
                     android:layout_marginStart="30dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -390,7 +397,8 @@
                     android:layout_marginStart="10dp"
                     app:cardCornerRadius="18dp"
                     app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp">
+                    app:strokeWidth="2dp"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
