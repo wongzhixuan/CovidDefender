@@ -5,14 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.recyclerview.Announcement
 import com.example.coviddefender.recyclerview.AnnouncementAdapter
+import com.google.android.material.card.MaterialCardView
 
 
 class FragmentHome : Fragment() {
+    var card_covid_status: MaterialCardView? = null
+    var card_health_assessment: MaterialCardView? = null
+    var card_hotspot: MaterialCardView? = null
+
+    var card_checkin: MaterialCardView? = null
+    var card_history: MaterialCardView? = null
+    var card_group: MaterialCardView? = null
+
+    var card_vaccine_status: MaterialCardView? = null
+    var card_appointment: MaterialCardView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +47,11 @@ class FragmentHome : Fragment() {
                 R.drawable.father_and_son,
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             )
-            )
+        )
 
         // Announcement Recycler View
-        val announcement_recyclerview: RecyclerView? = view?.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
+        val announcement_recyclerview: RecyclerView? =
+            view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
         announcement_recyclerview?.layoutManager = LinearLayoutManager(
             view.context,
             LinearLayoutManager.VERTICAL,
@@ -47,6 +60,46 @@ class FragmentHome : Fragment() {
 
         // Adopt data to recycler view using adapter
         announcement_recyclerview?.adapter = AnnouncementAdapter(announcements)
+
+        // Link card view widgets
+        card_covid_status = view.findViewById<MaterialCardView>(R.id.card_covid_status)
+        card_health_assessment = view.findViewById<MaterialCardView>(R.id.card_health_assessment)
+        card_hotspot = view.findViewById<MaterialCardView>(R.id.card_hotspot)
+
+        card_checkin = view.findViewById<MaterialCardView>(R.id.card_checkin)
+        card_history = view.findViewById<MaterialCardView>(R.id.card_history)
+        card_group = view.findViewById<MaterialCardView>(R.id.card_group)
+
+        card_vaccine_status = view.findViewById<MaterialCardView>(R.id.card_vaccine_status)
+        card_appointment = view.findViewById<MaterialCardView>(R.id.card_appointment)
+
+        card_covid_status?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_covid_status)
+        }
+        card_health_assessment?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_health_assessment)
+
+        }
+        card_hotspot?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_hotspot)
+        }
+        card_checkin?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_checkIn)
+        }
+        card_history?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_history)
+        }
+        card_group?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_groupCheckIn)
+        }
+        card_vaccine_status?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_vaccineStatus)
+        }
+        card_appointment?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_appointment)
+        }
+
+
 
         return view
 

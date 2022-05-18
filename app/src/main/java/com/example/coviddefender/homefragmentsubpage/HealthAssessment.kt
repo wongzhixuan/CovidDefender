@@ -1,18 +1,16 @@
 package com.example.coviddefender.homefragmentsubpage
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 
 
-class CovidStatus : Fragment() {
+class HealthAssessment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +32,8 @@ class CovidStatus : Fragment() {
     }
 
     companion object {
+
         @JvmStatic
-        fun newInstance() = CovidStatus()
+        fun newInstance() = HealthAssessment()
     }
 }

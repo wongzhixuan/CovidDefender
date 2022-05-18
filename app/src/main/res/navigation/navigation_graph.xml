@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation_graph"
+    app:startDestination="@id/scan">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_covid_status"
+            app:destination="@id/covid_status" />
+        <action
+            android:id="@+id/action_home_to_health_assessment"
+            app:destination="@id/health_assessment" />
+        <action
+            android:id="@+id/action_home_to_appointment"
+            app:destination="@id/appointment" />
+        <action
+            android:id="@+id/action_home_to_checkIn"
+            app:destination="@id/checkIn" />
+        <action
+            android:id="@+id/action_home_to_history"
+            app:destination="@id/history" />
+        <action
+            android:id="@+id/action_home_to_hotspot"
+            app:destination="@id/hotspot" />
+        <action
+            android:id="@+id/action_home_to_vaccineStatus"
+            app:destination="@id/vaccineStatus" />
+        <action
+            android:id="@+id/action_home_to_groupCheckIn"
+            app:destination="@id/groupCheckIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentStatistics"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/vaccine"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentVaccine"
+        android:label="fragment_vaccine"
+        tools:layout="@layout/fragment_vaccine" />
+    <fragment
+        android:id="@+id/info"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentInfo"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/scan"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentScan"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/covid_status"
+        android:name="com.example.coviddefender.homefragmentsubpage.CovidStatus"
+        android:label="fragment_covid_status"
+        tools:layout="@layout/fragment_covid_status" >
+        <action
+            android:id="@+id/action_covid_status_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/health_assessment"
+        android:name="com.example.coviddefender.homefragmentsubpage.HealthAssessment"
+        android:label="fragment_health_assessment"
+        tools:layout="@layout/fragment_health_assessment" >
+        <action
+            android:id="@+id/action_health_assessment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointment"
+        android:name="com.example.coviddefender.homefragmentsubpage.Appointment"
+        android:label="fragment_appointment"
+        tools:layout="@layout/fragment_appointment" >
+        <action
+            android:id="@+id/action_appointment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkIn"
+        android:name="com.example.coviddefender.homefragmentsubpage.CheckIn"
+        android:label="fragment_check_in"
+        tools:layout="@layout/fragment_check_in" >
+        <action
+            android:id="@+id/action_checkIn_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupCheckIn"
+        android:name="com.example.coviddefender.homefragmentsubpage.GroupCheckIn"
+        android:label="fragment_group_check_in"
+        tools:layout="@layout/fragment_group_check_in" >
+        <action
+            android:id="@+id/action_groupCheckIn_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/history"
+        android:name="com.example.coviddefender.homefragmentsubpage.History"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_history_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotspot"
+        android:name="com.example.coviddefender.homefragmentsubpage.Hotspot"
+        android:label="fragment_hotspot"
+        tools:layout="@layout/fragment_hotspot" >
+        <action
+            android:id="@+id/action_hotspot_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/vaccineStatus"
+        android:name="com.example.coviddefender.homefragmentsubpage.VaccineStatus"
+        android:label="fragment_vaccine_status"
+        tools:layout="@layout/fragment_vaccine_status" >
+        <action
+            android:id="@+id/action_vaccineStatus_to_home"
+            app:destination="@id/home" />
+    </fragment>
+</navigation>

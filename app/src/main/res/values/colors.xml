@@ -27,6 +27,8 @@
 
     <!-- 70% black for card outline-->
     <color name="black_70">#454545</color>
+    <!-- 50% black -->
+    <color name="black_50">#727272</color>
 
     <color name="grey_orange">#E1DAD3</color>
 </resources>
