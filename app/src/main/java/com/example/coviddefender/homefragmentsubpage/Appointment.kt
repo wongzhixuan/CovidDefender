@@ -35,7 +35,6 @@ class Appointment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() =
-            Appointment()
+        fun newInstance() = Appointment()
     }
 }

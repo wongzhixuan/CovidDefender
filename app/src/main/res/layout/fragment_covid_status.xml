@@ -16,12 +16,12 @@
            android:layout_width="50dp"
            android:layout_height="50dp"
            android:layout_marginStart="10dp"
-           android:layout_marginTop="50dp"
+           android:layout_marginTop="40dp"
            android:background="@android:color/transparent"
            android:src="@drawable/ic_back"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent"
-           app:tint="@color/white"/>
+           app:tint="@color/white" />
 
        <TextView
            android:id="@+id/tv_covid_status_title"
@@ -31,7 +31,7 @@
            android:fontFamily="@font/gilroy_extrabold"
            android:text="Covid Status"
            android:textColor="@color/white"
-           android:textSize="30sp"
+           android:textSize="24"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent" />

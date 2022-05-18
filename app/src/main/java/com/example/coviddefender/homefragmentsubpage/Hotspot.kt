@@ -33,9 +33,7 @@ class Hotspot : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
-        fun newInstance() =
-            Hotspot()
+        fun newInstance() = Hotspot()
     }
 }
