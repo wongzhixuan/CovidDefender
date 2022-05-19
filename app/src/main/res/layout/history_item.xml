@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:strokeWidth="3dp"
+    app:strokeColor="@color/black_70"
+    app:cardCornerRadius="20dp"
+    android:layout_marginBottom="20dp"
+    app:cardElevation="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/card_history_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/card_icon_background_prussian_blue"
+            android:src="@drawable/ic_hotspot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="Location Name Testing "
+            android:textColor="@color/prussian_blue_dark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/card_history_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_checkin_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:text="Apr 4, 2022, 10:22 AM"
+            android:textColor="@color/dim_grey_light"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/card_history_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_check_out"
+            android:layout_width="110dp"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="Check Out"
+            android:textAllCaps="false"
+            android:textColor="@color/light_blue"
+            android:textSize="12sp"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:strokeColor="@color/light_blue"
+            app:strokeWidth="3dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

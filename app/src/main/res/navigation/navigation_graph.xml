@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/history"
-        android:name="com.example.coviddefender.homefragmentsubpage.History"
+        android:name="com.example.coviddefender.homefragmentsubpage.HistoryFragmenet"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" >
         <action
