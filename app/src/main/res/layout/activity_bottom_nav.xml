@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             app:menu="@menu/bottom_navigation_menu"
-
+            app:itemIconTint="@color/tab_item_foreground"
+            app:itemTextColor="@color/tab_item_foreground"
             />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -39,8 +40,8 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_scan"
-        app:tint="@color/white"
-        app:backgroundTint="@color/purple_700"
-        app:layout_anchor="@id/bottomAppBar" />
+        app:backgroundTint="@color/fab_color_change"
+        app:layout_anchor="@id/bottomAppBar"
+        app:tint="@color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

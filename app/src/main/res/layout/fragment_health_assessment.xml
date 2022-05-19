@@ -23,7 +23,7 @@
             app:tint="@color/prussian_blue" />
 
         <TextView
-            android:id="@+id/tv_covid_status_title"
+            android:id="@+id/tv_check_in_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -51,7 +51,7 @@
             app:indicatorColor="@color/prussian_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_covid_status_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_check_in_title" />
 
         <ScrollView
             android:layout_width="match_parent"

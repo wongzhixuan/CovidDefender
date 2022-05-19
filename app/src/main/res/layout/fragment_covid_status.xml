@@ -24,7 +24,7 @@
            app:tint="@color/white" />
 
        <TextView
-           android:id="@+id/tv_covid_status_title"
+           android:id="@+id/tv_check_in_title"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_marginTop="50dp"
@@ -40,23 +40,23 @@
            android:id="@+id/view_pass"
            android:layout_width="match_parent"
            android:layout_height="760dp"
-           android:layout_marginTop="10dp"
+           android:layout_marginTop="20dp"
            android:background="@drawable/rect_white_rounded"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.0"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/tv_covid_status_title" />
+           app:layout_constraintTop_toBottomOf="@+id/tv_check_in_title" />
 
        <ImageButton
            android:id="@+id/btn_refresh"
            android:layout_width="30dp"
            android:layout_height="30dp"
            android:layout_marginStart="38dp"
-           android:layout_marginTop="25dp"
+           android:layout_marginTop="35dp"
            android:background="@android:color/transparent"
            android:src="@drawable/ic_refresh"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@id/tv_covid_status_title"
+           app:layout_constraintTop_toBottomOf="@id/tv_check_in_title"
            app:tint="@color/dim_grey_light" />
 
        <TextView
@@ -64,13 +64,13 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_marginStart="20dp"
-           android:layout_marginTop="30dp"
+           android:layout_marginTop="40dp"
            android:fontFamily="@font/gilroy_regular"
            android:text="8 Apr 2022, 3:35 PM"
            android:textColor="@color/dim_grey"
            android:textSize="16sp"
            app:layout_constraintStart_toEndOf="@+id/btn_refresh"
-           app:layout_constraintTop_toBottomOf="@id/tv_covid_status_title" />
+           app:layout_constraintTop_toBottomOf="@id/tv_check_in_title" />
 
        <!-- Covid Status -->
 
@@ -78,7 +78,7 @@
            android:id="@+id/view_status_color"
            android:layout_width="match_parent"
            android:layout_height="90dp"
-           android:layout_marginTop="10dp"
+           android:layout_marginTop="20dp"
            android:background="@color/light_green"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.0"

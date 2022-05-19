@@ -23,7 +23,7 @@
             app:tint="@color/prussian_blue" />
 
         <TextView
-            android:id="@+id/tv_covid_status_title"
+            android:id="@+id/tv_check_in_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"

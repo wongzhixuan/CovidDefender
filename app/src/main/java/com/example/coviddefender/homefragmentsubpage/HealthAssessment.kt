@@ -47,6 +47,12 @@ class HealthAssessment : Fragment() {
             Question(
                 "Are you exhibiting 2 or more symptoms as listed below:\n• Fever\n• Chills\n• Body ache\n• Headache\n• Sore throat\n• Diarrhea\n• Vomitting \n• Fatigue\n• Nasal congestion"
             ),
+            Question(
+                "Are you exhibiting 2 or more symptoms as listed below:\n• Fever\n• Chills\n• Body ache\n• Headache\n• Sore throat\n• Diarrhea\n• Vomitting \n• Fatigue\n• Nasal congestion"
+            ),
+            Question(
+                "Are you exhibiting 2 or more symptoms as listed below:\n• Fever\n• Chills\n• Body ache\n• Headache\n• Sore throat\n• Diarrhea\n• Vomitting \n• Fatigue\n• Nasal congestion"
+            )
         )
 
         // Question Recycler View
