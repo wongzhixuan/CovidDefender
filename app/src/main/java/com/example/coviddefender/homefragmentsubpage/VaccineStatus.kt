@@ -23,7 +23,7 @@ class VaccineStatus : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_covid_status, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_vaccine_status, container, false)
         val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_covid_status_to_home)

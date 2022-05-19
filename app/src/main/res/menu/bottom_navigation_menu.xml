@@ -17,8 +17,8 @@
         android:title="@string/covid_info"
         android:icon="@drawable/ic_info"/>
     <item
-        android:id="@+id/vaccine"
-        android:title="@string/vaccination"
-        android:icon="@drawable/ic_vaccination"/>
+        android:id="@+id/self_test"
+        android:title="Self Test"
+        android:icon="@drawable/ic_covid_self_test_icon"/>
 
 </menu>

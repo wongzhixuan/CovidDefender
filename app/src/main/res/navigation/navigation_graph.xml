@@ -41,10 +41,10 @@
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
     <fragment
-        android:id="@+id/vaccine"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentVaccine"
-        android:label="fragment_vaccine"
-        tools:layout="@layout/fragment_vaccine" />
+        android:id="@+id/self_test"
+        android:name="com.example.coviddefender.bottomnavfragment.FragmentSelfTest"
+        android:label="fragment_self_test"
+        tools:layout="@layout/fragment_self_test" />
     <fragment
         android:id="@+id/info"
         android:name="com.example.coviddefender.bottomnavfragment.FragmentInfo"
