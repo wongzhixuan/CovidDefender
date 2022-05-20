@@ -79,11 +79,13 @@
             app:layout_constraintTop_toBottomOf="@+id/bg_top" />
 
         <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="160dp"
             android:paddingTop="20dp"
-            android:paddingBottom="50dp"
+            android:paddingBottom="100dp"
+            app:layout_constraintBottom_toBottomOf="@id/btn_check_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_add_dependent">
@@ -93,6 +95,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_check_in"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/prussian_blue"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Check In"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
