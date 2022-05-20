@@ -3,14 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_bottom_rounded_blue.xml" value="0.3345" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_covid_info.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_faq.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_home.xml" value="0.176" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_info.xml" value="0.176" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/black_gradient.xml" value="0.241" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue_light.xml" value="0.1" />

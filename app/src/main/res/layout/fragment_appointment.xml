@@ -43,6 +43,69 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg_top">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/father_and_son"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_gradient"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_extrabold"
+                        android:text="Lindung Diri,"
+                        android:textColor="@color/light_green"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_extrabold"
+                        android:text="Lindung Semua"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
