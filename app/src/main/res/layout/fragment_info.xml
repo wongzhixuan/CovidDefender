@@ -1,21 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".bottomnavfragment.FragmentInfo">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="Back"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="120dp"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="@string/covid19_info"
+            android:textColor="@color/prussian_blue"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@id/info_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_latest_announcement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="@string/latest_announcement"
+            android:textColor="@color/prussian_blue"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_title" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_latest_announcement"
+            android:layout_width="350dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="true"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_latest_announcement"
+            app:strokeColor="@color/black_70"
+            app:strokeWidth="2dp"></com.google.android.material.card.MaterialCardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:text="Info"
-            android:textSize="36sp" />
-    </ScrollView>
+            android:id="@+id/card_tab"
+            app:layout_constraintTop_toBottomOf="@id/card_latest_announcement"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="12dp"
+            app:strokeColor="@color/prussian_blue"
+            app:strokeWidth="5dp">
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/info_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_latest_announcement"
+                app:tabIndicatorColor="@color/prussian_blue"
+                app:tabIndicatorHeight="3dp"
+                app:tabSelectedTextColor="@color/prussian_blue"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:tabTextColor="@color/dim_grey_light">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Things to know"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Things to do"
+                    android:textColor="@color/prussian_blue"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="355dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_tab">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_things_to_know_1"
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="18dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_tab"
+                    app:strokeColor="@color/black_70"
+                    app:strokeWidth="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_things_to_know_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
+                    android:textColor="@color/black_70"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_things_to_know_1" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_things_to_know_2"
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="18dp"
+                    app:strokeColor="@color/black_70"
+                    app:strokeWidth="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_things_to_know_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
+                    android:textColor="@color/black_70"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_things_to_know_2" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_things_to_know_3"
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="18dp"
+                    app:strokeColor="@color/black_70"
+                    app:strokeWidth="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_things_to_know_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
+                    android:textColor="@color/black_70"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_things_to_know_3" />
+            </LinearLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
