@@ -13,8 +13,11 @@ import com.example.coviddefender.R
 import com.example.coviddefender.recyclerview.Dependent
 import com.example.coviddefender.recyclerview.DependentAdapter
 import com.example.coviddefender.recyclerview.HistoryAdapter
+import com.google.android.material.button.MaterialButton
 
 class GroupCheckIn : Fragment() {
+    lateinit var btn_add_dependent: MaterialButton
+    lateinit var btn_delete: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,10 @@ class GroupCheckIn : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_group_check_in, container, false)
+
+        // Link widgets
+        btn_add_dependent = view.findViewById<MaterialButton>(R.id.btn_add_dependent)
+        btn_delete = view.findViewById<MaterialButton>(R.id.btn_delete)
 
         // Dummy data for recycler view
         var dependents: ArrayList<Dependent> = arrayListOf(
@@ -50,6 +57,11 @@ class GroupCheckIn : Fragment() {
 
         // adopt data to recycler view using adapter
         dependent_recyclerview.adapter = DependentAdapter(dependents)
+
+        // add dependent
+        btn_add_dependent.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_groupCheckIn_to_groupCheckIn_AddDependent)
+        })
 
 
         val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)

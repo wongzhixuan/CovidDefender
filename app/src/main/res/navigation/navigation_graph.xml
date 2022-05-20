@@ -99,6 +99,9 @@
         <action
             android:id="@+id/action_groupCheckIn_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_groupCheckIn_to_groupCheckIn_AddDependent"
+            app:destination="@id/groupCheckIn_AddDependent" />
     </fragment>
     <fragment
         android:id="@+id/history"
@@ -126,5 +129,14 @@
         <action
             android:id="@+id/action_vaccineStatus_to_home"
             app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupCheckIn_AddDependent"
+        android:name="com.example.coviddefender.homefragmentsubpage.GroupCheckIn_AddDependent"
+        android:label="fragment_add_dependent"
+        tools:layout="@layout/fragment_add_dependent" >
+        <action
+            android:id="@+id/action_groupCheckIn_AddDependent_to_groupCheckIn"
+            app:destination="@id/groupCheckIn" />
     </fragment>
 </navigation>

@@ -311,7 +311,8 @@
                             android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:background="@drawable/card_icon_background_grey_orange"
-                            android:src="@drawable/group_icon" />
+                            android:src="@drawable/group_check_in"
+                            />
 
                         <TextView
                             android:id="@+id/tv_group"
