@@ -65,49 +65,58 @@
             app:strokeColor="@color/black_70"
             app:strokeWidth="2dp"></com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/info_tab"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/card_tab"
             app:layout_constraintTop_toBottomOf="@id/card_latest_announcement"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:tabTextColor="@color/dim_grey_light"
-            app:tabSelectedTextColor="@color/prussian_blue"
-            app:tabIndicatorColor="@color/prussian_blue"
-            app:tabIndicatorHeight="3dp">
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="12dp"
+            app:strokeColor="@color/prussian_blue"
+            app:strokeWidth="5dp">
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/info_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_latest_announcement"
+                app:tabIndicatorColor="@color/prussian_blue"
+                app:tabIndicatorHeight="3dp"
+                app:tabSelectedTextColor="@color/prussian_blue"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:tabTextColor="@color/dim_grey_light">
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Things to know"
-                android:textSize="12sp" />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Things to know"
+                    android:textSize="12sp" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Things to do"
-                android:textColor="@color/prussian_blue"
-                android:textSize="12sp" />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="Things to do"
+                    android:textColor="@color/prussian_blue"
+                    android:textSize="12sp" />
 
-        </com.google.android.material.tabs.TabLayout>
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.cardview.widget.CardView>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="355dp"
-            android:layout_marginBottom="3dp"
             android:clipToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/info_tab">
+            app:layout_constraintTop_toBottomOf="@id/card_tab">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,7 +128,7 @@
                     android:layout_width="350dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp"
                     android:clickable="true"
                     app:cardCornerRadius="18dp"
