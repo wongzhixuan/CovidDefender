@@ -30,6 +30,7 @@
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/progress_bar_theme.xml" value="0.2545" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_bottom_rounded_blue.xml" value="0.2555" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_grey_rounded.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_half_rounded_orange.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_outlined_blue_rounded.xml" value="0.2555" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_rounded_stroke_coral.xml" value="0.2555" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_stroke_background.xml" value="0.1" />
@@ -42,9 +43,9 @@
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_add_dependent.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_appointment.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in.xml" value="0.2" />
-        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in__success.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in__success.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_covid_status.xml" value="0.2" />
-        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_group_check_in.xml" value="0.264" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_group_check_in.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_health_assessment.xml" value="0.11929824561403508" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_history.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_home.xml" value="0.2" />
@@ -53,7 +54,7 @@
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.2359375" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.2359375" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine.xml" value="0.1" />
-        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/history_item.xml" value="0.264" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/latest_announcement_item.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/questions_item.xml" value="0.25" />
