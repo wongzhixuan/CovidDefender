@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.coviddefender.R
-import com.example.coviddefender.bottomnavfragment.FragmentStatistics
+import com.example.coviddefender.navdrawerfragment.FragmentSettings
 
 class FragmentSettings : Fragment() {
 
