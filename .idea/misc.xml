@@ -11,6 +11,66 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/black_gradient.xml" value="0.241" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue_light.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_blue_light_50.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_coral.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_green.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_grey.xml" value="0.2425" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_grey_orange.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_light_grey.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_orange.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background_prussian_blue.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/circle_profile.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/circleborder.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/covid_self_test_icon.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/drawer_header_bg.xml" value="0.249" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/home_card_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_covid_self_test_icon.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_location_small.xml" value="0.1275" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_nav_drawer.xml" value="0.2155" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_person.xml" value="0.249" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/ic_vaccination.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/progress_bar.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/progress_bar_theme.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_bottom_rounded_blue.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_grey_rounded.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_half_rounded_orange.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_outlined_blue_rounded.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_rounded_stroke_coral.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_stroke_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/rect_white_rounded.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/risk_bg.xml" value="0.2545" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/tab_item_foreground.xml" value="0.2555" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/activity_bottom_nav.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/dependent_item.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/drawer_header.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_add_dependent.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_appointment.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in__success.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_covid_status.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_group_check_in.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_health_assessment.xml" value="0.11929824561403508" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_history.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_hotspot.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_info.xml" value="0.2359375" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.2359375" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.2359375" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/history_item.xml" value="0.264" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/latest_announcement_item.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/questions_item.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/relation_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/menu/relation_menu.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>
