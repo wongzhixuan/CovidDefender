@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/drawer_header_bg"
+    android:gravity="bottom"
+    android:padding="20dp">
+    <RelativeLayout
+        android:id="@+id/UserPicBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="@color/white"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_profile"
+            app:shapeAppearanceOverlay="@style/circular"></com.google.android.material.imageview.ShapeableImageView>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tifa Lockhart"
+        android:textColor="@color/white"
+        android:fontFamily="@font/gilroy_extrabold"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/tv_profile_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="110101050001"
+        android:textSize="16sp"
+        android:fontFamily="@font/gilroy_regular"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>

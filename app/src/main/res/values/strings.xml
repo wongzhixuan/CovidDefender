@@ -22,5 +22,35 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- relation item-->
+    <string-array name="relation_item">
+        <item>Spouse</item>>
+        <item>Child</item>
+        <item>Parent/Parent-in-law</item>
+        <item>Grandparents</item>
+        <item>Siblings</item>
+        <item>Guardian</item>>
+        <item>Others</item>
+    </string-array>
+    <!-- state item -->
+    <string-array name="state_items">
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Malacca</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+        <item>WP Kuala Lumpur</item>
+        <item>WP Labuan</item>
+        <item>WP Putrajaya</item>
+    </string-array>
+
 
 </resources>

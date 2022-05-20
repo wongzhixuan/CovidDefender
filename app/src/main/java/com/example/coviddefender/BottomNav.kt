@@ -57,11 +57,11 @@ class BottomNav : AppCompatActivity() {
                 if (result.getContents() == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "Scanned : " + result.getContents(), Toast.LENGTH_LONG)
-                        .show();
+//                    Toast.makeText(this, "Scanned : " + result.getContents(), Toast.LENGTH_LONG)
+//                        .show();
+                    navController.navigate(R.id.checkIn_Success)
                 }
             }
-            navController.navigate(R.id.home)
         }
     }
 }

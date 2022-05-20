@@ -90,6 +90,9 @@
         <action
             android:id="@+id/action_checkIn_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_checkIn_to_checkIn_Success"
+            app:destination="@id/checkIn_Success" />
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn"
@@ -99,6 +102,9 @@
         <action
             android:id="@+id/action_groupCheckIn_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_groupCheckIn_to_groupCheckIn_AddDependent"
+            app:destination="@id/groupCheckIn_AddDependent" />
     </fragment>
     <fragment
         android:id="@+id/history"
@@ -126,5 +132,23 @@
         <action
             android:id="@+id/action_vaccineStatus_to_home"
             app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupCheckIn_AddDependent"
+        android:name="com.example.coviddefender.homefragmentsubpage.GroupCheckIn_AddDependent"
+        android:label="fragment_add_dependent"
+        tools:layout="@layout/fragment_add_dependent" >
+        <action
+            android:id="@+id/action_groupCheckIn_AddDependent_to_groupCheckIn"
+            app:destination="@id/groupCheckIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkIn_Success"
+        android:name="com.example.coviddefender.homefragmentsubpage.CheckIn_Success"
+        android:label="fragment_check_in__success"
+        tools:layout="@layout/fragment_check_in__success" >
+        <action
+            android:id="@+id/action_checkIn_Success_to_checkIn"
+            app:destination="@id/checkIn" />
     </fragment>
 </navigation>

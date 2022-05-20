@@ -63,9 +63,10 @@ class CheckIn : Fragment() {
             IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() == null) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.checkIn_Success)
             }
         }
     }
