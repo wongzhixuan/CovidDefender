@@ -19,7 +19,7 @@
         android:theme="@style/Theme.CovidDefender"
         tools:targetApi="31">
         <activity
-            android:name=".BottomNav"
+            android:name=".Navigation"
             android:exported="false" />
         <activity
             android:name=".LoadScreen"

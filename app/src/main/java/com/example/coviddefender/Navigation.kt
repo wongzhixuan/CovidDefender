@@ -14,12 +14,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 
-class BottomNav : AppCompatActivity() {
+class Navigation : AppCompatActivity() {
     var isFromActivity: Boolean = false
      lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bottom_nav)
+        setContentView(R.layout.activity_navigation)
          navController = this.findNavController(R.id.nav_host_fragment_activity_main)
 
         // find reference to bottom navigation view
@@ -30,6 +30,9 @@ class BottomNav : AppCompatActivity() {
         navView.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent))
         navView.menu.getItem(2).isChecked = true
         navView.menu.getItem(2).isEnabled = false
+
+        // drawer
+        
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener(View.OnClickListener {
