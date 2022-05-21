@@ -16,6 +16,7 @@
     <color name="dim_grey">#667080</color>
     <color name="dim_grey_dark">#3b4554</color>
     <color name="dim_grey_light">#949eaf</color>
+    <color name="dim_grey_light_30">#C0C3C7</color>
 
     <color name="light_coral">#FB8B8C</color>
     <color name="light_green">#7EBB94</color>

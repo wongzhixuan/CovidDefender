@@ -34,12 +34,13 @@ class CheckIn : Fragment() {
 
         btn_check_in = view.findViewById<MaterialButton>(R.id.btn_check_in)
         btn_check_in.setOnClickListener(View.OnClickListener {
-            var integrator :IntentIntegrator = IntentIntegrator.forSupportFragment(this@CheckIn)
-            integrator.setOrientationLocked(false)
-            integrator.setPrompt("Scan QR code")
-            integrator.setBeepEnabled(false) // no beep sound when scanning
-            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
-            integrator.initiateScan()
+            findNavController().navigate(R.id.checkIn_Success)
+//            var integrator :IntentIntegrator = IntentIntegrator.forSupportFragment(this@CheckIn)
+//            integrator.setOrientationLocked(false)
+//            integrator.setPrompt("Scan QR code")
+//            integrator.setBeepEnabled(false) // no beep sound when scanning
+//            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+//            integrator.initiateScan()
         })
 
 
@@ -65,7 +66,7 @@ class CheckIn : Fragment() {
             if (result.getContents() == null) {
                 Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
-//                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.checkIn_Success)
             }
         }

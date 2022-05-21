@@ -34,15 +34,15 @@ class BottomNav : AppCompatActivity() {
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener(View.OnClickListener {
             navView.menu.getItem(2).isChecked = true
-//            navController.navigate(R.id.scan)
+            navController.navigate(R.id.checkIn_Success)
 
-            var integrator: IntentIntegrator = IntentIntegrator(this)
-            integrator.setOrientationLocked(false)
-            integrator.setPrompt("Scan QR code")
-            integrator.setBeepEnabled(false) // no beep sound when scanning
-            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
-            integrator.initiateScan()
-            isFromActivity = true
+//            var integrator: IntentIntegrator = IntentIntegrator(this)
+//            integrator.setOrientationLocked(false)
+//            integrator.setPrompt("Scan QR code")
+//            integrator.setBeepEnabled(false) // no beep sound when scanning
+//            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+//            integrator.initiateScan()
+//            isFromActivity = true
 
         })
 
@@ -57,8 +57,8 @@ class BottomNav : AppCompatActivity() {
                 if (result.getContents() == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 } else {
-//                    Toast.makeText(this, "Scanned : " + result.getContents(), Toast.LENGTH_LONG)
-//                        .show();
+                    Toast.makeText(this, "Scanned : " + result.getContents(), Toast.LENGTH_LONG)
+                        .show();
                     navController.navigate(R.id.checkIn_Success)
                 }
             }

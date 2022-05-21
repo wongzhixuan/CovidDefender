@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".homefragmentsubpage.ViewAppointment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/prussian_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_appointment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/gilroy_extrabold"
+        android:text="@string/appointment"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg_top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/gilroy_medium"
+                android:textColor="@color/dim_grey_light_30"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_username"
+                android:text="Tifa Lockhart"
+                android:textColor="@color/prussian_blue_dark"
+                android:textSize="18sp"
+                android:fontFamily="@font/gilroy_bold"
+                android:layout_marginTop="5dp"/>
+            <com.transferwise.sequencelayout.SequenceLayout
+                android:id="@+id/appointment_stepper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:anchor="23 Feb 2021"
+                    app:title="Registered"
+                    app:titleTextAppearance="@style/state_progress_title"
+                    app:anchorTextAppearance="@style/state_progress_anchor"
+                    app:subtitleTextAppearance="@style/state_progress_subtitle"
+                    />
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:anchor="4 Mar 2021"
+                    app:title="Eligible for Vaccine?"
+                    app:titleTextAppearance="@style/state_progress_title"
+                    app:anchorTextAppearance="@style/state_progress_anchor"
+                    app:subtitleTextAppearance="@style/state_progress_subtitle"
+                    />
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:anchor="23 May 2021  9:00 AM"
+                    app:title="1st Dose Appointment\nKlinik Kesihatan Kuala Lumpur"
+                    app:subtitle="Jalan Temerloh, Titiwangsa, 53200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"
+                    app:titleTextAppearance="@style/state_progress_title"
+                    app:anchorTextAppearance="@style/state_progress_anchor"
+                    app:subtitleTextAppearance="@style/state_progress_subtitle"
+                    />
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:anchor="02 F11 June 2021  9:00 AM"
+                    app:title="2nd Dose Appointment\nKlinik Kesihatan Kuala Lumpur"
+                    app:subtitle="Jalan Temerloh, Titiwangsa, 53200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"
+                    app:titleTextAppearance="@style/state_progress_title"
+                    app:anchorTextAppearance="@style/state_progress_anchor"
+                    app:subtitleTextAppearance="@style/state_progress_subtitle"
+                    />
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:anchor="02 Feb 2022  3:00 PM"
+                    app:title="Booster Appointment\nKlinik Kesihatan Kuala Lumpur"
+                    app:subtitle="Jalan Temerloh, Titiwangsa, 53200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"
+                    app:titleTextAppearance="@style/state_progress_title"
+                    app:anchorTextAppearance="@style/state_progress_anchor"
+                    app:subtitleTextAppearance="@style/state_progress_subtitle"
+                    />
+                <com.transferwise.sequencelayout.SequenceStep
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Digital Certificated Issued"
+                    app:active="true"
+                    app:titleTextAppearance="@style/state_progress_title_active"
+                    />
+
+
+            </com.transferwise.sequencelayout.SequenceLayout>
+
+
+        </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -3,5 +3,25 @@
     <style name="circular">
         <item name="cornerSize">50%</item>
     </style>
+    <style name="state_progress_title" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/gilroy_semibold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black_70</item>
+    </style>
+    <style name="state_progress_anchor">
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/dim_grey</item>
+    </style>
+    <style name="state_progress_title_active">
+        <item name="android:fontFamily">@font/gilroy_extrabold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/prussian_blue_dark</item>
+    </style>
+    <style name="state_progress_subtitle">
+        <item name="android:fontFamily">@font/gilroy_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black_50</item>
+    </style>
 
 </resources>

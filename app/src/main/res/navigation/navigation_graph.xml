@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_appointment_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_appointment_to_viewAppointment"
+            app:destination="@id/viewAppointment" />
     </fragment>
     <fragment
         android:id="@+id/checkIn"
@@ -150,5 +153,14 @@
         <action
             android:id="@+id/action_checkIn_Success_to_checkIn"
             app:destination="@id/checkIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewAppointment"
+        android:name="com.example.coviddefender.homefragmentsubpage.ViewAppointment"
+        android:label="fragment_view_appointment"
+        tools:layout="@layout/fragment_view_appointment" >
+        <action
+            android:id="@+id/action_viewAppointment_to_appointment"
+            app:destination="@id/appointment" />
     </fragment>
 </navigation>

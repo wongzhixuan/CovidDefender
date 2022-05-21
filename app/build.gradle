@@ -55,6 +55,7 @@ dependencies {
     // QR scanner
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 
-
+    // state progress bar
+    implementation 'com.github.transferwise:sequence-layout:1.2.0'
 
 }
