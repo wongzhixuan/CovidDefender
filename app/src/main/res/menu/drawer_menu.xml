@@ -2,19 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/faq"
             android:title="FAQ"
             android:icon="@drawable/ic_faq"
             android:iconTint="@color/dim_grey"/>
         <item
+            android:id="@+id/profile"
             android:title="Edit Profile"
             android:icon="@drawable/ic_edit"
             android:iconTint="@color/dim_grey"
             />
         <item
+            android:id="@+id/settings"
             android:title="Settings"
             android:icon="@drawable/ic_setting"
             android:iconTint="@color/dim_grey"/>
         <item
+            android:id="@+id/log_out"
             android:title="Log Out"
             android:icon="@drawable/ic_log_out"
             android:iconTint="@color/white"/>

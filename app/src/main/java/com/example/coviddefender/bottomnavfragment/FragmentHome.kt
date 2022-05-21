@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +15,7 @@ import com.example.coviddefender.R
 import com.example.coviddefender.recyclerview.Announcement
 import com.example.coviddefender.recyclerview.AnnouncementAdapter
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.navigation.NavigationView
 
 
 class FragmentHome : Fragment() {
@@ -26,12 +30,30 @@ class FragmentHome : Fragment() {
     var card_vaccine_status: MaterialCardView? = null
     var card_appointment: MaterialCardView? = null
 
+    lateinit var drawer_layout: DrawerLayout
+    lateinit var drawer_nav_view: NavigationView
+    lateinit var btn_drawer: ImageButton
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // Drawer
+        drawer_layout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
+        drawer_nav_view = view.findViewById<NavigationView>(R.id.nav_view_drawer)
+        btn_drawer = view.findViewById<ImageButton>(R.id.btn_nav_drawer)
+
+        btn_drawer.setOnClickListener {
+            if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                drawer_layout.closeDrawer(GravityCompat.START)
+            } else {
+                drawer_layout.openDrawer(GravityCompat.START)
+            }
+        }
+
 
         // Dummy data for recycler view
         var announcements: ArrayList<Announcement> = arrayListOf(
