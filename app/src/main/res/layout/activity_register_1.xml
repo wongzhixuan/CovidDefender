@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/register_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="Back"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/gilroy_extrabold"
+        android:text="@string/register"
+        android:textColor="@color/prussian_blue"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@id/register_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/register_pb"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_title"
+        android:max="100"
+        android:progress="20"
+        android:progressBackgroundTint="@color/dim_grey_light"
+        android:progressTint="@color/prussian_blue"
+        android:progressDrawable="@drawable/progress_bar_theme"/>
+        <!--android:indeterminate="true-->
+
+    <ImageView
+        android:id="@+id/register_illustration"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="30dp"
+        android:src="@drawable/covid_illustration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_pb"/>
+
+    <TextView
+        android:id="@+id/tv_register_phone_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gilroy_semibold"
+        android:text="Phone Number"
+        android:textColor="@color/prussian_blue"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_illustration" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_field_country_code"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country Code (+60)"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:errorEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_register_phone_no"
+        app:startIconDrawable="@drawable/ic_country_code"
+        app:startIconTint="@color/dim_grey">
+        <AutoCompleteTextView
+            android:id="@+id/et_country_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:fontFamily="@font/inter"
+            android:inputType="none"
+            tools:layout_editor_absoluteX="-56dp"
+            tools:layout_editor_absoluteY="497dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_field_contact_no"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact Number"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_field_country_code"
+        app:startIconDrawable="@drawable/ic_contact_no"
+        app:startIconTint="@color/dim_grey">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_contact_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="523dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:clickable="true"
+        android:fontFamily="@font/gilroy_light"
+        android:minHeight="48dp"
+        android:text="@string/loginlink"
+        android:textSize="16sp"
+        android:gravity="bottom"
+        android:textColor="@color/prussian_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_field_contact_no" />
+
+
+    <Button
+        android:id="@+id/btn_verify"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_link"
+        android:text="Verify"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_coral"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
