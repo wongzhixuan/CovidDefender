@@ -147,8 +147,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_field_contact_no"
             android:text="Login"
             android:textColor="@color/white"
-            android:backgroundTint="@color/light_green"
-            />
+            android:backgroundTint="@color/light_green" />
 
 
 
