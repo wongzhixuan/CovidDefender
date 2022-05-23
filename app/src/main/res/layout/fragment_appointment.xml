@@ -161,9 +161,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:strokeColor="@color/register_btn_press"
             app:strokeWidth="3dp"
-            android:checkable="true"
-
-            />
+            android:checkable="true" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_view_appointment"

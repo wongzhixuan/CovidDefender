@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_title"
         android:max="100"
-        android:progress="60"
+        android:progress="100"
         android:progressBackgroundTint="@color/dim_grey_light"
         android:progressTint="@color/prussian_blue"
         android:progressDrawable="@drawable/progress_bar_theme"/>

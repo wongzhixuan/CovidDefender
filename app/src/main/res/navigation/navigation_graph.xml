@@ -163,4 +163,33 @@
             android:id="@+id/action_viewAppointment_to_appointment"
             app:destination="@id/appointment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/faq"
+        android:name="com.example.coviddefender.navdrawerfragment.FragmentFAQ"
+        android:label="fragment_faq"
+        tools:layout="@layout/fragment_faq" >
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.coviddefender.navdrawerfragment.EditProfile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfile_to_editDetails"
+            app:destination="@+id/fragment_edit_details"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_edit_details"
+        android:name="com.example.coviddefender.navdrawerfragment.EditDetails"
+        android:label="fragment_edit_details"
+        tools:layout="@layout/fragment_edit_details">
+
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.coviddefender.navdrawerfragment.FragmentSettings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+    </fragment>
 </navigation>
