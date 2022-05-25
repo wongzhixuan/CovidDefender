@@ -1,4 +1,4 @@
-package com.example.coviddefender.homefragmentsubpage
+package com.example.coviddefender
 
 import androidx.appcompat.app.AppCompatActivity
 

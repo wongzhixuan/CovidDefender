@@ -67,9 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="15dp"
-                    android:text="Full Name as per NRIC / Passport"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/register_pb_2" />
+                    android:text="Full Name as per NRIC / Passport" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_field_name"
@@ -81,7 +79,6 @@
                 android:hint="Please enter your full name"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-                app:layout_constraintTop_toBottomOf="@+id/tv_register_name"
                 app:startIconDrawable="@drawable/ic_person"
                 app:startIconTint="@color/dim_grey">
 
@@ -99,9 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="NRIC / Passport"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_name" />
+                android:text="NRIC / Passport"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_field_NRIC"
@@ -113,7 +108,6 @@
                 android:hint="Please enter your NRIC / Passport"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-                app:layout_constraintTop_toBottomOf="@+id/tv_register_NRIC"
                 app:startIconDrawable="@drawable/ic_ic"
                 app:startIconTint="@color/dim_grey">
 
@@ -131,9 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Nationality"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_NRIC" />
+                android:text="Nationality"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_field_nationality"
@@ -144,8 +136,6 @@
                 android:layout_marginEnd="30dp"
                 android:hint="Please select your country"
                 app:errorEnabled="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_register_nationality"
                 app:startIconDrawable="@drawable/ic_country_code"
                 app:startIconTint="@color/dim_grey">
 
@@ -165,9 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Email"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_nationality" />
+                android:text="Email"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_field_email"
@@ -179,8 +167,6 @@
                 android:hint="Please enter your email"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_register_email"
                 app:startIconDrawable="@drawable/ic_mail"
                 app:startIconTint="@color/dim_grey">
 
@@ -199,58 +185,53 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:text="Gender"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
+                android:text="Gender"/>
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/rb_male"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:fontFamily="@font/inter"
-                android:text="Male"
-                android:textColor="@color/dim_grey"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender">
+                android:orientation="horizontal">
 
-            </com.google.android.material.radiobutton.MaterialRadioButton>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:fontFamily="@font/inter"
+                    android:text="Male"
+                    android:textColor="@color/dim_grey"
+                    android:textSize="16sp"/>
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/rb_female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:fontFamily="@font/inter"
-                android:text="Female"
-                android:textColor="@color/dim_grey"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/rb_male"
-                app:layout_constraintTop_toBottomOf="@+id/tv_gender">
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rb_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:fontFamily="@font/inter"
+                    android:text="Female"
+                    android:textColor="@color/dim_grey"
+                    android:textSize="16sp"/>
 
-            </com.google.android.material.radiobutton.MaterialRadioButton>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tv_register_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Age"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_male" />
+                android:text="Age" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_field_age"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Please enter your age"
                 app:errorEnabled="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_register_age"
                 app:startIconDrawable="@drawable/ic_person"
                 app:startIconTint="@color/dim_grey">
 
@@ -270,13 +251,12 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/dim_grey_dark"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:text="Next Page"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_field_age" />
+                android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

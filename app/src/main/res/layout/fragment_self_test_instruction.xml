@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bottomnavfragment.SelfTest_Instruction">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/self_test_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="Back"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/self_test_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="@string/self_test"
+            android:textColor="@color/prussian_blue"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@id/self_test_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/self_test_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="How to perform self-test?"
+            android:textColor="@color/prussian_blue"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/self_test_title" />
+
+
+        <ImageView
+            android:id="@+id/step_1"
+            android:layout_width="228dp"
+            android:layout_height="181dp"
+            android:layout_marginStart="-15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/self_test_step_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/self_test_subtitle"
+            app:layout_editor_absoluteX="0dp"
+            app:layout_editor_absoluteY="2dp" />
+
+
+        <ImageView
+            android:id="@+id/step_2"
+            android:layout_width="182dp"
+            android:layout_height="279dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/self_test_step_2"
+            app:layout_constraintStart_toEndOf="@+id/step_1"
+            app:layout_constraintTop_toBottomOf="@+id/self_test_subtitle" />
+
+        <ImageView
+            android:id="@+id/step_3"
+            android:layout_width="337dp"
+            android:layout_height="413dp"
+            android:layout_marginTop="-25dp"
+            android:src="@drawable/self_test_step_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step_1" />
+
+        <Button
+            android:id="@+id/btn_start_timer"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/light_coral"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="Start Timer"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

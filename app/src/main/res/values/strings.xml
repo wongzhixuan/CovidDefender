@@ -25,6 +25,19 @@
         <u>Already registered? Click here to sign in</u>
     </string>
     <string name="profile">Profile</string>
+    <string name="self_test">COVID-19 Self-Test</string>
+    <string name="self_test_content_1">
+        \u2022 These instructions for use relate to COVID-19 Self-Test (Rapid Antigen Test) only.
+    </string>
+    <string name="self_test_content_2">
+        \u2022 This guide explains how to test yourself or another person for COVID-19, and report the results on CovidDefender.
+    </string>
+    <string name="self_test_content_3">
+        \u2022 More information are available on:
+        <u>https://covid-19.moh.gov.my/garis-panduan/gp-umum-covid19/kit-ujian-kendiri-covid19-self-test-kit</u>
+    </string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lindung_semua">Lindung Semua</string>
@@ -75,6 +88,28 @@
         <item>Thailand(+66)</item>
         <item>United Kingdom(+44)</item>
         <item>United States(+1)</item>
+    </string-array>
+
+    <!-- nationality item -->
+    <string-array name="nationality_item">
+        <item>Malaysia</item>
+        <item>Australia</item>
+        <item>Bangladesh</item>
+        <item>China</item>
+        <item>Germany</item>
+        <item>Indonesia</item>
+        <item>Japan</item>
+        <item>Taiwan</item>
+        <item>Thailand</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+    </string-array>
+
+    <!-- test result item -->
+    <string-array name="test_result_item">
+        <item>Positive</item>
+        <item>Negative</item>
+        <item>Invalid</item>
     </string-array>
 
 </resources>
