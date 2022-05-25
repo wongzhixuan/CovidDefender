@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_icon_background_blue.xml" value="0.232" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_icon_background_dark_blue.xml" value="0.231" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_shadow.xml" value="0.231" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/fragment_change_password.xml" value="0.3485" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_card_statistics.xml" value="0.232" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_contact_no.xml" value="0.362" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_country_code.xml" value="0.331" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_covid_self_test_icon.xml" value="0.331" />
@@ -13,6 +17,8 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_eye_open.xml" value="0.3485" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_ic.xml" value="0.331" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_mail.xml" value="0.3675" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_previous.xml" value="0.342" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_statistics.xml" value="0.232" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_test.xml" value="0.331" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_background_stroke.xml" value="0.3595" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_bottom_rounded_blue.xml" value="0.3345" />
@@ -43,6 +49,7 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test_instruction.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test_result.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.136" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_timer.xml" value="0.176" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/history_item.xml" value="0.36666666666666664" />

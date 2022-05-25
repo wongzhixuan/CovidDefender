@@ -21,6 +21,7 @@
     <string name="back_button">back button</string>
     <string name="login">Login</string>
     <string name="register">Registration</string>
+    <string name="c_19_statistics">COVID-19 Statistics</string>
     <string name="loginlink">
         <u>Already registered? Click here to sign in</u>
     </string>
