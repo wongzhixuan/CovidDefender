@@ -38,7 +38,7 @@
             tools:replace="screenOrientation" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyD50hrjuqA8tIAW-au5bpI2Qw7vIpV3owA" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
