@@ -40,7 +40,7 @@ class LoginActivity :AppCompatActivity() {
 
         //set up country code dropdown
         val countryCode = resources.getStringArray(R.array.country_code_item)
-        et_country_code = findViewById<AutoCompleteTextView>(R.id.et_relation)
+        et_country_code = findViewById<AutoCompleteTextView>(R.id.et_country_code)
         // by default, selected item is null
         val checkedItems :Array<Int> = arrayOf(-1)
         // dropdown presentation 1: AlertDialog (Country Code)

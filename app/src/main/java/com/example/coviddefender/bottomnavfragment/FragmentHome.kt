@@ -1,5 +1,6 @@
 package com.example.coviddefender.bottomnavfragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coviddefender.LoginActivity
 import com.example.coviddefender.R
 import com.example.coviddefender.recyclerview.Announcement
 import com.example.coviddefender.recyclerview.AnnouncementAdapter
@@ -45,6 +47,7 @@ class FragmentHome : Fragment() {
         drawer_layout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
         drawer_nav_view = view.findViewById<NavigationView>(R.id.nav_view_drawer)
         btn_drawer = view.findViewById<ImageButton>(R.id.btn_nav_drawer)
+        drawer_nav_view.setNavigationItemSelectedListener(drawerListener)
 
         btn_drawer.setOnClickListener {
             if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -100,7 +103,6 @@ class FragmentHome : Fragment() {
         }
         card_health_assessment?.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_health_assessment)
-
         }
         card_hotspot?.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_hotspot)
@@ -121,14 +123,39 @@ class FragmentHome : Fragment() {
             findNavController().navigate(R.id.action_home_to_appointment)
         }
 
-
-
         return view
-
     }
+
+    private val drawerListener =
+        NavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.faq -> {
+                    findNavController().navigate(R.id.faq)
+                    drawer_layout.closeDrawer(GravityCompat.START)
+                }
+                R.id.profile -> {
+                    findNavController().navigate(R.id.profile)
+                    drawer_layout.closeDrawer(GravityCompat.START)
+                }
+                R.id.settings -> {
+                    findNavController().navigate(R.id.settings)
+                    drawer_layout.closeDrawer(GravityCompat.START)
+                }
+                R.id.log_out -> {
+                    val intent: Intent = Intent(context , LoginActivity:: class.java)
+                    startActivity(intent)
+                    drawer_layout.closeDrawer(GravityCompat.START)
+                }
+                else -> {
+                    false
+                }
+            }
+            true
+        }
 
     companion object {
         @JvmStatic
         fun newInstance() = FragmentHome()
     }
 }
+
