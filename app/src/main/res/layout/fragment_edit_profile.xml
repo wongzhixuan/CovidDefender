@@ -173,7 +173,6 @@
                         android:layout_marginStart="30dp"
                         android:backgroundTint="@color/white"
                         app:cardCornerRadius="20dp"
-                        app:layout_constraintStart_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeColor="@color/black_70"
