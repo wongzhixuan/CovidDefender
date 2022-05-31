@@ -49,25 +49,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:elevation="5dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_history"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="@android:color/transparent"
-            android:text="@string/history"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:icon="@drawable/ic_history"
-            app:iconSize="20dp"
-            app:iconTint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:elevation="5dp"/>
-
         <LinearLayout
             android:id="@+id/linear_profile_details"
             android:layout_width="match_parent"
