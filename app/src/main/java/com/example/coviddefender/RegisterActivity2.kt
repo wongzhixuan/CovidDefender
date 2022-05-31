@@ -68,9 +68,9 @@ class RegisterActivity2 : AppCompatActivity() {
         register_back.setOnClickListener(View.OnClickListener{
             finish()
         })
+    }
 
-
-
-
+    override fun onResume() {
+        super.onResume()
     }
 }

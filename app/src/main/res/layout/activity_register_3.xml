@@ -84,40 +84,6 @@
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <TextView
-        android:id="@+id/tv_register_address_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="Address Line 2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_field_address" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_field_address_2"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:hint="Address Line 2"
-        app:errorEnabled="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_address_2"
-        app:startIconDrawable="@drawable/ic_location_small"
-        app:startIconTint="@color/dim_grey">
-
-        <AutoCompleteTextView
-            android:id="@+id/et_address_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:fontFamily="@font/inter"
-            android:inputType="none" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <TextView
         android:id="@+id/tv_register_postcode"
         android:layout_width="match_parent"
@@ -125,7 +91,7 @@
         android:layout_marginStart="30dp"
         android:text="Postcode"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_field_address_2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_field_address" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_field_postcode"
@@ -189,12 +155,12 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="@color/dim_grey_dark"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:fontFamily="@font/gilroy_extrabold"
+        android:textSize="20sp"
         android:text="Next Page"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

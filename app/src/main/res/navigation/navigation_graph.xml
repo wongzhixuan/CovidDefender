@@ -262,9 +262,16 @@
         <action
             android:id="@+id/action_editdetails_to_editprofile"
             app:destination="@+id/profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_change_password"
+        android:name="com.example.coviddefender.navdrawerfragment.ChangePassword"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password">
         <action
-            android:id="@+id/action_editdetails_to_home"
-            app:destination="@+id/home"/>
+            android:id="@+id/action_chgpassword_to_editprofile"
+            app:destination="@+id/profile"/>
 
     </fragment>
     <fragment

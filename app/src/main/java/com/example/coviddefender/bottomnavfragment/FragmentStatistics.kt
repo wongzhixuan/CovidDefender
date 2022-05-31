@@ -38,7 +38,7 @@ class FragmentStatistics : Fragment() {
         pagerAdapter = ViewPagerAdapter2(this)
         statistics_viewpager.setAdapter(pagerAdapter)
 
-        val titles = arrayOf("Daily Updates", "Covid-19 State", "Global")
+        val titles = arrayOf("Daily Updates", "Global")
         //displaying tabs and mediate the TabLayout with the ViewPager2
         TabLayoutMediator(
             tab_layout,
@@ -49,14 +49,8 @@ class FragmentStatistics : Fragment() {
         }.attach()
 
 
-
-
-
-
-
         return view
     }
-
 
     companion object {
 

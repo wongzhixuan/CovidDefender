@@ -19,7 +19,6 @@ import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var et_country_code: AutoCompleteTextView
     lateinit var et_contact_no: TextInputEditText
     lateinit var btn_verify: Button
 
@@ -27,30 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_1)
 
-        val countrycode = resources.getStringArray(R.array.country_code_item)
-        et_country_code = findViewById<AutoCompleteTextView>(R.id.et_country_code)
-        // by default, selected item is null
-        val checkedItems: Array<Int> = arrayOf(-1)
-        // dropdown presentation 1: AlertDialog (relations)
-        et_country_code.setOnClickListener(View.OnClickListener {
-            var builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setTitle("Country Code")
-            builder.setIcon(R.drawable.ic_country_code)
-            builder.setSingleChoiceItems(
-                countrycode,
-                checkedItems[0],
-                DialogInterface.OnClickListener { dialogInterface, i ->
-                    checkedItems[0] = i
-                    et_country_code.setText(countrycode[i])
-                    dialogInterface.dismiss()
-                })
-            builder.setNegativeButton(
-                "Cancel",
-                DialogInterface.OnClickListener { dialogInterface, i -> })
-            val custom_dialog: AlertDialog = builder.create()
-            //            custom_dialog.window?.setBackgroundDrawableResource()
-            custom_dialog.show()
-        })
+
         val login_link : TextView = findViewById(R.id.login_link)
         login_link.setOnClickListener(View.OnClickListener {
             val intent = Intent (this,LoginActivity::class.java).apply{
@@ -70,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    fun OnResume(savedInstanceState: Bundle?){
+    override fun onResume() {
         super.onResume()
     }
 }

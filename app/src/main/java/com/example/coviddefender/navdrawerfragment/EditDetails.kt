@@ -39,7 +39,7 @@ class EditDetails : Fragment() {
 
         val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_editdetails_to_home)
+            findNavController().navigate(R.id.action_editdetails_to_editprofile)
 
         })
         return view
