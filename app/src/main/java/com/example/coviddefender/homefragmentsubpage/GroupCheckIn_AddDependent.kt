@@ -116,7 +116,7 @@ class GroupCheckIn_AddDependent : Fragment() {
         btn_submit.setOnClickListener {
             if(validateInputs()){
                 // database pending
-                Toast.makeText(context,"Please Enter All Fields to Save",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Saved",Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_groupCheckIn_AddDependent_to_groupCheckIn)
             }
 
