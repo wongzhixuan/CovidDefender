@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 class EditDetails : Fragment() {
 
@@ -24,6 +25,11 @@ class EditDetails : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_edit_details, container, false)
+
+        val et_NRIC:TextInputEditText = view.findViewById(R.id.et_NRIC)
+        val et_full_name:TextInputEditText = view.findViewById(R.id.et_full_name)
+        et_NRIC.isEnabled = false
+        et_full_name.isEnabled = true
 
         val btn_save : Button = view.findViewById<Button>(R.id.btn_save)
         btn_save?.setOnClickListener(View.OnClickListener {

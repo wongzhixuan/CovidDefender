@@ -10,7 +10,7 @@ class LoadScreen : AppCompatActivity() {
         setContentView(R.layout.activity_load_screen)
 
         //Test code
-        val intent = Intent(this, Navigation::class.java)
+        val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 }

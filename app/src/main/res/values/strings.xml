@@ -25,6 +25,9 @@
     <string name="loginlink">
         <u>Already registered? Click here to sign in</u>
     </string>
+    <string name="registerlink">
+        <u>Haven't register? Click here to sign up</u>
+    </string>
     <string name="profile">Profile</string>
     <string name="self_test">COVID-19 Self-Test</string>
     <string name="self_test_content_1">

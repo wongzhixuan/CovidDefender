@@ -37,7 +37,7 @@
         <ImageView
             android:id="@+id/login_illustration"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:layout_margin="30dp"
             android:src="@drawable/covid_illustration"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/gilroy_semibold"
             android:text="Phone Number"
             android:textColor="@color/prussian_blue"
@@ -92,7 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Country Code (+60)"
-            android:layout_margin="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             app:errorEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_phone_no"
@@ -136,6 +137,22 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/register_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="true"
+            android:fontFamily="@font/gilroy_light"
+            android:gravity="bottom"
+            android:text="@string/registerlink"
+            android:textColor="@color/prussian_blue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_field_contact_no" />
+
 
         <Button
             android:id="@+id/btn_login"
@@ -144,9 +161,11 @@
             android:backgroundTint="@color/light_green"
             android:text="Login"
             android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_field_contact_no" />
+            app:layout_constraintTop_toBottomOf="@+id/register_link"
+            app:layout_constraintVertical_bias="0.0" />
 
 
 

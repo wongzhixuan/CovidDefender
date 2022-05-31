@@ -3,11 +3,13 @@ package com.example.coviddefender
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.NavController
@@ -48,6 +50,13 @@ class RegisterActivity : AppCompatActivity() {
             //            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
+        val login_link : TextView = findViewById(R.id.login_link)
+        login_link.setOnClickListener(View.OnClickListener {
+            val intent = Intent (this,LoginActivity::class.java).apply{
+
+            }
+            startActivity(intent)
+        })
 
         // Verify button
         val btn_verify: Button = findViewById<Button>(R.id.btn_verify)
@@ -56,12 +65,6 @@ class RegisterActivity : AppCompatActivity() {
 
             }
             startActivity(intent)
-        })
-
-        //Back button
-        val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
-        register_back?.setOnClickListener(View.OnClickListener{
-            finish()
         })
 
     }

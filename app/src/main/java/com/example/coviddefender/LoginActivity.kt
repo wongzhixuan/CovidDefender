@@ -60,6 +60,14 @@ class LoginActivity :AppCompatActivity() {
             custom_dialog.show()
         })
 
+        val register_link : TextView = findViewById(R.id.register_link)
+        register_link.setOnClickListener(View.OnClickListener {
+            val intent = Intent (this,RegisterActivity::class.java).apply{
+
+            }
+            startActivity(intent)
+        })
+
         val btn_login: Button = findViewById<Button>(R.id.btn_login)
         btn_login?.setOnClickListener(View.OnClickListener{
             val intent = Intent (this,Navigation::class.java).apply{

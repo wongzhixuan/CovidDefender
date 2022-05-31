@@ -28,7 +28,7 @@
         android:fontFamily="@font/gilroy_extrabold"
         android:text="@string/register"
         android:textColor="@color/prussian_blue"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toEndOf="@id/register_back"
@@ -187,33 +187,36 @@
                 android:layout_marginEnd="30dp"
                 android:text="Gender"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal">
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:fontFamily="@font/inter"
-                    android:text="Male"
-                    android:textColor="@color/dim_grey"
-                    android:textSize="16sp"/>
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:fontFamily="@font/inter"
-                    android:text="Female"
-                    android:textColor="@color/dim_grey"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
+                <RadioGroup
+                    android:id="@+id/redio_group_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:orientation="horizontal">
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rb_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/inter"
+                            android:text="Male"
+                            android:textColor="@color/dim_grey"
+                            android:textSize="16sp"/>
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rb_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:fontFamily="@font/inter"
+                            android:text="Female"
+                            android:textColor="@color/dim_grey"
+                            android:textSize="16sp"/>
+                    </LinearLayout>
+                </RadioGroup>
 
 
             <TextView
@@ -250,7 +253,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="100dp"
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/dim_grey_dark"
                 android:fontFamily="@font/gilroy_extrabold"
