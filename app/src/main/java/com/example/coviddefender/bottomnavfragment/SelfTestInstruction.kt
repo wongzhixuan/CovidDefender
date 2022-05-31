@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 
-class Timer : Fragment() {
+class SelfTestInstruction: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,20 +19,15 @@ class Timer : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_self_test_instruction, container, false)
 
-        val btn_next = view.findViewById<Button>(R.id.btn_next)
-        btn_next?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_timer_to_test_result)
+        val btn_start_timer: Button = view.findViewById<Button>(R.id.btn_start_timer)
+        btn_start_timer?.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instruction_to_timer)
         })
-
-        val btn_stop_timer = view.findViewById<Button>(R.id.btn_stop_timer)
-        btn_stop_timer?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_timer_to_instruction)
-        })
-
         // back button
-        val self_test_back = view.findViewById<ImageButton>(R.id.self_test_back)
-        self_test_back?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_timer_to_instruction)
+        val self_test_back_2 : ImageButton = view.findViewById<ImageButton>(R.id.self_test_back_2)
+        self_test_back_2?.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_instruction_to_self_test)
+
         })
 
         return view
@@ -41,6 +36,6 @@ class Timer : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = Timer()
+        fun newInstance() = SelfTestInstruction()
     }
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -32,7 +33,6 @@ class Navigation : AppCompatActivity() {
         navView.menu.getItem(2).isEnabled = false
 
         // drawer
-        
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener(View.OnClickListener {

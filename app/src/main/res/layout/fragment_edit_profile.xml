@@ -124,6 +124,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="5dp"
                     android:backgroundTint="@color/white"
+                    android:clickable="true"
                     android:fontFamily="@font/inter"
                     android:text="My Personal Details"
                     android:textAllCaps="false"
@@ -147,6 +148,7 @@
                     android:layout_marginBottom="5dp"
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/inter"
+                    android:clickable="true"
                     android:text="Change Password"
                     android:textAllCaps="false"
                     android:textColor="@color/dim_grey_dark"
@@ -161,10 +163,11 @@
 
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="100dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_profile_change_password">
+
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/card_vaccine_cert"
                         android:layout_width="match_parent"
@@ -512,21 +515,12 @@
                                                     android:textSize="12sp" />
                                             </LinearLayout>
                                         </LinearLayout>
-
                                     </com.google.android.material.card.MaterialCardView>
-
                                 </LinearLayout>
-
                             </com.google.android.material.card.MaterialCardView>
-
-
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </ScrollView>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

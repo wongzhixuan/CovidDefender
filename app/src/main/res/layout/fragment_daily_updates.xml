@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_statistics_1"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+
+            android:layout_marginTop="15dp"
+            android:background="@drawable/card_shadow"
+            android:clickable="true"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_card_1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="8,406"
+                android:textColor="@color/dim_grey"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_card_1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Total Active Cases"
+                android:textColor="@color/dim_grey"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_more"
+                app:tint="@color/dim_grey" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_chart" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_statistics_2"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/card_shadow"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/light_coral"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintStart_toEndOf="@id/card_statistics_1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_card_2_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="30,657"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_card_2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Total Confirmed Cases"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/zxing_transparent"
+                android:src="@drawable/ic_more" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_line_graph" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_statistics_3"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_statistics_1"
+            android:background="@drawable/card_shadow"
+            app:cardBackgroundColor="@color/dim_grey">
+            <TextView
+                android:id="@+id/tv_card_3_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="1,234"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="15dp" />
+
+            <TextView
+                android:id="@+id/tv_card_3_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Total Death"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="15dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/zxing_transparent"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_death"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="55dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_statistics_4"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:clickable="true"
+            app:cardCornerRadius="18dp"
+            app:cardBackgroundColor="@color/light_green"
+            app:layout_constraintStart_toEndOf="@id/card_statistics_3"
+            app:layout_constraintTop_toBottomOf="@id/card_statistics_2"
+            android:background="@drawable/card_shadow">
+            <TextView
+                android:id="@+id/tv_card_4_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="20,567"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="15dp" />
+
+            <TextView
+                android:id="@+id/tv_card_4_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Total Recovered"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="15dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/zxing_transparent"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_heart_health"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="55dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_statistics_5"
+            android:layout_width="345dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/card_shadow"
+            android:clickable="true"
+            app:cardCornerRadius="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_statistics_4">
+
+            <TextView
+                android:id="@+id/tv_card_5_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="10,234"
+                android:textColor="@color/prussian_blue"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/tv_card_5_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Weekly Trend"
+                android:textColor="@color/prussian_blue"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_more"
+                app:tint="@color/prussian_blue" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="150dp"
+                android:src="@drawable/card_statistics" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

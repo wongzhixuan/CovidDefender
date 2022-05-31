@@ -45,97 +45,99 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/self_test_title">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/light_orange_3"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/self_test_title">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/self_test_intro"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="30dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="20dp"
+                    app:cardBackgroundColor="@color/light_orange_3"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/self_test_title">
 
-                    <TextView
-                        android:id="@+id/self_test_sub_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/gilroy_semibold"
-                        android:gravity="left"
-                        android:text="Your step-by-step guide to COVID-19 Self-Test (Rapid Antigen Test)"
-                        android:textColor="@color/prussian_blue"
-                        android:textSize="22sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/self_test_illustration"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/self_test_illustration"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/self_test_sub_title" />
+                        android:layout_margin="30dp">
+                        <TextView
+                            android:id="@+id/self_test_sub_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/gilroy_semibold"
+                            android:gravity="left"
+                            android:text="Your step-by-step guide to COVID-19 Self-Test (Rapid Antigen Test)"
+                            android:textColor="@color/prussian_blue"
+                            android:textSize="22sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/self_test_content_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:text="@string/self_test_content_1"
-                        android:textColor="@color/prussian_blue"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/self_test_illustration" />
+                        <ImageView
+                            android:id="@+id/self_test_illustration"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/self_test_illustration"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/self_test_sub_title" />
 
-                    <TextView
-                        android:id="@+id/self_test_content_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:text="@string/self_test_content_2"
-                        android:textColor="@color/prussian_blue"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/self_test_content_1" />
+                        <TextView
+                            android:id="@+id/self_test_content_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/gilroy_regular"
+                            android:text="@string/self_test_content_1"
+                            android:textColor="@color/prussian_blue"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/self_test_illustration" />
 
-                    <TextView
-                        android:id="@+id/self_test_content_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:text="@string/self_test_content_3"
-                        android:textColor="@color/prussian_blue"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/self_test_content_2" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/self_test_content_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/gilroy_regular"
+                            android:text="@string/self_test_content_2"
+                            android:textColor="@color/prussian_blue"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/self_test_content_1" />
+
+                        <TextView
+                            android:id="@+id/self_test_content_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/gilroy_regular"
+                            android:text="@string/self_test_content_3"
+                            android:textColor="@color/prussian_blue"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/self_test_content_2" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <Button
+                    android:id="@+id/btn_start_test"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="150dp"
+                    android:backgroundTint="@color/prussian_blue"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:text="Start test"
+                    android:textSize="22sp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
         </ScrollView>
-        <Button
-            android:id="@+id/btn_start_test"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
-            android:backgroundTint="@color/prussian_blue"
-            android:fontFamily="@font/gilroy_extrabold"
-            android:text="Start test"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/self_test_scroll_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

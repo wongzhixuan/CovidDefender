@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/covid_defender"
@@ -56,7 +56,7 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_illustration"/>
+            app:layout_constraintTop_toBottomOf="@id/login_illustration" />
 
         <TextView
             android:id="@+id/tv_login_desc"
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/gilroy_semibold"
             android:text="Phone Number"
             android:textColor="@color/prussian_blue"
@@ -141,13 +141,12 @@
             android:id="@+id/btn_login"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_field_contact_no"
+            android:backgroundTint="@color/light_green"
             android:text="Login"
             android:textColor="@color/white"
-            android:backgroundTint="@color/light_green" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_field_contact_no" />
 
 
 

@@ -235,7 +235,7 @@
                 app:startIconDrawable="@drawable/ic_person"
                 app:startIconTint="@color/dim_grey">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -251,7 +251,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="100dp"
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/dim_grey_dark"
                 android:fontFamily="@font/gilroy_extrabold"

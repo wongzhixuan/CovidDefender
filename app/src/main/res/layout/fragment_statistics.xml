@@ -131,307 +131,50 @@
 
         </GridLayout>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/info_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/card_tab"
             app:layout_constraintTop_toBottomOf="@id/statistics_grid"
             app:layout_constraintStart_toStartOf="parent"
+            app:tabIndicatorColor="@color/prussian_blue"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="@color/prussian_blue"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:tabTextColor="@color/dim_grey_light">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Daily Updates"
+                android:textSize="12sp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Covid-19 State"
+                android:textColor="@color/prussian_blue"
+                android:textSize="12sp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_light"
+                android:text="Global"
+                android:textColor="@color/prussian_blue"
+                android:textSize="12sp" />
+
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/statistics_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            app:cardCornerRadius="12dp"
-            app:strokeColor="@color/prussian_blue"
-            app:strokeWidth="5dp">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/info_tab"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_latest_announcement"
-                app:tabIndicatorColor="@color/prussian_blue"
-                app:tabIndicatorHeight="3dp"
-                app:tabSelectedTextColor="@color/prussian_blue"
-                app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:tabTextColor="@color/dim_grey_light">
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroy_light"
-                    android:text="Daily Updates"
-                    android:textSize="12sp" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroy_light"
-                    android:text="Covid-19 State"
-                    android:textColor="@color/prussian_blue"
-                    android:textSize="12sp" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroy_light"
-                    android:text="Global"
-                    android:textColor="@color/prussian_blue"
-                    android:textSize="12sp" />
-
-            </com.google.android.material.tabs.TabLayout>
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_statistics_1"
-            android:layout_width="160dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_tab"
-            android:background="@drawable/card_shadow">
-            <TextView
-                android:id="@+id/tv_card_1_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_regular"
-                android:text="8,406"
-                android:textSize="24sp"
-                android:textColor="@color/dim_grey"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="15dp" />
-
-            <TextView
-                android:id="@+id/tv_card_1_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Total Active Cases"
-                android:textSize="12sp"
-                android:textColor="@color/dim_grey"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="15dp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/white"
-                app:tint="@color/dim_grey"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_chart"
-                android:layout_gravity="right"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="20dp"/>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_statistics_2"
-            android:layout_width="160dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="30dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintStart_toEndOf="@id/card_statistics_1"
-            app:layout_constraintTop_toBottomOf="@id/card_tab"
-            app:cardBackgroundColor="@color/light_coral"
-            android:background="@drawable/card_shadow">
-            <TextView
-                android:id="@+id/tv_card_2_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_regular"
-                android:text="30,657"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="15dp" />
-
-            <TextView
-                android:id="@+id/tv_card_2_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Total Confirmed Cases"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="15dp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/zxing_transparent"/>
-
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="150dp"
-                android:src="@drawable/ic_line_graph"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_statistics_3"
-            android:layout_width="160dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_statistics_1"
-            android:background="@drawable/card_shadow"
-            app:cardBackgroundColor="@color/dim_grey">
-            <TextView
-                android:id="@+id/tv_card_3_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_regular"
-                android:text="1,234"
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="15dp" />
-
-            <TextView
-                android:id="@+id/tv_card_3_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Total Death"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="60dp"
-                android:layout_marginStart="15dp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/zxing_transparent"/>
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_death"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="55dp"/>
-        </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_statistics_4"
-                android:layout_width="160dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:clickable="true"
-                app:cardCornerRadius="18dp"
-                app:cardBackgroundColor="@color/light_green"
-                app:layout_constraintStart_toEndOf="@id/card_statistics_3"
-                app:layout_constraintTop_toBottomOf="@id/card_statistics_2"
-                android:background="@drawable/card_shadow">
-                <TextView
-                    android:id="@+id/tv_card_4_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:text="20,567"
-                    android:textSize="24sp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="15dp" />
-
-                <TextView
-                    android:id="@+id/tv_card_4_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroy_light"
-                    android:text="Total Recovered"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginStart="15dp" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_more"
-                    android:layout_gravity="right"
-                    android:backgroundTint="@color/zxing_transparent"/>
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_heart_health"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="55dp"/>
-                </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_statistics_5"
-            android:layout_width="345dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_statistics_4"
-            android:background="@drawable/card_shadow">
-            <TextView
-                android:id="@+id/tv_card_5_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_regular"
-                android:text="10,234"
-                android:textSize="36sp"
-                android:textColor="@color/prussian_blue"
-                android:layout_margin="20dp"/>
-
-            <TextView
-                android:id="@+id/tv_card_5_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Weekly Trend"
-                android:textSize="20sp"
-                android:textColor="@color/prussian_blue"
-                android:layout_marginTop="60dp"
-                android:layout_marginStart="10dp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/white"
-                app:tint="@color/prussian_blue"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/card_statistics"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="150dp"/>
-        </com.google.android.material.card.MaterialCardView>
-
+            app:layout_constraintTop_toBottomOf="@+id/info_tab"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

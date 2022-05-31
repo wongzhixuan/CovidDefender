@@ -34,22 +34,88 @@
         <action
             android:id="@+id/action_home_to_groupCheckIn"
             app:destination="@id/groupCheckIn" />
+        <action
+            android:id="@+id/action_home_to_self_test"
+            app:destination="@id/self_test" />
+        <action
+            android:id="@+id/action_home_to_statistics"
+            app:destination="@id/statistics" />
+        <action
+            android:id="@+id/action_home_to_info"
+            app:destination="@id/info" />
+
     </fragment>
+
     <fragment
         android:id="@+id/statistics"
         android:name="com.example.coviddefender.bottomnavfragment.FragmentStatistics"
         android:label="fragment_statistics"
-        tools:layout="@layout/fragment_statistics" />
+        tools:layout="@layout/fragment_statistics">
+        <action
+            android:id="@+id/action_statistics_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
     <fragment
         android:id="@+id/self_test"
         android:name="com.example.coviddefender.bottomnavfragment.FragmentSelfTest"
         android:label="fragment_self_test"
-        tools:layout="@layout/fragment_self_test" />
+        tools:layout="@layout/fragment_self_test">
+        <action
+            android:id="@+id/action_self_test_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_self_test_to_instruction"
+            app:destination="@id/self_test_instruction"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/self_test_instruction"
+        android:name="com.example.coviddefender.bottomnavfragment.SelfTestInstruction"
+        android:label="fragment_self_test_instruction"
+        tools:layout="@layout/fragment_self_test_instruction">
+        <action
+            android:id="@+id/action_instruction_to_self_test"
+            app:destination="@id/self_test" />
+        <action
+            android:id="@+id/action_instruction_to_timer"
+            app:destination="@id/self_test_timer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/self_test_timer"
+        android:name="com.example.coviddefender.bottomnavfragment.Timer"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer">
+        <action
+            android:id="@+id/action_timer_to_test_result"
+            app:destination="@id/self_test_result" />
+        <action
+            android:id="@+id/action_timer_to_instruction"
+            app:destination="@id/self_test_instruction" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/self_test_result"
+        android:name="com.example.coviddefender.bottomnavfragment.SelfTestResult"
+        android:label="fragment_self_test_result"
+        tools:layout="@layout/fragment_self_test_result">
+        <action
+            android:id="@+id/action_test_result_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
     <fragment
         android:id="@+id/info"
         android:name="com.example.coviddefender.bottomnavfragment.FragmentInfo"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info">
+        <action
+            android:id="@+id/action_info_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
     <fragment
         android:id="@+id/scan"
         android:name="com.example.coviddefender.bottomnavfragment.FragmentScan"
@@ -169,6 +235,9 @@
         android:name="com.example.coviddefender.navdrawerfragment.FragmentFAQ"
         android:label="fragment_faq"
         tools:layout="@layout/fragment_faq" >
+        <action
+            android:id="@+id/action_faq_to_home"
+            app:destination="@id/home" />
     </fragment>
     <fragment
         android:id="@+id/profile"
@@ -176,14 +245,26 @@
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
         <action
-            android:id="@+id/action_editProfile_to_editDetails"
+            android:id="@+id/action_editprofile_to_editdetails"
             app:destination="@+id/fragment_edit_details"/>
+        <action
+            android:id="@+id/action_editprofile_to_changepassword"
+            app:destination="@+id/fragment_change_password"/>
+        <action
+            android:id="@+id/action_editprofile_to_home"
+            app:destination="@+id/home"/>
     </fragment>
     <fragment
         android:id="@+id/fragment_edit_details"
         android:name="com.example.coviddefender.navdrawerfragment.EditDetails"
         android:label="fragment_edit_details"
         tools:layout="@layout/fragment_edit_details">
+        <action
+            android:id="@+id/action_editdetails_to_editprofile"
+            app:destination="@+id/profile"/>
+        <action
+            android:id="@+id/action_editdetails_to_home"
+            app:destination="@+id/home"/>
 
     </fragment>
     <fragment
@@ -191,5 +272,8 @@
         android:name="com.example.coviddefender.navdrawerfragment.FragmentSettings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_home"
+            app:destination="@id/home" />
     </fragment>
 </navigation>

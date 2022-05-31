@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".navdrawerfragment.EditDetails">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_title"
         android:layout_width="match_parent"
@@ -106,150 +105,165 @@
             app:layout_constraintStart_toEndOf="@+id/UserPicBorder"
             app:layout_constraintTop_toBottomOf="@+id/tv_profile_name" />
 
-        <TextView
-            android:id="@+id/tv_register_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="25dp"
-            android:text="Full Name as per NRIC / Passport"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_profile_id" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:hint="Tifa Lockhart"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/tv_register_name"
-            app:startIconDrawable="@drawable/ic_person"
-            app:startIconTint="@color/dim_grey">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_full_name"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UserPicBorder">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:inputType="textPersonName"
-                android:background="@color/dim_grey_light_30"/>
+                android:layout_height="match_parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tv_register_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="Full Name as per NRIC / Passport"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_register_NRIC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="NRIC / Passport"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_field_name" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_field_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="Tifa Lockhart"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_register_name"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/dim_grey">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_NRIC"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:hint="110101050001"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/tv_register_NRIC"
-            app:startIconDrawable="@drawable/ic_ic"
-            app:startIconTint="@color/dim_grey">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dim_grey_light_30"
+                        android:fontFamily="@font/inter"
+                        android:inputType="textPersonName" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_NRIC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:background="@color/dim_grey_light_30"
-                android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tv_register_NRIC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="NRIC / Passport"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_field_name" />
 
-        <TextView
-            android:id="@+id/tv_register_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="Email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_field_NRIC" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_field_NRIC"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="110101050001"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_register_NRIC"
+                    app:startIconDrawable="@drawable/ic_ic"
+                    app:startIconTint="@color/dim_grey">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:hint="tifalockhart@gmail.com"
-            app:endIconDrawable="@drawable/ic_edit"
-            app:endIconMode="custom"
-            app:errorEnabled="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_register_email"
-            app:startIconDrawable="@drawable/ic_mail"
-            app:startIconTint="@color/dim_grey">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_NRIC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/dim_grey_light_30"
+                        android:fontFamily="@font/inter"
+                        android:inputType="textPersonName" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tv_register_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="Email"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_field_NRIC" />
 
-        <TextView
-            android:id="@+id/tv_profile_phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="Phone Number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_phone_number"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:hint="+60123456789"
-            app:endIconDrawable="@drawable/ic_edit"
-            app:endIconMode="custom"
-            app:errorEnabled="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone_number"
-            app:startIconDrawable="@drawable/ic_contact_no"
-            app:startIconTint="@color/dim_grey">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_field_email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="tifalockhart@gmail.com"
+                    app:endIconDrawable="@drawable/ic_edit"
+                    app:endIconMode="custom"
+                    app:errorEnabled="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_register_email"
+                    app:startIconDrawable="@drawable/ic_mail"
+                    app:startIconTint="@color/dim_grey">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:inputType="textPersonName" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:inputType="textPersonName" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/prussian_blue"
-            android:fontFamily="@font/gilroy_extrabold"
-            android:text="Save"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/tv_profile_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="Phone Number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_field_phone_number"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="+60123456789"
+                    app:endIconDrawable="@drawable/ic_edit"
+                    app:endIconMode="custom"
+                    app:errorEnabled="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone_number"
+                    app:startIconDrawable="@drawable/ic_contact_no"
+                    app:startIconTint="@color/dim_grey">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:inputType="textPersonName" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/prussian_blue"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_field_phone_number" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

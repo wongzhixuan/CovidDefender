@@ -58,6 +58,16 @@ class LoginActivity :AppCompatActivity() {
 //            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
+
+        val btn_login: Button = findViewById<Button>(R.id.btn_login)
+        btn_login?.setOnClickListener(View.OnClickListener{
+            setContentView(R.layout.activity_navigation)
+        })
+
+        val login_back: ImageButton = findViewById<ImageButton>(R.id.login_back)
+        login_back?.setOnClickListener(View.OnClickListener{
+            setContentView(R.layout.activity_register_1)
+        })
     }
 
 }
