@@ -29,7 +29,7 @@ class EditDetails : Fragment() {
         val et_NRIC:TextInputEditText = view.findViewById(R.id.et_NRIC)
         val et_full_name:TextInputEditText = view.findViewById(R.id.et_full_name)
         et_NRIC.isEnabled = false
-        et_full_name.isEnabled = true
+        et_full_name.isEnabled = false
 
         val btn_save : Button = view.findViewById<Button>(R.id.btn_save)
         btn_save?.setOnClickListener(View.OnClickListener {

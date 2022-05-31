@@ -175,7 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
-                    android:inputType="textPersonName" />
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,33 +189,30 @@
 
 
                 <RadioGroup
-                    android:id="@+id/redio_group_gender"
+                    android:id="@+id/radio_group_gender"
+                    android:checkedButton="@id/rb_male"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:orientation="horizontal">
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/rb_male"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:fontFamily="@font/inter"
-                            android:text="Male"
-                            android:textColor="@color/dim_grey"
-                            android:textSize="16sp"/>
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/rb_female"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="60dp"
-                            android:fontFamily="@font/inter"
-                            android:text="Female"
-                            android:textColor="@color/dim_grey"
-                            android:textSize="16sp"/>
-                    </LinearLayout>
+                        android:fontFamily="@font/inter"
+                        android:text="Male"
+                        android:textColor="@color/dim_grey"
+                        android:textSize="16sp"/>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="60dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Female"
+                        android:textColor="@color/dim_grey"
+                        android:textSize="16sp"/>
                 </RadioGroup>
 
 

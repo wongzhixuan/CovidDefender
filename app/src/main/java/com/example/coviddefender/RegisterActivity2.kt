@@ -56,20 +56,6 @@ class RegisterActivity2 : AppCompatActivity() {
             custom_dialog.show()
         })
 
-        //Radio Button
-        rb_male = findViewById<MaterialRadioButton>(R.id.rb_male)
-        rb_female = findViewById<MaterialRadioButton>(R.id.rb_female)
-        rb_male.isChecked = true
-        rb_female.isChecked = false
-        rb_male.setOnCheckedChangeListener{ buttonView, isChecked->
-            if(isChecked){
-                Toast.makeText(this,isChecked.toString(),Toast.LENGTH_SHORT).show()
-            }
-            else{
-                rb_male.isChecked = false
-            }
-        }
-
         // Next button
         val btn_next: Button = findViewById<Button>(R.id.btn_next)
         btn_next?.setOnClickListener(View.OnClickListener{

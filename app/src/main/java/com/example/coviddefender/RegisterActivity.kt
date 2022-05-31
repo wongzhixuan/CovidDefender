@@ -21,6 +21,7 @@ class RegisterActivity : AppCompatActivity() {
 
     lateinit var et_country_code: AutoCompleteTextView
     lateinit var et_contact_no: TextInputEditText
+    lateinit var btn_verify: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +60,7 @@ class RegisterActivity : AppCompatActivity() {
         })
 
         // Verify button
-        val btn_verify: Button = findViewById<Button>(R.id.btn_verify)
+        btn_verify = findViewById<Button>(R.id.btn_verify)
         btn_verify?.setOnClickListener(View.OnClickListener{
             val intent = Intent (this,RegisterActivity2::class.java).apply{
 
@@ -67,5 +68,9 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         })
 
+    }
+
+    fun OnResume(savedInstanceState: Bundle?){
+        super.onResume()
     }
 }

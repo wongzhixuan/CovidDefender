@@ -46,6 +46,7 @@ class FragmentInfo : Fragment() {
                 tab: TabLayout.Tab, position: Int ->
             tab.text = titles[position]
         }.attach()
+
 // Announcement Recycler View
         // Dummy data for recycler view
         var announcements: ArrayList<Announcement> = arrayListOf(
@@ -73,65 +74,7 @@ class FragmentInfo : Fragment() {
         // Adopt data to recycler view using adapter
         announcement_recyclerview?.adapter = AnnouncementAdapter(announcements)
 
-
-//Things To Do Recycler View
-        // Dummy data for recycler view
-        var todo: ArrayList<ToDo> = arrayListOf(
-            ToDo(
-                R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToDo(
-                R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToDo(
-                R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )
-        )
-        // Recycler View
-        val todo_recyclerview: RecyclerView? =
-            view.findViewById<RecyclerView>(R.id.todo_recyclerview)
-        todo_recyclerview?.layoutManager = LinearLayoutManager(
-            view.context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        // Adopt data to recycler view using adapter
-        todo_recyclerview?.adapter = ToDoAdapter(todo)
-
-//Things To Do Recycler View
-        // Dummy data for recycler view
-        var toknow: ArrayList<ToKnow> = arrayListOf(
-            ToKnow(
-                R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToKnow(
-                R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToKnow(
-                R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )
-        )
-        // Recycler View
-        val toknow_recyclerview: RecyclerView? =
-            view.findViewById<RecyclerView>(R.id.toknow_recyclerview)
-        todo_recyclerview?.layoutManager = LinearLayoutManager(
-            view.context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        // Adopt data to recycler view using adapter
-        toknow_recyclerview?.adapter = ToKnowAdapter(toknow)
-
-
-
         return view
-
     }
 
     companion object {
