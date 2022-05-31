@@ -210,55 +210,5 @@
         </com.google.android.material.card.MaterialCardView>
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_statistics_5"
-            android:layout_width="345dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/card_shadow"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_statistics_4">
-
-            <TextView
-                android:id="@+id/tv_card_5_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/gilroy_regular"
-                android:text="10,234"
-                android:textColor="@color/prussian_blue"
-                android:textSize="36sp" />
-
-            <TextView
-                android:id="@+id/tv_card_5_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="60dp"
-                android:fontFamily="@font/gilroy_light"
-                android:text="Weekly Trend"
-                android:textColor="@color/prussian_blue"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_more"
-                app:tint="@color/prussian_blue" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="150dp"
-                android:src="@drawable/card_statistics" />
-        </com.google.android.material.card.MaterialCardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

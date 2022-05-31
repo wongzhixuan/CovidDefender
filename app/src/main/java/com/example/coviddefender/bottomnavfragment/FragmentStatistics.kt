@@ -1,5 +1,6 @@
 package com.example.coviddefender.bottomnavfragment
 
+import android.app.DownloadManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.coviddefender.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import org.json.JSONException
+import org.json.JSONObject
 
 class FragmentStatistics : Fragment() {
 
@@ -42,8 +50,13 @@ class FragmentStatistics : Fragment() {
 
 
 
+
+
+
+
         return view
     }
+
 
     companion object {
 
