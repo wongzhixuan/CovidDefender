@@ -50,6 +50,10 @@ class CheckIn : Fragment() {
             findNavController().navigate(R.id.action_checkIn_to_home)
 
         })
+        val btn_history = view.findViewById<MaterialButton>(R.id.btn_history)
+        btn_history.setOnClickListener {
+            findNavController().navigate(R.id.history)
+        }
         return view
     }
 

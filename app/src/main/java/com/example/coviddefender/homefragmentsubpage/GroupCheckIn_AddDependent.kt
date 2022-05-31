@@ -35,6 +35,9 @@ class GroupCheckIn_AddDependent : Fragment() {
     lateinit var txt_field_postcode:TextInputLayout
     lateinit var txt_field_state: TextInputLayout
 
+    lateinit var relations: Array<String>
+    lateinit var states: Array<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -67,7 +70,7 @@ class GroupCheckIn_AddDependent : Fragment() {
         txt_field_postcode = view.findViewById<TextInputLayout>(R.id.txt_field_postcode)
         txt_field_state = view.findViewById<TextInputLayout>(R.id.txt_field_state)
         // set up relation dropdown
-        val relations = resources.getStringArray(R.array.relation_item)
+        relations = resources.getStringArray(R.array.relation_item)
         et_relation = view.findViewById<AutoCompleteTextView>(R.id.et_relation)
         // by default, selected item is null
         val checkedItems :Array<Int> = arrayOf(-1)
@@ -88,7 +91,7 @@ class GroupCheckIn_AddDependent : Fragment() {
         })
 
         // set up State dropdown
-        val states = resources.getStringArray(R.array.state_items)
+        states = resources.getStringArray(R.array.state_items)
         et_state = view.findViewById<AutoCompleteTextView>(R.id.et_state)
         // by default, selected item is null
         val checkedItems_state: Array<Int> = arrayOf(-1)
@@ -113,6 +116,7 @@ class GroupCheckIn_AddDependent : Fragment() {
         btn_submit.setOnClickListener {
             if(validateInputs()){
                 // database pending
+                Toast.makeText(context,"Please Enter All Fields to Save",Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_groupCheckIn_AddDependent_to_groupCheckIn)
             }
 
@@ -176,6 +180,48 @@ class GroupCheckIn_AddDependent : Fragment() {
             txt_field_state.error = null
         }
         return true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        relations = resources.getStringArray(R.array.relation_item)
+        // by default, selected item is null
+        val checkedItems :Array<Int> = arrayOf(-1)
+        // dropdown presentation 1: AlertDialog (relations)
+        et_relation.setOnClickListener(View.OnClickListener {
+            var builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Relation")
+            builder.setIcon(R.drawable.ic_relation)
+            builder.setSingleChoiceItems(relations, checkedItems[0], DialogInterface.OnClickListener { dialogInterface, i ->
+                checkedItems[0] = i
+                et_relation.setText(relations[i])
+                dialogInterface.dismiss()
+            })
+            builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->  })
+            val custom_dialog: AlertDialog = builder.create()
+//            custom_dialog.window?.setBackgroundDrawableResource()
+            custom_dialog.show()
+        })
+        states = resources.getStringArray(R.array.state_items)
+        // by default, selected item is null
+        val checkedItems_state: Array<Int> = arrayOf(-1)
+        // dropdown presentation 1: AlertDialog (state)
+        et_state.setOnClickListener(View.OnClickListener {
+            var builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("State")
+            builder.setIcon(R.drawable.ic_location_small)
+            builder.setSingleChoiceItems(states, checkedItems_state[0], DialogInterface.OnClickListener { dialogInterface, i ->
+                checkedItems_state[0] = i
+                et_state.setText(states[i])
+                dialogInterface.dismiss()
+            })
+            builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->  })
+            val custom_dialog: AlertDialog = builder.create()
+//            custom_dialog.window?.setBackgroundDrawableResource()
+            custom_dialog.show()
+        })
+
+
     }
 
     companion object {

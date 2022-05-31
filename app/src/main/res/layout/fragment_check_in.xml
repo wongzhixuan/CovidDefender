@@ -255,14 +255,15 @@
                 android:fontFamily="@font/gilroy_bold"
                 android:text="Check Out"
                 android:textAllCaps="false"
-                android:textColor="@color/light_blue"
                 android:textSize="15sp"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/light_blue"
-                app:strokeWidth="2dp" />
+                app:strokeColor="@color/register_btn_press"
+                app:strokeWidth="2dp"
+                android:textColor="@color/register_btn_press"
+                android:checkable="true" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
