@@ -10,31 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/info_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="48dp"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="Back"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="120dp"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/covid19_info"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
-            app:layout_constraintStart_toEndOf="@id/info_back"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -47,7 +34,7 @@
             android:fontFamily="@font/gilroy_semibold"
             android:text="@string/latest_announcement"
             android:textColor="@color/prussian_blue"
-            android:textSize="22sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/info_title" />
 

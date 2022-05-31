@@ -9,33 +9,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageButton
-            android:id="@+id/self_test_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="48dp"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="Back"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/self_test_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="10dp"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/self_test"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toEndOf="@id/self_test_back"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
@@ -74,7 +59,7 @@
                             android:gravity="left"
                             android:text="Your step-by-step guide to COVID-19 Self-Test (Rapid Antigen Test)"
                             android:textColor="@color/prussian_blue"
-                            android:textSize="22sp"
+                            android:textSize="18sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +81,7 @@
                             android:fontFamily="@font/gilroy_regular"
                             android:text="@string/self_test_content_1"
                             android:textColor="@color/prussian_blue"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/self_test_illustration" />
 
@@ -108,7 +93,7 @@
                             android:fontFamily="@font/gilroy_regular"
                             android:text="@string/self_test_content_2"
                             android:textColor="@color/prussian_blue"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/self_test_content_1" />
 
@@ -120,7 +105,7 @@
                             android:fontFamily="@font/gilroy_regular"
                             android:text="@string/self_test_content_3"
                             android:textColor="@color/prussian_blue"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/self_test_content_2" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -135,7 +120,7 @@
                     android:backgroundTint="@color/prussian_blue"
                     android:fontFamily="@font/gilroy_extrabold"
                     android:text="Start test"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </ScrollView>

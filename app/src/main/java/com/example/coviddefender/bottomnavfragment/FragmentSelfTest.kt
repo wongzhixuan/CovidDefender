@@ -25,12 +25,7 @@ class FragmentSelfTest : Fragment() {
         btn_start_test.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_self_test_to_instruction)
         })
-        // back button
-        val self_test_back : ImageButton = view.findViewById<ImageButton>(R.id.self_test_back)
-        self_test_back.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_self_test_to_home)
 
-        })
 
         return view
     }
