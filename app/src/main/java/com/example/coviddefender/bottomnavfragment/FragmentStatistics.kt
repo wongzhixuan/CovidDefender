@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -22,6 +23,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class FragmentStatistics : Fragment() {
+    lateinit var tv_updated_cases: TextView
 
     private var pagerAdapter: FragmentStateAdapter? = null
     override fun onCreateView(
@@ -48,6 +50,30 @@ class FragmentStatistics : Fragment() {
             tab.text = titles[position]
         }.attach()
 
+        // link widgets
+        tv_updated_cases = view.findViewById(R.id.tv_covid_update_case)
+
+        // Fetch Data using Volley Api
+        // Create a String request using Volley Library
+        val url: String = "https://disease.sh/v3/covid-19/all"
+        val request: StringRequest = StringRequest(
+            Request.Method.GET,
+            url,
+            Response.Listener { response ->
+                // Handle the JSON object and handle it inside try and catch
+                try{
+                    val jsonObj: JSONObject = JSONObject(response.toString())
+                    // set text
+                    tv_updated_cases.setText(jsonObj.getString("updated"))
+
+                }
+                catch (e: JSONException){
+                    e.printStackTrace()
+                }
+            },
+            Response.ErrorListener {  })
+        val request_queue: RequestQueue = Volley.newRequestQueue(context)
+        request_queue.add(request)
 
 
 

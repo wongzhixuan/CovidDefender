@@ -23,105 +23,62 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <GridLayout
-            android:id="@+id/statistics_grid"
-            android:layout_width="match_parent"
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_new_cases"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statistics_title"
-            android:columnCount="2"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/statistics_title">
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/card_icon_background_dark_blue" />
 
-            <ImageButton
-                android:id="@+id/statistics_previous"
-                android:layout_width="50dp"
-                android:layout_height="100dp"
-                android:layout_gravity="left"
-                android:layout_marginTop="40dp"
-                android:background="@color/zxing_transparent"
-                android:src="@drawable/ic_previous" />
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_new_cases"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="30dp"
-                android:layout_column="0"
-                android:layout_row="0"
-                app:cardCornerRadius="200dp"
-                android:background="@color/white">
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/card_icon_background_dark_blue"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/card_new_cases"
-                    android:layout_marginTop="30dp"
-                    app:tint="@color/white"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="4,201"
-                    android:textSize="36sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:layout_gravity="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="120dp"
-                    android:text="New Cases"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/gilroy_medium"
-                    android:layout_gravity="center_horizontal"/>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/tv_statistics_day"
-                android:layout_width="80dp"
-                android:layout_column="1"
-                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:fontFamily="@font/gilroy_semibold"
-                android:textColor="@color/prussian_blue"
-                android:text="Saturday"/>
+                android:src="@drawable/card_new_cases"
+                app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/tv_statistics_date"
-                android:layout_width="80dp"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/gilroy_semibold"
-                android:gravity="center"
-                android:text="9 April 2022"
-                android:textColor="@color/prussian_blue"
-                android:textSize="24sp" />
+                android:id="@+id/tv_covid_update_case"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="4,201"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
 
-        </GridLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:text="New Cases"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/info_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/statistics_grid"
+            app:layout_constraintTop_toBottomOf="@id/card_new_cases"
             app:layout_constraintStart_toStartOf="parent"
             app:tabIndicatorColor="@color/prussian_blue"
             app:tabIndicatorHeight="3dp"
