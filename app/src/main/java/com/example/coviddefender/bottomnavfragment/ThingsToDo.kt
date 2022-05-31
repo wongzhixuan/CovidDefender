@@ -25,7 +25,7 @@ class ThingsToDo : Fragment() {
         // Inflate the layout for this fragment
         val view:View = inflater.inflate(R.layout.fragment_things_to_do, container, false)
         // Dummy data for recycler view
-       /* var todo: ArrayList<ToDo> = arrayListOf(
+        var todo: ArrayList<ToDo> = arrayListOf(
             ToDo(
                 R.drawable.covid_illustration,
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
@@ -38,19 +38,19 @@ class ThingsToDo : Fragment() {
                 R.drawable.father_and_son,
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             )
-        )*/
+        )
 
-        // To Do Recycler View
-        //val todo_recyclerview: RecyclerView? =
-        //    view.findViewById<RecyclerView>(R.id.todo_recyclerview)
-        //todo_recyclerview?.layoutManager = LinearLayoutManager(
-        //    view.context,
-        //    LinearLayoutManager.VERTICAL,
-        //    false
-        //)
+        //To Do Recycler View
+        val todo_recyclerview: RecyclerView? =
+           view.findViewById<RecyclerView>(R.id.todo_recyclerview)
+        todo_recyclerview?.layoutManager = LinearLayoutManager(
+            view.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
 
         // Adopt data to recycler view using adapter
-        //todo_recyclerview?.adapter = ToDoAdapter(todo)
+        todo_recyclerview?.adapter = ToDoAdapter(todo)
         return view
     }
 

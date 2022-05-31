@@ -52,13 +52,16 @@ class RegisterActivity : AppCompatActivity() {
         // Verify button
         val btn_verify: Button = findViewById<Button>(R.id.btn_verify)
         btn_verify?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_register_2)
+            val intent = Intent (this,RegisterActivity2::class.java).apply{
+
+            }
+            startActivity(intent)
         })
 
         //Back button
         val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
         register_back?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_login)
+            finish()
         })
 
     }

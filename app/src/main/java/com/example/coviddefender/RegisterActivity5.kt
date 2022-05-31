@@ -2,6 +2,7 @@ package com.example.coviddefender
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AutoCompleteTextView
@@ -24,12 +25,15 @@ class RegisterActivity5:AppCompatActivity() {
         //next button
         val btn_login: Button = findViewById<Button>(R.id.btn_login)
         btn_login?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_login)
+            val intent = Intent (this,LoginActivity::class.java).apply{
+
+            }
+            startActivity(intent)
         })
 
         val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
         register_back?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_register_4)
+            finish()
         })
     }
 }

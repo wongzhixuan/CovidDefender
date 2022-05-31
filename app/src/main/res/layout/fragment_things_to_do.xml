@@ -6,94 +6,12 @@
     android:layout_height="match_parent"
     android:clipToPadding="false">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_things_to_know_1"
-            android:layout_width="300dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:backgroundTint="@color/prussian_blue"
-            app:cardCornerRadius="18dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/info_tab"
-            app:strokeColor="@color/black_70"
-            app:strokeWidth="2dp" />
-
-        <TextView
-            android:id="@+id/tv_things_to_know_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:fontFamily="@font/gilroy_light"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
-            android:textColor="@color/black_70"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_things_to_know_1" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_things_to_know_2"
-            android:layout_width="300dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:strokeColor="@color/black_70"
-            app:strokeWidth="2dp" />
-
-        <TextView
-            android:id="@+id/tv_things_to_know_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:fontFamily="@font/gilroy_light"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
-            android:textColor="@color/black_70"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_things_to_know_2" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_things_to_know_3"
-            android:layout_width="300dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="30dp"
-            android:clickable="true"
-            app:cardCornerRadius="18dp"
-            app:strokeColor="@color/black_70"
-            app:strokeWidth="2dp" />
-
-        <TextView
-            android:id="@+id/tv_things_to_know_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:fontFamily="@font/gilroy_light"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscin"
-            android:textColor="@color/black_70"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_things_to_know_3" />
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </ScrollView>

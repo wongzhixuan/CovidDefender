@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.DialogInterface.OnMultiChoiceClickListener
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,7 +62,10 @@ class LoginActivity :AppCompatActivity() {
 
         val btn_login: Button = findViewById<Button>(R.id.btn_login)
         btn_login?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_navigation)
+            val intent = Intent (this,Navigation::class.java).apply{
+
+            }
+            startActivity(intent)
         })
 
         val login_back: ImageButton = findViewById<ImageButton>(R.id.login_back)

@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.coviddefender.R
-import com.example.coviddefender.recyclerview.Announcement
-import com.example.coviddefender.recyclerview.AnnouncementAdapter
 import com.example.coviddefender.bottomnavfragment.ThingsToKnow
 import com.example.coviddefender.bottomnavfragment.ThingsToDo
+import com.example.coviddefender.recyclerview.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -47,7 +46,7 @@ class FragmentInfo : Fragment() {
                 tab: TabLayout.Tab, position: Int ->
             tab.text = titles[position]
         }.attach()
-
+// Announcement Recycler View
         // Dummy data for recycler view
         var announcements: ArrayList<Announcement> = arrayListOf(
             Announcement(
@@ -63,8 +62,7 @@ class FragmentInfo : Fragment() {
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             )
         )
-
-        // Announcement Recycler View
+        //Recycler View
         val announcement_recyclerview: RecyclerView? =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
         announcement_recyclerview?.layoutManager = LinearLayoutManager(
@@ -72,9 +70,63 @@ class FragmentInfo : Fragment() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
-
         // Adopt data to recycler view using adapter
         announcement_recyclerview?.adapter = AnnouncementAdapter(announcements)
+
+
+//Things To Do Recycler View
+        // Dummy data for recycler view
+        var todo: ArrayList<ToDo> = arrayListOf(
+            ToDo(
+                R.drawable.covid_illustration,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            ),
+            ToDo(
+                R.drawable.myths_about_covid_vaccine,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            ),
+            ToDo(
+                R.drawable.father_and_son,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            )
+        )
+        // Recycler View
+        val todo_recyclerview: RecyclerView? =
+            view.findViewById<RecyclerView>(R.id.todo_recyclerview)
+        todo_recyclerview?.layoutManager = LinearLayoutManager(
+            view.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        // Adopt data to recycler view using adapter
+        todo_recyclerview?.adapter = ToDoAdapter(todo)
+
+//Things To Do Recycler View
+        // Dummy data for recycler view
+        var toknow: ArrayList<ToKnow> = arrayListOf(
+            ToKnow(
+                R.drawable.covid_illustration,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            ),
+            ToKnow(
+                R.drawable.myths_about_covid_vaccine,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            ),
+            ToKnow(
+                R.drawable.father_and_son,
+                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+            )
+        )
+        // Recycler View
+        val toknow_recyclerview: RecyclerView? =
+            view.findViewById<RecyclerView>(R.id.toknow_recyclerview)
+        todo_recyclerview?.layoutManager = LinearLayoutManager(
+            view.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        // Adopt data to recycler view using adapter
+        toknow_recyclerview?.adapter = ToKnowAdapter(toknow)
 
         // back button
         val info_back : ImageButton = view.findViewById<ImageButton>(R.id.info_back)
@@ -82,6 +134,7 @@ class FragmentInfo : Fragment() {
             findNavController().navigate(R.id.action_info_to_home)
 
         })
+
 
         return view
 

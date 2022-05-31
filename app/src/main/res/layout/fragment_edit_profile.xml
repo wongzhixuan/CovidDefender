@@ -161,366 +161,373 @@
                     app:strokeWidth="1dp"
                     android:checkable="true" />
 
-                <ScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="100dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_profile_change_password">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card_vaccine_cert"
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="30dp"
-                        android:layout_marginStart="30dp"
-                        android:backgroundTint="@color/white"
-                        app:cardCornerRadius="20dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:strokeColor="@color/black_70"
-                        app:strokeWidth="3dp">
-
+                        android:layout_height="200dp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_marginBottom="100dp">
+                            <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_vaccine_cert"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="30dp"
+                            android:backgroundTint="@color/white"
+                            app:cardCornerRadius="20dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/black_70"
+                            app:strokeWidth="3dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="100dp"
-                                android:background="@drawable/rect_half_rounded_orange"
-                                android:orientation="vertical"
-                                android:padding="20dp">
-
-                                <TextView
-                                    android:id="@+id/tv_digital_cert"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/gilroy_semibold"
-                                    android:text="Digital Certificate"
-                                    android:textColor="@color/white"
-                                    android:textSize="24sp" />
-
-                                <TextView
-                                    android:id="@+id/tv_covid19_vaccination"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/gilroy_medium"
-                                    android:text="Covid-19 Vaccination"
-                                    android:textColor="@color/white"
-                                    android:textSize="16sp" />
-
-                            </LinearLayout>
-
-                            <com.google.android.material.card.MaterialCardView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/malaysia_icon" />
-
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/rect_half_rounded_orange"
                                     android:orientation="vertical"
-                                    android:paddingLeft="20dp"
-                                    android:paddingTop="10dp"
-                                    android:paddingRight="20dp">
+                                    android:padding="20dp">
 
                                     <TextView
+                                        android:id="@+id/tv_digital_cert"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:fontFamily="@font/gilroy_regular"
-                                        android:text="Name"
-                                        android:textColor="@color/prussian_blue_dark"
-                                        android:textSize="12sp" />
-
-                                    <TextView
-                                        android:id="@+id/tv_username_cert"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:fontFamily="@font/gilroy_semibold"
-                                        android:text="Tifa Lockhart"
-                                        android:textColor="@color/prussian_blue_dark"
+                                        android:text="Digital Certificate"
+                                        android:textColor="@color/white"
+                                        android:textSize="24sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_covid19_vaccination"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/gilroy_medium"
+                                        android:text="Covid-19 Vaccination"
+                                        android:textColor="@color/white"
                                         android:textSize="16sp" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:fontFamily="@font/gilroy_regular"
-                                        android:text="NRIC / Passport No."
-                                        android:textColor="@color/prussian_blue_dark"
-                                        android:textSize="12sp" />
-
-                                    <TextView
-                                        android:id="@+id/tv_userIC_cert"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/gilroy_semibold"
-                                        android:text="110101050001"
-                                        android:textColor="@color/prussian_blue_dark"
-                                        android:textSize="16sp" />
-
-                                    <com.google.android.material.card.MaterialCardView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:backgroundTint="@color/light_orange_2"
-                                        app:cardCornerRadius="20dp">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical"
-                                            android:padding="10dp">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="10dp"
-                                                android:fontFamily="@font/gilroy_semibold"
-                                                android:text="Dose 1:"
-                                                android:textColor="@color/prussian_blue_dark"
-                                                android:textSize="12sp" />
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Date:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose1_date"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="23 May 2021 09:18 AM"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Manufacturer:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose1_manufacturer"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="COMIRNATY Concentrate for Dispersion for Injection"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Facility:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose1_facility"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="Klinik Kesihatan Kuala Lumpur"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Batch:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose1_batch"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="5018885"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-                                        </LinearLayout>
-
-                                    </com.google.android.material.card.MaterialCardView>
-
-                                    <com.google.android.material.card.MaterialCardView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginBottom="30dp"
-                                        android:backgroundTint="@color/light_green_60"
-                                        app:cardCornerRadius="20dp">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical"
-                                            android:padding="10dp">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="10dp"
-                                                android:fontFamily="@font/gilroy_semibold"
-                                                android:text="Dose 2:"
-                                                android:textColor="@color/prussian_blue_dark"
-                                                android:textSize="12sp" />
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Date:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose2_date"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="11 Jun 2021 09:15 AM"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Manufacturer:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose2_manufacturer"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="COMIRNATY Concentrate for Dispersion for Injection"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Facility:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose2_facility"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="Klinik Kesihatan Kuala Lumpur"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
-                                                android:orientation="horizontal">
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:fontFamily="@font/gilroy_regular"
-                                                    android:text="Batch:"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-
-                                                <TextView
-                                                    android:id="@+id/tv_dose2_batch"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:fontFamily="@font/gilroy_semibold"
-                                                    android:text="5019440"
-                                                    android:textColor="@color/prussian_blue_dark"
-                                                    android:textSize="12sp" />
-                                            </LinearLayout>
-                                        </LinearLayout>
-                                    </com.google.android.material.card.MaterialCardView>
                                 </LinearLayout>
-                            </com.google.android.material.card.MaterialCardView>
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/malaysia_icon" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="20dp"
+                                        android:paddingTop="10dp"
+                                        android:paddingRight="20dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:fontFamily="@font/gilroy_regular"
+                                            android:text="Name"
+                                            android:textColor="@color/prussian_blue_dark"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/tv_username_cert"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/gilroy_semibold"
+                                            android:text="Tifa Lockhart"
+                                            android:textColor="@color/prussian_blue_dark"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:fontFamily="@font/gilroy_regular"
+                                            android:text="NRIC / Passport No."
+                                            android:textColor="@color/prussian_blue_dark"
+                                            android:textSize="12sp" />
+
+                                        <TextView
+                                            android:id="@+id/tv_userIC_cert"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/gilroy_semibold"
+                                            android:text="110101050001"
+                                            android:textColor="@color/prussian_blue_dark"
+                                            android:textSize="16sp" />
+
+                                        <com.google.android.material.card.MaterialCardView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:backgroundTint="@color/light_orange_2"
+                                            app:cardCornerRadius="20dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical"
+                                                android:padding="10dp">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="10dp"
+                                                    android:fontFamily="@font/gilroy_semibold"
+                                                    android:text="Dose 1:"
+                                                    android:textColor="@color/prussian_blue_dark"
+                                                    android:textSize="12sp" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Date:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose1_date"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="23 May 2021 09:18 AM"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Manufacturer:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose1_manufacturer"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="COMIRNATY Concentrate for Dispersion for Injection"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Facility:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose1_facility"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="Klinik Kesihatan Kuala Lumpur"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Batch:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose1_batch"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="5018885"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                        </com.google.android.material.card.MaterialCardView>
+
+                                        <com.google.android.material.card.MaterialCardView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="30dp"
+                                            android:backgroundTint="@color/light_green_60"
+                                            app:cardCornerRadius="20dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical"
+                                                android:padding="10dp">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="10dp"
+                                                    android:fontFamily="@font/gilroy_semibold"
+                                                    android:text="Dose 2:"
+                                                    android:textColor="@color/prussian_blue_dark"
+                                                    android:textSize="12sp" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Date:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose2_date"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="11 Jun 2021 09:15 AM"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Manufacturer:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose2_manufacturer"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="COMIRNATY Concentrate for Dispersion for Injection"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Facility:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose2_facility"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="Klinik Kesihatan Kuala Lumpur"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/gilroy_regular"
+                                                        android:text="Batch:"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/tv_dose2_batch"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:fontFamily="@font/gilroy_semibold"
+                                                        android:text="5019440"
+                                                        android:textColor="@color/prussian_blue_dark"
+                                                        android:textSize="12sp" />
+
+                                                </LinearLayout>
+                                            </LinearLayout>
+                                        </com.google.android.material.card.MaterialCardView>
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
                         </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                </ScrollView>
+                    </ScrollView>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

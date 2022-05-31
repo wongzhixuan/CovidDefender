@@ -35,10 +35,10 @@ class RegisterActivity2 : AppCompatActivity() {
         et_country_code = findViewById<AutoCompleteTextView>(R.id.et_country_code)
         // by default, selected item is null
         val checkedItems: Array<Int> = arrayOf(-1)
-        // dropdown presentation 1: AlertDialog (relations)
+        // nationality
         et_country_code.setOnClickListener(View.OnClickListener{
             var builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setTitle("Country Code")
+            builder.setTitle("Nationality")
             builder.setIcon(R.drawable.ic_country_code)
             builder.setSingleChoiceItems(
                 countrycode,
@@ -57,27 +57,30 @@ class RegisterActivity2 : AppCompatActivity() {
         })
 
         //Radio Button
+        rb_male = findViewById<MaterialRadioButton>(R.id.rb_male)
+        rb_female = findViewById<MaterialRadioButton>(R.id.rb_female)
         rb_male.isChecked = true
-        rb_female.isChecked = true
+        rb_female.isChecked = false
         rb_male.setOnCheckedChangeListener{ buttonView, isChecked->
             if(isChecked){
                 Toast.makeText(this,isChecked.toString(),Toast.LENGTH_SHORT).show()
             }
             else{
                 rb_male.isChecked = false
-                rb_female.isChecked = false
             }
         }
-
 
         // Next button
         val btn_next: Button = findViewById<Button>(R.id.btn_next)
         btn_next?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_register_3)
+            val intent = Intent (this,RegisterActivity3::class.java).apply{
+
+            }
+            startActivity(intent)
         })
         val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
-        register_back?.setOnClickListener(View.OnClickListener{
-            setContentView(R.layout.activity_register_1)
+        register_back.setOnClickListener(View.OnClickListener{
+            finish()
         })
 
 
