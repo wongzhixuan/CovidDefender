@@ -32,7 +32,7 @@
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/self_test"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@id/self_test_back_2"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/gilroy_semibold"
             android:text="How to perform self-test?"
             android:textColor="@color/prussian_blue"
-            android:textSize="22sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/self_test_title" />
@@ -65,8 +65,8 @@
 
                 <ImageView
                     android:id="@+id/step_1"
-                    android:layout_width="252dp"
-                    android:layout_height="218dp"
+                    android:layout_width="202dp"
+                    android:layout_height="168dp"
                     android:layout_marginStart="-15dp"
                     android:layout_marginTop="2dp"
                     android:src="@drawable/self_test_step_1"
@@ -77,17 +77,17 @@
 
                 <ImageView
                     android:id="@+id/step_2"
-                    android:layout_width="182dp"
-                    android:layout_height="279dp"
+                    android:layout_width="132dp"
+                    android:layout_height="229dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/self_test_step_2"
-                    app:layout_constraintStart_toEndOf="@+id/step_1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/step_3"
-                    android:layout_width="413dp"
-                    android:layout_height="450dp"
+                    android:layout_width="333dp"
+                    android:layout_height="370dp"
                     android:layout_marginStart="-20dp"
                     android:layout_marginTop="-25dp"
                     android:src="@drawable/self_test_step_3"
@@ -103,7 +103,7 @@
                     android:fontFamily="@font/gilroy_extrabold"
                     android:text="Start Timer"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

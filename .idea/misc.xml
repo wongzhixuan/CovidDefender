@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.322" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_icon_background_blue.xml" value="0.232" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_icon_background_dark_blue.xml" value="0.231" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_shadow.xml" value="0.231" />
@@ -17,8 +16,6 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_edit_bulk.xml" value="0.3485" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_eye_open.xml" value="0.3485" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_ic.xml" value="0.331" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_launcher_background.xml" value="0.322" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_logo.xml" value="0.322" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_mail.xml" value="0.3675" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_previous.xml" value="0.342" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_statistics.xml" value="0.232" />
@@ -27,55 +24,43 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_bottom_rounded_blue.xml" value="0.3345" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_stroke.xml" value="0.3595" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_stroke_background.xml" value="0.3595" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_navigation.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_1.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_2.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_3.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_4.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_5.xml" value="0.176" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/country_code_item.xml" value="0.30085470085470084" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/document_item.xml" value="0.176" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/faq_item.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/document_item.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_add_dependent.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_appointment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_change_password.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_check_in.xml" value="0.176" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_check_in__success.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_covid19_state.xml" value="0.1" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_covid_info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_covid_status.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_daily_updates.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_edit_details.xml" value="0.2" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_edit_profile.xml" value="0.176" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_edit_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_faq.xml" value="0.2" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_global.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_home.xml" value="0.176" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_info.xml" value="0.264" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_info.xml" value="0.176" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test.xml" value="0.1" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test.xml" value="0.264" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test_instruction.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_self_test_result.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.2" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_things_to_do.xml" value="0.1" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_things_to_know.xml" value="0.1" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_timer.xml" value="0.152" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.136" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_timer.xml" value="0.176" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/history_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/latest_announcement_item.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/nav_drawer_profile.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/questions_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/relation_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/test_result_item.xml" value="0.3" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/things_to_do_item.xml" value="0.1" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/things_to_know_item.xml" value="0.19157608695652173" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/vaccine_info_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/welcome_page.xml" value="0.12" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/menu/drawer_menu.xml" value="0.12962962962962962" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1705" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.322" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/black_gradient.xml" value="0.241" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/btn_register_vaccine_pressed.xml" value="0.241" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/drawable/card_icon_background.xml" value="0.1" />
@@ -122,7 +107,9 @@
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_appointment.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_check_in__success.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_covid19_state.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_covid_status.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_daily_updates.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_group_check_in.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_health_assessment.xml" value="0.11929824561403508" />
@@ -131,7 +118,11 @@
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_hotspot.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_info.xml" value="0.2359375" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_scan.xml" value="0.2359375" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_self_test.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_self_test_instruction.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_self_test_result.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_statistics.xml" value="0.2359375" />
+        <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_timer.xml" value="0.25" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_vaccine_status.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/202204/Embedded PE/TheDefenders/Project/CovidDefender/app/src/main/res/layout/fragment_view_appointment.xml" value="0.1" />

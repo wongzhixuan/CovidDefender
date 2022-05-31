@@ -32,65 +32,59 @@
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/self_test"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@id/self_test_back"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/timer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:src="@drawable/timer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/self_test_title" />
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/timer">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15:00"
-                android:textSize="50sp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:letterSpacing="0.3"
-                android:textColor="@color/prussian_blue"/>
+                android:text="15:00"
+                android:textColor="@color/prussian_blue"
+                android:textSize="50sp" />
         </com.google.android.material.card.MaterialCardView>
 
         <Button
             android:id="@+id/btn_stop_timer"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/light_coral"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="Stop Timer/Cancel"
             android:textColor="@color/white"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/dim_grey_dark"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="Next"
-            android:textSize="22sp"
             android:textColor="@color/dim_grey_light"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_stop_timer" />
 

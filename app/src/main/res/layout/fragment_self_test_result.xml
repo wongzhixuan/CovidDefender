@@ -32,7 +32,7 @@
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/self_test"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@id/self_test_back"
@@ -48,7 +48,7 @@
             android:fontFamily="@font/gilroy_semibold"
             android:text="Upload test result"
             android:textColor="@color/prussian_blue"
-            android:textSize="22sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/self_test_title" />
@@ -250,6 +250,7 @@
                     android:backgroundTint="@color/prussian_blue"
                     android:fontFamily="@font/gilroy_extrabold"
                     android:text="Submit"
+                    android:textSize="20sp"
                     android:textColor="@color/white"/>
 
             </LinearLayout>

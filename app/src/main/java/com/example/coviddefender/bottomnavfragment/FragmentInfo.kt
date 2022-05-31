@@ -128,12 +128,6 @@ class FragmentInfo : Fragment() {
         // Adopt data to recycler view using adapter
         toknow_recyclerview?.adapter = ToKnowAdapter(toknow)
 
-        // back button
-        val info_back : ImageButton = view.findViewById<ImageButton>(R.id.info_back)
-        info_back?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_info_to_home)
-
-        })
 
 
         return view

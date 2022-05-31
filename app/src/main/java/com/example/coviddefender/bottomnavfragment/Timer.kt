@@ -17,7 +17,7 @@ class Timer : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_self_test_instruction, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_timer, container, false)
 
         val btn_next = view.findViewById<Button>(R.id.btn_next)
         btn_next?.setOnClickListener(View.OnClickListener {

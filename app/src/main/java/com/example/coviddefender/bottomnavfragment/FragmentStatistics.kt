@@ -40,12 +40,7 @@ class FragmentStatistics : Fragment() {
             tab.text = titles[position]
         }.attach()
 
-        // back button
-        val statistics_back : ImageButton = view.findViewById<ImageButton>(R.id.statistics_back)
-        statistics_back?.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.action_statistics_to_home)
 
-        })
 
         return view
     }
