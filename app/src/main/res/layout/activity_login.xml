@@ -53,7 +53,7 @@
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/covid_defender"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/login_illustration" />
@@ -82,47 +82,25 @@
             android:fontFamily="@font/gilroy_semibold"
             android:text="Phone Number"
             android:textColor="@color/prussian_blue"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_desc" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_country_code"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Country Code (+60)"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:errorEnabled="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_login_phone_no"
-            app:startIconDrawable="@drawable/ic_country_code"
-            app:startIconTint="@color/dim_grey">
-                <AutoCompleteTextView
-                    android:id="@+id/et_country_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:fontFamily="@font/inter"
-                    android:inputType="none"
-                    tools:layout_editor_absoluteX="-56dp"
-                    tools:layout_editor_absoluteY="497dp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txt_field_contact_no"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:hint="Contact Number"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_field_country_code"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_phone_no"
             app:startIconDrawable="@drawable/ic_contact_no"
             app:startIconTint="@color/dim_grey">
 
@@ -131,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     tools:layout_editor_absoluteX="13dp"
                     tools:layout_editor_absoluteY="523dp" />
 
@@ -156,11 +134,16 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
             android:backgroundTint="@color/light_green"
+            android:fontFamily="@font/gilroy_extrabold"
             android:text="Login"
             android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

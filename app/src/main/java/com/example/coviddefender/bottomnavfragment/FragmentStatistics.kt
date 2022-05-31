@@ -40,7 +40,7 @@ class FragmentStatistics : Fragment() {
         pagerAdapter = ViewPagerAdapter2(this)
         statistics_viewpager.setAdapter(pagerAdapter)
 
-        val titles = arrayOf("Daily Updates", "Covid-19 State", "Global")
+        val titles = arrayOf("Daily Updates", "Global")
         //displaying tabs and mediate the TabLayout with the ViewPager2
         TabLayoutMediator(
             tab_layout,
@@ -75,14 +75,8 @@ class FragmentStatistics : Fragment() {
         val request_queue: RequestQueue = Volley.newRequestQueue(context)
         request_queue.add(request)
 
-
-
-
-
-
         return view
     }
-
 
     companion object {
 

@@ -63,6 +63,10 @@ class RegisterActivity3:AppCompatActivity() {
             finish()
         })
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }
 
 

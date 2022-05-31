@@ -12,7 +12,6 @@
             android:id="@+id/card_statistics_1"
             android:layout_width="160dp"
             android:layout_height="120dp"
-
             android:layout_marginTop="15dp"
             android:background="@drawable/card_shadow"
             android:clickable="true"

@@ -13,9 +13,6 @@ class ViewPagerAdapter2(fa: FragmentStatistics) : FragmentStateAdapter(fa) {
                 DailyUpdates.newInstance()
             }
             1 -> {
-                Covid19State.newInstance()
-            }
-            2 -> {
                 Global.newInstance()
             }
             else -> DailyUpdates.newInstance()
@@ -23,7 +20,7 @@ class ViewPagerAdapter2(fa: FragmentStatistics) : FragmentStateAdapter(fa) {
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
 }

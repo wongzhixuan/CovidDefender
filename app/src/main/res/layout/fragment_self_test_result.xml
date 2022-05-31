@@ -242,15 +242,17 @@
 
                 <Button
                     android:id="@+id/btn_submit"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:textSize="20sp"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="150dp"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/prussian_blue"
-                    android:fontFamily="@font/gilroy_extrabold"
                     android:text="Submit"
-                    android:textSize="20sp"
                     android:textColor="@color/white"/>
 
             </LinearLayout>
