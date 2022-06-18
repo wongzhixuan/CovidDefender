@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "395247605575",
+    "firebase_url": "https://coviddefender-c929c-default-rtdb.firebaseio.com",
+    "project_id": "coviddefender-c929c",
+    "storage_bucket": "coviddefender-c929c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395247605575:android:0da1d3ace07619d51a5e62",
+        "android_client_info": {
+          "package_name": "com.example.coviddefender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395247605575-63umvt29rav5gfp5parslhgibitu0sp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK5v29KTZYMhltgKvqoGle8MMXRmn0Vj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395247605575-63umvt29rav5gfp5parslhgibitu0sp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
