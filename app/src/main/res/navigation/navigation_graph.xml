@@ -123,7 +123,7 @@
         tools:layout="@layout/fragment_scan" />
     <fragment
         android:id="@+id/covid_status"
-        android:name="com.example.coviddefender.homefragmentsubpage.CovidStatus"
+        android:name="com.example.coviddefender.homefragmentsubpage.CovidStatusFragment"
         android:label="fragment_covid_status"
         tools:layout="@layout/fragment_covid_status" >
         <action

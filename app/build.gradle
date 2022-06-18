@@ -61,4 +61,14 @@ dependencies {
     // Volley
     implementation 'com.android.volley:volley:1.2.1'
 
+    // For Room database
+    implementation "androidx.room:room-runtime:2.4.2"
+    annotationProcessor "androidx.room:room-compiler:2.4.2"
+
+    // Lifecycle components
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.4.1'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
 }

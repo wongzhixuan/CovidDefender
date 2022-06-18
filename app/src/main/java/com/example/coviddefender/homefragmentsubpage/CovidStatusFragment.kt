@@ -9,17 +9,16 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
+import com.example.coviddefender.db.covidstatus.CovidStatus
+import com.example.coviddefender.db.covidstatus.CovidStatusViewModel
 import java.time.LocalDateTime
-import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.*
 
 
-class CovidStatus : Fragment() {
+class CovidStatusFragment : Fragment() {
 
     lateinit var btn_refresh: ImageButton
     lateinit var tv_update_time: TextView
@@ -62,9 +61,9 @@ class CovidStatus : Fragment() {
             var current = LocalDateTime.now()
             var formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
             var update_time = current.format(formatter)
-            tv_update_time.setText(update_time)
+            tv_update_time.text = update_time
 
-        // update roomDB
+            // update roomDB
 
         }
 
@@ -78,6 +77,6 @@ class CovidStatus : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = CovidStatus()
+        fun newInstance() = CovidStatusFragment()
     }
 }
