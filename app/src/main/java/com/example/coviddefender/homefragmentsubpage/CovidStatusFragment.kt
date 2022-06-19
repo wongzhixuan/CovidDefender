@@ -44,7 +44,7 @@ class CovidStatusFragment : Fragment() {
     lateinit var covidStatus: CovidStatus
 
 
-    @SuppressLint("ResourceAsColor")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,34 +71,7 @@ class CovidStatusFragment : Fragment() {
 
         // set up view
         // fetch data from firebase
-        docRef.get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot != null) {
-                    covidStatus = documentSnapshot.toObject<CovidStatus>()!!
-                    Log.d(TAG, covidStatus.update_time + " " + covidStatus.covid_status+" "+covidStatus.dependent_risk + " "+covidStatus.location_risk)
-                    tv_update_time.text = covidStatus.update_time
-                    tv_covid_status.text = covidStatus.covid_status
-                    tv_dependent_risk.text = covidStatus.dependent_risk
-                    tv_location_risk.text = covidStatus.location_risk
-                    when (covidStatus.covid_status) {
-                        "Low Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_green)
-                        }
-                        "High Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_coral)
-                        }
-                        else -> {
-                            view_status_color.setBackgroundColor(R.color.light_orange)
-                        }
-                    }
-                }
-                else {
-                    Log.d(TAG, "Document Not Exist!")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d(TAG, "Failed: ", exception)
-            }
+        getData()
 
         // btn_refresh pressed
         btn_refresh.setOnClickListener {
