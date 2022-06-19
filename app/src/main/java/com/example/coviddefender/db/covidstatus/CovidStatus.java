@@ -1,22 +1,13 @@
 package com.example.coviddefender.db.covidstatus;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import java.time.LocalDateTime;
-
-// POJO class to represent the schema
-@Entity(tableName = "covid_status_table")
 public class CovidStatus {
-    @PrimaryKey (autoGenerate = true)
-    public int id;
     private String update_time;
     private String covid_status;
     private String location_risk;
     private String dependent_risk;
 
     // Constructor
-    public CovidStatus(String update_time, String covid_status, String location_risk,String dependent_risk)
+    public CovidStatus(String covid_status, String dependent_risk,  String location_risk, String update_time)
     {
         this.update_time = update_time;
         this.covid_status = covid_status;
