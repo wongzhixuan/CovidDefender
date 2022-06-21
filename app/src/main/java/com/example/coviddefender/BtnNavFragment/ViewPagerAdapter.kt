@@ -1,9 +1,7 @@
-package com.example.coviddefender.bottomnavfragment
+package com.example.coviddefender.BtnNavFragment
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.coviddefender.bottomnavfragment.ThingsToKnow
-import com.example.coviddefender.bottomnavfragment.ThingsToDo
 
 class ViewPagerAdapter(fa: FragmentInfo) : FragmentStateAdapter(fa) {
 

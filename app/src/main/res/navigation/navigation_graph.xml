@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentHome"
+        android:name="com.example.coviddefender.BtnNavFragment.FragmentHome"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/statistics"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentStatistics"
+        android:name="com.example.coviddefender.BtnNavFragment.FragmentStatistics"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics">
         <action
@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/self_test"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentSelfTest"
+        android:name="com.example.coviddefender.BtnNavFragment.FragmentSelfTest"
         android:label="fragment_self_test"
         tools:layout="@layout/fragment_self_test">
         <action
@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/self_test_instruction"
-        android:name="com.example.coviddefender.bottomnavfragment.SelfTestInstruction"
+        android:name="com.example.coviddefender.BtnNavFragment.SelfTestInstruction"
         android:label="fragment_self_test_instruction"
         tools:layout="@layout/fragment_self_test_instruction">
         <action
@@ -84,7 +84,7 @@
 
     <fragment
         android:id="@+id/self_test_timer"
-        android:name="com.example.coviddefender.bottomnavfragment.Timer"
+        android:name="com.example.coviddefender.BtnNavFragment.Timer"
         android:label="fragment_timer"
         tools:layout="@layout/fragment_timer">
         <action
@@ -98,7 +98,7 @@
 
     <fragment
         android:id="@+id/self_test_result"
-        android:name="com.example.coviddefender.bottomnavfragment.SelfTestResult"
+        android:name="com.example.coviddefender.BtnNavFragment.SelfTestResult"
         android:label="fragment_self_test_result"
         tools:layout="@layout/fragment_self_test_result">
         <action
@@ -108,7 +108,7 @@
 
     <fragment
         android:id="@+id/info"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentInfo"
+        android:name="com.example.coviddefender.BtnNavFragment.FragmentInfo"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info">
         <action
@@ -118,7 +118,7 @@
 
     <fragment
         android:id="@+id/scan"
-        android:name="com.example.coviddefender.bottomnavfragment.FragmentScan"
+        android:name="com.example.coviddefender.BtnNavFragment.FragmentScan"
         android:label="fragment_scan"
         tools:layout="@layout/fragment_scan" />
     <fragment

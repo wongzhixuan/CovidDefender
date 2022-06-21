@@ -1,31 +1,27 @@
-package com.example.coviddefender
+package com.example.coviddefender.UserAuthentication
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.coviddefender.R
 import com.google.android.material.textfield.TextInputEditText
 
-class RegisterActivity5:AppCompatActivity() {
+class RegisterActivity4:AppCompatActivity() {
 
     lateinit var et_password : TextInputEditText
     lateinit var et_confirm_password: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_5)
+        setContentView(R.layout.activity_register_4)
 
         //next button
-        val btn_login: Button = findViewById<Button>(R.id.btn_login)
-        btn_login?.setOnClickListener(View.OnClickListener{
-            val intent = Intent (this,LoginActivity::class.java).apply{
+        val btn_next: Button = findViewById<Button>(R.id.btn_next)
+        btn_next?.setOnClickListener(View.OnClickListener{
+            val intent = Intent (this, RegisterActivity5::class.java).apply{
 
             }
             startActivity(intent)
@@ -37,6 +33,9 @@ class RegisterActivity5:AppCompatActivity() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
 }
 
 

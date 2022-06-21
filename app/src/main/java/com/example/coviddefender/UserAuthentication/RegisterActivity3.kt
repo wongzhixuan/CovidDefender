@@ -1,4 +1,4 @@
-package com.example.coviddefender
+package com.example.coviddefender.UserAuthentication
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -8,9 +8,8 @@ import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.coviddefender.R
 import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity3:AppCompatActivity() {
@@ -52,7 +51,7 @@ class RegisterActivity3:AppCompatActivity() {
         //next button
         val btn_next: Button = findViewById<Button>(R.id.btn_next)
         btn_next?.setOnClickListener(View.OnClickListener{
-            val intent = Intent (this,RegisterActivity4::class.java).apply{
+            val intent = Intent (this, RegisterActivity4::class.java).apply{
 
             }
             startActivity(intent)

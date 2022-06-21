@@ -1,4 +1,4 @@
-package com.example.coviddefender.bottomnavfragment
+package com.example.coviddefender.BtnNavFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

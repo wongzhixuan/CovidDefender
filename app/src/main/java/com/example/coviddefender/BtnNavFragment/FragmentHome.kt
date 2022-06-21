@@ -1,4 +1,4 @@
-package com.example.coviddefender.bottomnavfragment
+package com.example.coviddefender.BtnNavFragment
 
 import android.content.Intent
 import android.os.Bundle
