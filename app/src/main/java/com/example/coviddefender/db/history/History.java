@@ -3,15 +3,15 @@ package com.example.coviddefender.db.history;
 public class History {
     public String location;
     public String time;
-    public Boolean IsCheckOut;
+    public String IsCheckOut;
 
-    public History(Boolean IsCheckOut, String location, String time){
+    public History(String IsCheckOut, String location, String time){
         this.IsCheckOut = IsCheckOut;
         this.location = location;
         this.time = time;
     }
 
-    public Boolean getCheckOut() {
+    public String getCheckOut() {
         return IsCheckOut;
     }
 
@@ -23,7 +23,7 @@ public class History {
         return time;
     }
 
-    public void setCheckOut(Boolean checkOut) {
+    public void setCheckOut(String checkOut) {
         IsCheckOut = checkOut;
     }
 

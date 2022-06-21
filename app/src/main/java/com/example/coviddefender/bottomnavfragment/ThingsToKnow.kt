@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.recyclerview.ToKnow
-import com.example.coviddefender.recyclerview.ToKnowAdapter
+import com.example.coviddefender.db.toknow.ToKnow
+import com.example.coviddefender.RecyclerViewAdapter.ToKnowAdapter
 
 class ThingsToKnow : Fragment() {
 

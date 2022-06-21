@@ -3,6 +3,7 @@ package com.example.coviddefender
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.coviddefender.UserAuthentication.RegisterActivity
 
 class LoadScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.coviddefender.R
-import com.example.coviddefender.bottomnavfragment.ThingsToKnow
-import com.example.coviddefender.bottomnavfragment.ThingsToDo
-import com.example.coviddefender.recyclerview.*
+import com.example.coviddefender.db.announcement.Announcement
+import com.example.coviddefender.RecyclerViewAdapter.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

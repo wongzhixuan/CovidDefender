@@ -123,7 +123,7 @@
         tools:layout="@layout/fragment_scan" />
     <fragment
         android:id="@+id/covid_status"
-        android:name="com.example.coviddefender.homefragmentsubpage.CovidStatusFragment"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.CovidStatusFragment"
         android:label="fragment_covid_status"
         tools:layout="@layout/fragment_covid_status" >
         <action
@@ -132,7 +132,7 @@
     </fragment>
     <fragment
         android:id="@+id/health_assessment"
-        android:name="com.example.coviddefender.homefragmentsubpage.HealthAssessment"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.HealthAssessmentFragment"
         android:label="fragment_health_assessment"
         tools:layout="@layout/fragment_health_assessment" >
         <action
@@ -141,7 +141,7 @@
     </fragment>
     <fragment
         android:id="@+id/appointment"
-        android:name="com.example.coviddefender.homefragmentsubpage.Appointment"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.AppointmentFragment"
         android:label="fragment_appointment"
         tools:layout="@layout/fragment_appointment" >
         <action
@@ -153,7 +153,7 @@
     </fragment>
     <fragment
         android:id="@+id/checkIn"
-        android:name="com.example.coviddefender.homefragmentsubpage.CheckIn"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.CheckInFragment"
         android:label="fragment_check_in"
         tools:layout="@layout/fragment_check_in" >
         <action
@@ -165,7 +165,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn"
-        android:name="com.example.coviddefender.homefragmentsubpage.GroupCheckIn"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.GroupCheckInFragment"
         android:label="fragment_group_check_in"
         tools:layout="@layout/fragment_group_check_in" >
         <action
@@ -177,7 +177,7 @@
     </fragment>
     <fragment
         android:id="@+id/history"
-        android:name="com.example.coviddefender.homefragmentsubpage.HistoryFragmenet"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.HistoryFragmenet"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" >
         <action
@@ -186,7 +186,7 @@
     </fragment>
     <fragment
         android:id="@+id/hotspot"
-        android:name="com.example.coviddefender.homefragmentsubpage.Hotspot"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.HotspotFragment"
         android:label="fragment_hotspot"
         tools:layout="@layout/fragment_hotspot" >
         <action
@@ -195,7 +195,7 @@
     </fragment>
     <fragment
         android:id="@+id/vaccineStatus"
-        android:name="com.example.coviddefender.homefragmentsubpage.VaccineStatus"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.VaccineStatusFragment"
         android:label="fragment_vaccine_status"
         tools:layout="@layout/fragment_vaccine_status" >
         <action
@@ -204,7 +204,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn_AddDependent"
-        android:name="com.example.coviddefender.homefragmentsubpage.GroupCheckIn_AddDependent"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.GroupCheckIn_AddDependentFragment"
         android:label="fragment_add_dependent"
         tools:layout="@layout/fragment_add_dependent" >
         <action
@@ -213,7 +213,7 @@
     </fragment>
     <fragment
         android:id="@+id/checkIn_Success"
-        android:name="com.example.coviddefender.homefragmentsubpage.CheckIn_Success"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.CheckIn_Success"
         android:label="fragment_check_in__success"
         tools:layout="@layout/fragment_check_in__success" >
         <action
@@ -222,7 +222,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewAppointment"
-        android:name="com.example.coviddefender.homefragmentsubpage.ViewAppointment"
+        android:name="com.example.coviddefender.HomeFragmentSubpage.ViewAppointment"
         android:label="fragment_view_appointment"
         tools:layout="@layout/fragment_view_appointment" >
         <action
@@ -232,7 +232,7 @@
 
     <fragment
         android:id="@+id/faq"
-        android:name="com.example.coviddefender.navdrawerfragment.FragmentFAQ"
+        android:name="com.example.coviddefender.NavDrawerFragment.FragmentFAQ"
         android:label="fragment_faq"
         tools:layout="@layout/fragment_faq" >
         <action
@@ -241,7 +241,7 @@
     </fragment>
     <fragment
         android:id="@+id/profile"
-        android:name="com.example.coviddefender.navdrawerfragment.EditProfile"
+        android:name="com.example.coviddefender.NavDrawerFragment.EditProfile"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
         <action
@@ -256,7 +256,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_edit_details"
-        android:name="com.example.coviddefender.navdrawerfragment.EditDetails"
+        android:name="com.example.coviddefender.NavDrawerFragment.EditDetails"
         android:label="fragment_edit_details"
         tools:layout="@layout/fragment_edit_details">
         <action
@@ -266,7 +266,7 @@
 
     <fragment
         android:id="@+id/fragment_change_password"
-        android:name="com.example.coviddefender.navdrawerfragment.ChangePassword"
+        android:name="com.example.coviddefender.NavDrawerFragment.ChangePassword"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password">
         <action
@@ -276,7 +276,7 @@
     </fragment>
     <fragment
         android:id="@+id/settings"
-        android:name="com.example.coviddefender.navdrawerfragment.FragmentSettings"
+        android:name="com.example.coviddefender.NavDrawerFragment.FragmentSettings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
