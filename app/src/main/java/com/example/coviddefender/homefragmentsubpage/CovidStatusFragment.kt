@@ -17,6 +17,7 @@ import com.example.coviddefender.R
 import com.example.coviddefender.db.covidstatus.CovidStatus
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -38,7 +39,7 @@ class CovidStatusFragment : Fragment() {
     // Firebase
     private lateinit var auth: FirebaseAuth
     // Cloud Firestore
-    val covidstatus_db = Firebase.firestore
+    lateinit var firestore:FirebaseFirestore
     lateinit var docRef: DocumentReference
     // Covid Status data
     lateinit var covidStatus: CovidStatus
@@ -52,12 +53,13 @@ class CovidStatusFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_covid_status, container, false)
         // initialize firebase
+        firestore = FirebaseFirestore.getInstance()
         //auth = Firebase.auth
         //val currentUser = auth.currentUser
         //var userId: String = currentUser?.uid.toString()
         // for testing
         var userId = "testing"
-        docRef = covidstatus_db.collection("covid_status").document(userId)
+        docRef = firestore.collection("covid_status").document(userId)
 
         // link widgets
         val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)

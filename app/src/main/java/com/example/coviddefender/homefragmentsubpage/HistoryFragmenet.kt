@@ -6,15 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.recyclerview.History
-import com.example.coviddefender.recyclerview.HistoryAdapter
+import com.example.coviddefender.db.history.History
+import com.example.coviddefender.db.history.HistoryViewModel
+import com.example.coviddefender.recyclerview.HistoryListAdapter
 
 
 class HistoryFragmenet : Fragment() {
+    private lateinit var historyViewModel: HistoryViewModel
+    private final var historyList : ArrayList<History> = arrayListOf()
+    private lateinit var history_recyclerview: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,36 +34,20 @@ class HistoryFragmenet : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_history, container, false)
 
-        // Dummy data for recycler view
-        var historys: ArrayList<History> = arrayListOf(
-            History(
-                R.drawable.ic_hotspot,
-                "Xiamen University Malaysia",
-                "Apr 4, 2022, 10:22 AM",
-                false
-            ),
-            History(R.drawable.ic_hotspot, "Random Location 1", "Apr 1, 2022, 10:22 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 123456", "Apr 1, 2022, 9:30 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 654321", "Apr 1, 2022, 9:22 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 1", "Apr 1, 2022, 10:22 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 123456", "Apr 1, 2022, 9:30 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 654321", "Apr 1, 2022, 9:22 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 1", "Apr 1, 2022, 10:22 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 123456", "Apr 1, 2022, 9:30 AM", true),
-            History(R.drawable.ic_hotspot, "Random Location 654321", "Apr 1, 2022, 9:22 AM", true)
-
-        )
         // History Recycler View
-        val history_recyclerview: RecyclerView =
+        history_recyclerview  =
             view.findViewById<RecyclerView>(R.id.history_recyclerview)
         history_recyclerview.layoutManager = LinearLayoutManager(
             view.context,
             LinearLayoutManager.VERTICAL,
             false
         )
+        var adapter:HistoryListAdapter = HistoryListAdapter(HistoryListAdapter.HistoryDiff())
         // adopt data to recycler view using adapter
-        history_recyclerview.adapter = HistoryAdapter(historys)
-
+        historyViewModel = ViewModelProvider(this)[HistoryViewModel::class.java]
+        historyViewModel.allHistory.observe(
+            viewLifecycleOwner
+        ) { historyList -> adapter.submitList(historyList) }
 
 
         val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)

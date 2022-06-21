@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.recyclerview.Dependent
 import com.example.coviddefender.recyclerview.DependentAdapter
-import com.example.coviddefender.recyclerview.HistoryAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
