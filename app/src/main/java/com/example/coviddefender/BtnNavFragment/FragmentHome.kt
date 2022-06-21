@@ -62,15 +62,18 @@ class FragmentHome : Fragment() {
         var announcements: ArrayList<Announcement> = arrayListOf(
             Announcement(
                 R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+                "Lorem ipsum dolor sit amet, consectetur adipiscin",
+                ""
             ),
             Announcement(
                 R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+                "Lorem ipsum dolor sit amet, consectetur adipiscin",
+                ""
             ),
             Announcement(
                 R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
+                "Lorem ipsum dolor sit amet, consectetur adipiscin",
+                ""
             )
         )
 

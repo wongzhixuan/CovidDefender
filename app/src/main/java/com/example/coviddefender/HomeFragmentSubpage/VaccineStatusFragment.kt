@@ -59,6 +59,11 @@ class VaccineStatusFragment : Fragment() {
             findNavController().navigate(R.id.action_vaccineStatus_to_home)
 
         })
+        btn_download.setOnClickListener {
+            val inflater = LayoutInflater.from(context)
+
+
+        }
         return view
     }
 
