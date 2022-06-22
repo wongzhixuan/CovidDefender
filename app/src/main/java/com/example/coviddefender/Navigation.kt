@@ -39,13 +39,13 @@ class Navigation : AppCompatActivity() {
             navView.menu.getItem(2).isChecked = true
             navController.navigate(R.id.checkIn_Success)
 
-//            var integrator: IntentIntegrator = IntentIntegrator(this)
-//            integrator.setOrientationLocked(false)
-//            integrator.setPrompt("Scan QR code")
-//            integrator.setBeepEnabled(false) // no beep sound when scanning
-//            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
-//            integrator.initiateScan()
-//            isFromActivity = true
+            var integrator: IntentIntegrator = IntentIntegrator(this)
+            integrator.setOrientationLocked(false)
+            integrator.setPrompt("Scan QR code")
+            integrator.setBeepEnabled(false) // no beep sound when scanning
+            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+            integrator.initiateScan()
+            isFromActivity = true
 
         })
 

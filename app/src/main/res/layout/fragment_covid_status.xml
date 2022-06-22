@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homefragmentsubpage.CovidStatus"
+    tools:context=".HomeFragmentSubpage.CovidStatusFragment"
     android:background="@color/dim_grey">
 
    <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,7 +66,6 @@
            android:layout_marginStart="20dp"
            android:layout_marginTop="40dp"
            android:fontFamily="@font/gilroy_regular"
-           android:text="8 Apr 2022, 3:35 PM"
            android:textColor="@color/dim_grey"
            android:textSize="16sp"
            app:layout_constraintStart_toEndOf="@+id/btn_refresh"
@@ -122,7 +121,7 @@
            app:layout_constraintTop_toBottomOf="@+id/tv_covid_risk_status_title" />
         <!-- QR code -->
        <ImageView
-           android:id="@+id/qr_code"
+           android:id="@+id/covidstatus_qr_code"
            android:layout_width="250dp"
            android:layout_height="250dp"
            android:layout_marginTop="10dp"
@@ -141,7 +140,7 @@
            android:background="@drawable/risk_bg"
            android:orientation="vertical"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/qr_code">
+           app:layout_constraintTop_toBottomOf="@+id/covidstatus_qr_code">
 
            <TextView
                android:layout_width="match_parent"
@@ -172,7 +171,7 @@
            android:background="@drawable/risk_bg"
            android:orientation="vertical"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/qr_code">
+           app:layout_constraintTop_toBottomOf="@+id/covidstatus_qr_code">
 
            <TextView
                android:layout_width="match_parent"
