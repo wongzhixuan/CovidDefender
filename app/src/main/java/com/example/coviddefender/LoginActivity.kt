@@ -27,6 +27,7 @@ class LoginActivity :AppCompatActivity() {
     //text input layout
     lateinit var txt_field_country_code: TextInputLayout
     lateinit var txt_field_contact_no: TextInputLayout
+    lateinit var register_link : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +36,9 @@ class LoginActivity :AppCompatActivity() {
         //get reference to all views
         et_contact_no = findViewById(R.id.et_contact_no)
         txt_field_contact_no = findViewById(R.id.txt_field_contact_no)
+        register_link = findViewById(R.id.register_link)
 
 
-
-        val register_link : TextView = findViewById(R.id.register_link)
         register_link.setOnClickListener(View.OnClickListener {
             val intent = Intent (this,RegisterActivity::class.java).apply{
 

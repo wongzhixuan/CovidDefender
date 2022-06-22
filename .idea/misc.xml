@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/card_shadow.xml" value="0.231" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/fragment_change_password.xml" value="0.3485" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_card_statistics.xml" value="0.232" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_code.xml" value="0.363" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_contact_no.xml" value="0.362" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_country_code.xml" value="0.331" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/ic_covid_self_test_icon.xml" value="0.331" />
@@ -29,7 +30,7 @@
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/drawable/rect_stroke_background.xml" value="0.3595" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_login.xml" value="0.152" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_navigation.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_1.xml" value="0.176" />
+        <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_1.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_2.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_3.xml" value="0.2" />
         <entry key="..\:/Users/Shien/AndroidStudioProjects/CovidDefender/app/src/main/res/layout/activity_register_4.xml" value="0.2" />

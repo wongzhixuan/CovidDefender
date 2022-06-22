@@ -1,5 +1,6 @@
 package com.example.coviddefender.navdrawerfragment
 
+import android.R.attr.password
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,9 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
-import com.example.coviddefender.homefragmentsubpage.Appointment
 import com.google.android.material.button.MaterialButton
+
+
 
 class EditProfile : Fragment() {
 
@@ -37,7 +39,7 @@ class EditProfile : Fragment() {
 
         })
 
-        val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back )
+        val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_editprofile_to_home)
 
