@@ -36,8 +36,6 @@
 
         <activity android:name=".UserAuthentication.RegisterActivity"
             android:exported="false"/>
-
-
         <activity android:name=".UserAuthentication.RegisterActivity2"
             android:exported="false"/>
         <activity android:name=".UserAuthentication.RegisterActivity3"

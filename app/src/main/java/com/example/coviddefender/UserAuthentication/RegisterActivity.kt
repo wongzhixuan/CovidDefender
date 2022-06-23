@@ -1,4 +1,4 @@
-package com.example.coviddefender
+package com.example.coviddefender.UserAuthentication
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -14,6 +14,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
+import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
@@ -41,23 +43,39 @@ class RegisterActivity : AppCompatActivity() {
 
     // Firebase
     private lateinit var auth: FirebaseAuth
-    val db = Firebase.firestore
 
     private val TAG = "MAIN_TAG"
 
     //progress dialog
     private lateinit var progressDialog: ProgressDialog
 
+    val db = Firebase.firestore
+
+    val user = hashMapOf(
+        "contactNo" to "",
+        "fullName" to "",
+        "nric" to null,
+        "nationality" to "",
+        "emailAdd" to "",
+        "gender" to "",
+        "age" to null,
+        "address" to "",
+        "postcode" to "",
+        "state" to "",
+        "password" to "",
+    )
+    var id = db.collection("users").document().getId()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_1)
+        setContentView(com.example.coviddefender.R.layout.activity_register_1)
 
-        et_contact_no = findViewById(R.id.et_contact_no)
-        et_verification_code = findViewById(R.id.et_verification_code)
-        txt_field_contact_no = findViewById(R.id.txt_field_contact_no)
-        txt_field_verification_code = findViewById(R.id.txt_field_verification_code)
-        btn_verify = findViewById(R.id.btn_verify)
-        resend_link = findViewById(R.id.resend_link)
+        et_contact_no = findViewById(com.example.coviddefender.R.id.et_contact_no)
+        et_verification_code = findViewById(com.example.coviddefender.R.id.et_verification_code)
+        txt_field_contact_no = findViewById(com.example.coviddefender.R.id.txt_field_contact_no)
+        txt_field_verification_code = findViewById(com.example.coviddefender.R.id.txt_field_verification_code)
+        btn_verify = findViewById(com.example.coviddefender.R.id.btn_verify)
+        resend_link = findViewById(com.example.coviddefender.R.id.resend_link)
 
         et_contact_no.visibility = View.VISIBLE
         et_verification_code.visibility = View.GONE
@@ -114,12 +132,26 @@ class RegisterActivity : AppCompatActivity() {
         }
         // [END phone_auth_callbacks]
 
-        login_link = findViewById(R.id.login_link)
+        login_link = findViewById(com.example.coviddefender.R.id.login_link)
         login_link.setOnClickListener(View.OnClickListener {
-            val intent = Intent (this,LoginActivity::class.java).apply{
+            val intent = Intent (this, LoginActivity::class.java).apply{
 
             }
             startActivity(intent)
+        })
+
+        btn_continue = findViewById<Button>(com.example.coviddefender.R.id.btn_continue)
+        btn_continue.setOnClickListener(View.OnClickListener {
+            var contactno : String = et_contact_no.getText().toString()
+
+            if (TextUtils.isEmpty(contactno)) {
+                // Check if all fields are filled
+                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
+            } else{
+                startPhoneNumberVerification(contactno)
+                db.collection("users").document(id).set(user)
+                db.collection("users").document(id).update("contactNo", contactno)
+            }
         })
 
         // Verify button: validate, verify phone number with verification code
@@ -136,20 +168,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         })
 
-        btn_continue = findViewById<Button>(R.id.btn_continue)
-        btn_continue.setOnClickListener(View.OnClickListener {
-            var contactno : String = et_contact_no.getText().toString()
-
-
-            if (TextUtils.isEmpty(contactno)) {
-                // Check if all fields are filled
-                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
-                    .show()
-            } else{
-                startPhoneNumberVerification(contactno)
-
-            }
-        })
 
         //resend OTP button: if code didnt receive, resend OTP
         resend_link.setOnClickListener {
@@ -227,9 +245,10 @@ class RegisterActivity : AppCompatActivity() {
                     progressDialog.dismiss()
                     val phone = auth.currentUser?.phoneNumber
                     Toast.makeText(this, "Sign Up Success",Toast.LENGTH_SHORT).show()
-
                     //start register activity 2
-                    startActivity(Intent(this,RegisterActivity2::class.java))
+                    startActivity(Intent(this,RegisterActivity2::class.java).apply {
+                        putExtra("DOCUMENT_ID",id)
+                    })
                 } else {
                     // login failed
                     Toast.makeText(this,"Retry again",Toast.LENGTH_SHORT).show()
@@ -257,6 +276,10 @@ class RegisterActivity : AppCompatActivity() {
         private const val TAG = "PhoneAuthActivity"
     }
 
+    private fun storeData(){
+
+
+    }
 
     override fun onResume() {
         super.onResume()

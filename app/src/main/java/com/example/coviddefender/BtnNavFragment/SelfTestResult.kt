@@ -60,7 +60,7 @@ class SelfTestResult: Fragment() {
 
 
         // Date input
-        et_date.setInputType(InputType.TYPE_NULL);
+        et_date.setInputType(InputType.TYPE_NULL)
         et_date.setOnClickListener {
             val cldr = Calendar.getInstance()
             val day = cldr[Calendar.DAY_OF_MONTH]

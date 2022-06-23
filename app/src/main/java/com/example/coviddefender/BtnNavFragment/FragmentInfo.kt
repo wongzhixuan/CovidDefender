@@ -47,7 +47,7 @@ class FragmentInfo : Fragment() {
 // Announcement Recycler View
         // Dummy data for recycler view
         var announcements: ArrayList<Announcement> = arrayListOf(
-            Announcement(
+            /*Announcement(
                 R.drawable.covid_illustration,
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             ),
@@ -58,7 +58,7 @@ class FragmentInfo : Fragment() {
             Announcement(
                 R.drawable.father_and_son,
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )
+            )*/
         )
         //Recycler View
         val announcement_recyclerview: RecyclerView? =
