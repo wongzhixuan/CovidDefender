@@ -141,7 +141,7 @@ class RegisterActivity2 : AppCompatActivity() {
                         val gender: String = radioButton.text.toString()
                         db.collection("users").document(id).update("gender", gender)
 
-                        val intent = Intent(this,RegisterActivity3::class.java).apply {
+                        val intent = Intent(this,RegisterActivity5::class.java).apply {
                             putExtra("DOCUMENT_ID",id)
                         }
                         startActivity(intent)

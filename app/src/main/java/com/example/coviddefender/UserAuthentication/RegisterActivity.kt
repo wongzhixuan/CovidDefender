@@ -10,12 +10,12 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
-import com.google.firebase.firestore.DocumentId
-import com.google.firebase.firestore.FieldPath
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
@@ -62,7 +62,6 @@ class RegisterActivity : AppCompatActivity() {
         "address" to "",
         "postcode" to "",
         "state" to "",
-        "password" to "",
     )
     var id = db.collection("users").document().getId()
 
@@ -134,30 +133,45 @@ class RegisterActivity : AppCompatActivity() {
 
         login_link = findViewById(com.example.coviddefender.R.id.login_link)
         login_link.setOnClickListener(View.OnClickListener {
-            val intent = Intent (this, LoginActivity::class.java).apply{
-
-            }
+            val intent = Intent (this, LoginActivity::class.java)
             startActivity(intent)
         })
 
-        btn_continue = findViewById<Button>(com.example.coviddefender.R.id.btn_continue)
+
+        btn_continue = findViewById(com.example.coviddefender.R.id.btn_continue)
         btn_continue.setOnClickListener(View.OnClickListener {
             var contactno : String = et_contact_no.getText().toString()
-
             if (TextUtils.isEmpty(contactno)) {
                 // Check if all fields are filled
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
-            } else{
-                startPhoneNumberVerification(contactno)
-                db.collection("users").document(id).set(user)
-                db.collection("users").document(id).update("contactNo", contactno)
+            }
+            else{
+                db.collection("users")
+                    .whereEqualTo("contactNo", contactno)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        if(documents.size()!=0) {
+                            Toast.makeText(this,
+                                    "User Exists. Please proceed to sign in.",
+                                    Toast.LENGTH_LONG
+                            ).show()
+                            startActivity(Intent(this, LoginActivity::class.java))
+                        }
+                        else {
+                            startPhoneNumberVerification(contactno)
+                            db.collection("users").document(id).set(user)
+                            db.collection("users").document(id).update("contactNo", contactno)
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.w(TAG, "Error getting documents: ", exception)
+                    }
             }
         })
 
         // Verify button: validate, verify phone number with verification code
         btn_verify.setOnClickListener(View.OnClickListener {
             var code :String = et_verification_code.getText().toString()
-
             if (TextUtils.isEmpty(code)) {
                 // Check if all fields are filled
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
@@ -276,10 +290,6 @@ class RegisterActivity : AppCompatActivity() {
         private const val TAG = "PhoneAuthActivity"
     }
 
-    private fun storeData(){
-
-
-    }
 
     override fun onResume() {
         super.onResume()

@@ -31,6 +31,9 @@
     <string name="resendOTP">
         <u>Didn\'t get the OTP? Resend</u>
     </string>
+    <string name="forgetpass">
+        <u>Forgot password? Click here</u>
+    </string>
     <string name="profile">Profile</string>
     <string name="self_test">COVID-19 Self-Test</string>
     <string name="self_test_content_1">

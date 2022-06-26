@@ -79,7 +79,7 @@ class RegisterActivity3:AppCompatActivity() {
                     db.collection("users").document(id).update("postcode", postcode)
                 }
 
-                startActivity(Intent(this,RegisterActivity4::class.java).apply {
+                startActivity(Intent(this,RegisterActivity5::class.java).apply {
                     putExtra("DOCUMENT_ID",id)
                 })
             }

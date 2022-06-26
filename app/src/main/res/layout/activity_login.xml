@@ -36,19 +36,21 @@
 
         <ImageView
             android:id="@+id/login_illustration"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_margin="30dp"
+            android:layout_width="349dp"
+            android:layout_height="134dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
             android:src="@drawable/covid_illustration"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_title"/>
+            app:layout_constraintTop_toBottomOf="@+id/login_title" />
 
         <TextView
             android:id="@+id/tv_login_covid_defender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/covid_defender"
@@ -56,7 +58,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_illustration" />
+            app:layout_constraintTop_toBottomOf="@+id/login_illustration" />
 
         <TextView
             android:id="@+id/tv_login_desc"
@@ -78,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/gilroy_semibold"
             android:text="Phone Number"
             android:textColor="@color/prussian_blue"
@@ -86,15 +88,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_desc" />
 
-
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_contact_no"
+            android:id="@+id/txt_field_login_contact_no"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Contact Number"
+            android:hint="Phone Number"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             android:layout_marginStart="30dp"
@@ -105,21 +105,23 @@
             app:startIconTint="@color/dim_grey">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_contact_no"
+                    android:id="@+id/et_login_contact_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
-                    android:inputType="number"
+                    android:inputType="text"
                     tools:layout_editor_absoluteX="13dp"
                     tools:layout_editor_absoluteY="523dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/register_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="50dp"
             android:clickable="true"
             android:fontFamily="@font/gilroy_light"
@@ -129,26 +131,22 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_field_contact_no" />
-
+            app:layout_constraintTop_toBottomOf="@id/txt_field_login_contact_no" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             android:backgroundTint="@color/light_green"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="Login"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_link"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/register_link" />
 
 
 
