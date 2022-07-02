@@ -13,7 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
@@ -81,6 +84,12 @@ class RegisterActivity : AppCompatActivity() {
         txt_field_verification_code.visibility = View.GONE
         btn_verify.visibility = View.GONE
         resend_link.visibility = View.GONE
+
+        FirebaseApp.initializeApp(/*context=*/this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            SafetyNetAppCheckProviderFactory.getInstance()
+        )
 
         // In the onCreate() method, initialize the FirebaseAuth instance.
         auth = FirebaseAuth.getInstance()
