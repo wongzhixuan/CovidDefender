@@ -61,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
         "age" to null,
         "address" to "",
         "postcode" to "",
-        "state" to "",
+        "state" to ""
     )
     var id = db.collection("users").document().getId()
 
