@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.history.History
+import com.example.coviddefender.entity.History
 import com.example.coviddefender.db.history.HistoryViewModel
 import com.example.coviddefender.RecyclerViewAdapter.HistoryListAdapter
 

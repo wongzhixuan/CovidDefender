@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.covidstatus;
+package com.example.coviddefender.entity;
 
 public class CovidStatus {
     private String update_time;

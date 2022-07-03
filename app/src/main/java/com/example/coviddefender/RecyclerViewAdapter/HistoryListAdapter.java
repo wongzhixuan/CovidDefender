@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coviddefender.R;
-import com.example.coviddefender.db.history.History;
+import com.example.coviddefender.entity.History;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;

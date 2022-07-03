@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.history;
+package com.example.coviddefender.entity;
 
 public class History {
     public String location;

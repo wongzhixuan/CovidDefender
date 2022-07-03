@@ -40,8 +40,7 @@
             android:exported="false"/>
         <activity android:name=".UserAuthentication.RegisterActivity3"
             android:exported="false"/>
-        <activity android:name=".UserAuthentication.RegisterActivity4"
-            android:exported="false"/>
+
         <activity android:name=".UserAuthentication.RegisterActivity5"
             android:exported="false"/>
 

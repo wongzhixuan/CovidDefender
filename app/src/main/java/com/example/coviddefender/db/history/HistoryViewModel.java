@@ -1,21 +1,14 @@
 package com.example.coviddefender.db.history;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FieldValue;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.example.coviddefender.entity.History;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class HistoryViewModel extends AndroidViewModel {
     String TAG = "HistoryViewModel";
