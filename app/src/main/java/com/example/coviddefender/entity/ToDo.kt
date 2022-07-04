@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.todo
+package com.example.coviddefender.entity
 import androidx.annotation.DrawableRes
 
 data class ToDo (

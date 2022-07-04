@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.R
-import com.example.coviddefender.db.announcement.Announcement
+import com.example.coviddefender.entity.Announcement
 import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView

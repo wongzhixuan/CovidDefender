@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.hotspot;
+package com.example.coviddefender.entity;
 
 public class Hotspot {
 

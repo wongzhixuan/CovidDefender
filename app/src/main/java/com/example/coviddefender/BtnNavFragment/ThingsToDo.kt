@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.todo.ToDo
+import com.example.coviddefender.entity.ToDo
 import com.example.coviddefender.RecyclerViewAdapter.ToDoAdapter
 
 class ThingsToDo : Fragment() {

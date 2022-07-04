@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.faq.FAQ
+import com.example.coviddefender.entity.FAQ
 
 class FAQAdapter(var faq: ArrayList<FAQ>) :
     RecyclerView.Adapter<FAQAdapter.FAQViewHolder>()  // interface

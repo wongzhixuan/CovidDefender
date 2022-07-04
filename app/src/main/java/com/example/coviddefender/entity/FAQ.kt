@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.faq
+package com.example.coviddefender.entity
 
 data class FAQ (
     var faqquestion: String,

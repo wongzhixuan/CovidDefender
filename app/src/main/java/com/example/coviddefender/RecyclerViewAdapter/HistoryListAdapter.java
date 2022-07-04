@@ -1,43 +1,75 @@
 package com.example.coviddefender.RecyclerViewAdapter;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.AsyncDifferConfig;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coviddefender.R;
-import com.example.coviddefender.entity.History;
+import com.example.coviddefender.db.history.HistoryModal;
 import com.google.android.material.button.MaterialButton;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class HistoryListAdapter extends ListAdapter<History, HistoryListAdapter.HistoryViewHolder> {
-    List<History> historyList;
+public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.HistoryViewHolder> {
+    int lastPos = -1;
+    // create variables for list, context, interface
+    private ArrayList<HistoryModal> historyList;
+    private Context context;
+    private HistoryClickInterface historyClickInterface;
 
-    public HistoryListAdapter(@NonNull DiffUtil.ItemCallback<History> diffCallback) {
-        super(diffCallback);
-    }
-
-    protected HistoryListAdapter(@NonNull AsyncDifferConfig<History> config) {
-        super(config);
+    // create constructor
+    public HistoryListAdapter(ArrayList<HistoryModal> historyList, Context context, HistoryClickInterface historyClickInterface) {
+        this.historyList = historyList;
+        this.context = context;
+        this.historyClickInterface = historyClickInterface;
     }
 
     @Override
-    public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HistoryListAdapter.HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return HistoryViewHolder.create(parent);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HistoryListAdapter.HistoryViewHolder holder, int position) {
-        History current = getItem(position);
-        holder.bind(current.getLocation(), current.getTime(), current.getCheckOut());
+        // setting data to our recycler view item
+        HistoryModal historyModal = historyList.get(position);
+        holder.tv_location_name.setText(historyModal.getLocation());
+        holder.tv_checkin_time.setText(historyModal.getTime());
+        if (historyModal.getIsCheckOut() == "true") {
+            holder.btn_check_out.setEnabled(false);
+        } else {
+            holder.btn_check_out.setEnabled(true);
+        }
+
+        setAnimation(holder.itemView, position);
+        holder.btn_check_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                historyClickInterface.onHistoryClick(position);
+            }
+        });
+
+    }
+
+    private void setAnimation(View itemView, int position) {
+        if (position > lastPos) {
+            // on below line we are setting animation.
+            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+            itemView.setAnimation(animation);
+            lastPos = position;
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return historyList.size();
     }
 
     static class HistoryViewHolder extends RecyclerView.ViewHolder {
@@ -47,42 +79,25 @@ public class HistoryListAdapter extends ListAdapter<History, HistoryListAdapter.
 
         private HistoryViewHolder(View itemView) {
             super(itemView);
+            // initialize variables
             tv_checkin_time = itemView.findViewById(R.id.tv_checkin_time);
             tv_location_name = itemView.findViewById(R.id.tv_location_name);
             btn_check_out = itemView.findViewById(R.id.btn_check_out);
 
         }
 
-        static HistoryViewHolder create(ViewGroup parent) {
+        static HistoryListAdapter.HistoryViewHolder create(ViewGroup parent) {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.history_item, parent, false);
             return new HistoryViewHolder(view);
         }
 
-        public void bind(String location, String time, String IsCheckOut) {
-            tv_location_name.setText(location);
-            tv_checkin_time.setText(time);
-            if (IsCheckOut == "true") {
-                btn_check_out.setStrokeColorResource(R.color.dim_grey_light);
-                btn_check_out.setTextColor(Color.GRAY);
-            } else {
-
-            }
-        }
     }
 
-    public static class HistoryDiff extends DiffUtil.ItemCallback<History> {
-
-        @Override
-        public boolean areItemsTheSame(@NonNull History oldItem, @NonNull History newItem) {
-            return oldItem == newItem;
-        }
-
-        @Override
-        public boolean areContentsTheSame(@NonNull History oldItem, @NonNull History newItem) {
-            return oldItem.getTime().equals(newItem.getTime()) &&
-                    oldItem.getLocation().equals(newItem.getLocation()) &&
-                    oldItem.getCheckOut().equals(newItem.getCheckOut());
-        }
+    // creating a interface for on click
+    public interface HistoryClickInterface {
+        void onHistoryClick(int position);
     }
+
+
 }

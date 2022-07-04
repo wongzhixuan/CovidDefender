@@ -1,6 +1,7 @@
 package com.example.coviddefender.entity;
 
 public class History {
+
     public String location;
     public String time;
     public String IsCheckOut;

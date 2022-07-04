@@ -33,4 +33,8 @@
 
     <color name="grey_orange">#E1DAD3</color>
     <color name="light_green_60">#B2D6BF</color>
+
+    <color name="blue_200">#296D98</color>
+    <color name="blue_500">#296D98</color>
+    <color name="blue_700">#296D98</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.vaccine_info
+package com.example.coviddefender.entity
 
 import androidx.annotation.DrawableRes
 
