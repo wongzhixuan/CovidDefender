@@ -1,6 +1,5 @@
 package com.example.coviddefender.RecyclerViewAdapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,65 +11,62 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coviddefender.R;
-import com.example.coviddefender.db.history.HistoryModal;
+import com.example.coviddefender.entity.History;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 
-import java.util.ArrayList;
-
-public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.HistoryViewHolder> {
+public class HistoryListAdapter extends FirestoreRecyclerAdapter<History, HistoryListAdapter.HistoryViewHolder> {
     int lastPos = -1;
-    // create variables for list, context, interface
-    private ArrayList<HistoryModal> historyList;
-    private Context context;
-    private HistoryClickInterface historyClickInterface;
 
-    // create constructor
-    public HistoryListAdapter(ArrayList<HistoryModal> historyList, Context context, HistoryClickInterface historyClickInterface) {
-        this.historyList = historyList;
-        this.context = context;
-        this.historyClickInterface = historyClickInterface;
+    // constructor
+    public HistoryListAdapter(@NonNull FirestoreRecyclerOptions<History> options) {
+        super(options);
     }
 
-    @Override
-    public HistoryListAdapter.HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return HistoryViewHolder.create(parent);
-    }
 
     @Override
-    public void onBindViewHolder(@NonNull HistoryListAdapter.HistoryViewHolder holder, int position) {
-        // setting data to our recycler view item
-        HistoryModal historyModal = historyList.get(position);
-        holder.tv_location_name.setText(historyModal.getLocation());
-        holder.tv_checkin_time.setText(historyModal.getTime());
-        if (historyModal.getIsCheckOut() == "true") {
+    protected void onBindViewHolder(@NonNull HistoryViewHolder holder, int position, @NonNull History model) {
+        // bind data with view
+        holder.tv_location_name.setText(model.getLocation());
+        holder.tv_checkin_time.setText(String.valueOf(model.getTime()));
+        if(model.getCheckOut().toString().equals("true")) {
             holder.btn_check_out.setEnabled(false);
-        } else {
+        }
+        else{
             holder.btn_check_out.setEnabled(true);
         }
-
-        setAnimation(holder.itemView, position);
+//        setAnimation(holder.itemView, position);
         holder.btn_check_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                historyClickInterface.onHistoryClick(position);
+
             }
         });
-
     }
 
-    private void setAnimation(View itemView, int position) {
-        if (position > lastPos) {
-            // on below line we are setting animation.
-            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-            itemView.setAnimation(animation);
-            lastPos = position;
-        }
-    }
+//    private void setAnimation(View itemView, int position) {
+//        if (position > lastPos) {
+//            // setting animation
+//            Animation animation = AnimationUtils.loadAnimation(itemView.getContext(), android.R.anim.slide_in_left);
+//            itemView.setAnimation(animation);
+//            lastPos = position;
+//        }
+//    }
 
+    @NonNull
     @Override
-    public int getItemCount() {
-        return historyList.size();
+    public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.history_item, parent, false);
+        return new HistoryViewHolder(view);
     }
+
+
+//    // creating a interface for on click
+//    public interface HistoryClickInterface {
+//        void onHistoryClick(int position);
+//    }
 
     static class HistoryViewHolder extends RecyclerView.ViewHolder {
         private final TextView tv_checkin_time;
@@ -86,17 +82,6 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
 
         }
 
-        static HistoryListAdapter.HistoryViewHolder create(ViewGroup parent) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.history_item, parent, false);
-            return new HistoryViewHolder(view);
-        }
-
-    }
-
-    // creating a interface for on click
-    public interface HistoryClickInterface {
-        void onHistoryClick(int position);
     }
 
 

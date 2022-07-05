@@ -1,18 +1,20 @@
 package com.example.coviddefender.entity;
 
+import com.google.firebase.Timestamp;
+
 public class History {
 
     public String location;
-    public String time;
-    public String IsCheckOut;
+    public Timestamp time;
+    public Boolean IsCheckOut;
 
-    public History(String IsCheckOut, String location, String time){
+    public History(Boolean IsCheckOut, String location, Timestamp time){
         this.IsCheckOut = IsCheckOut;
         this.location = location;
         this.time = time;
     }
 
-    public String getCheckOut() {
+    public Boolean getCheckOut() {
         return IsCheckOut;
     }
 
@@ -20,11 +22,11 @@ public class History {
         return location;
     }
 
-    public String getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setCheckOut(String checkOut) {
+    public void setCheckOut(Boolean checkOut) {
         IsCheckOut = checkOut;
     }
 
@@ -32,7 +34,7 @@ public class History {
         this.location = location;
     }
 
-    public void setTime(String time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }
