@@ -36,8 +36,8 @@
 
         <ImageView
             android:id="@+id/login_illustration"
-            android:layout_width="349dp"
-            android:layout_height="134dp"
+            android:layout_width="273dp"
+            android:layout_height="89dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
@@ -76,36 +76,36 @@
             app:layout_constraintTop_toBottomOf="@id/tv_login_covid_defender"/>
 
         <TextView
-            android:id="@+id/tv_login_phone_no"
+            android:id="@+id/tv_login_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/gilroy_semibold"
-            android:text="Phone Number"
+            android:text="Email Address"
             android:textColor="@color/prussian_blue"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_desc" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_field_login_contact_no"
+            android:id="@+id/txt_field_login_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Phone Number"
+            android:hint="Email Address"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_login_phone_no"
-            app:startIconDrawable="@drawable/ic_contact_no"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_email"
+            app:startIconDrawable="@drawable/ic_mail"
             app:startIconTint="@color/dim_grey">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_login_contact_no"
+                    android:id="@+id/et_login_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter"
@@ -115,13 +115,64 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tv_login_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="Password"
+            android:textColor="@color/prussian_blue"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_field_login_email" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_field_login_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:inputType="text"
+                    tools:layout_editor_absoluteX="13dp"
+                    tools:layout_editor_absoluteY="523dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/fgtpwd_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:clickable="true"
+            android:fontFamily="@font/gilroy_light"
+            android:gravity="bottom"
+            android:text="@string/forgetpass"
+            android:textColor="@color/prussian_blue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_field_login_password" />
 
         <TextView
             android:id="@+id/register_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="80dp"
             android:layout_marginEnd="50dp"
             android:clickable="true"
             android:fontFamily="@font/gilroy_light"
@@ -131,7 +182,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_field_login_contact_no" />
+            app:layout_constraintTop_toBottomOf="@id/fgtpwd_link" />
 
         <Button
             android:id="@+id/btn_login"
@@ -147,6 +198,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/register_link" />
+
+
 
 
 

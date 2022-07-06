@@ -46,6 +46,12 @@
         \u2022 More information are available on:
         <u>https://covid-19.moh.gov.my/garis-panduan/gp-umum-covid19/kit-ujian-kendiri-covid19-self-test-kit</u>
     </string>
+    <string name="i_agreed_to_terms_of_service_and_privacy_policy">
+        I agreed to Terms of Service and Privacy Policy.
+    </string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="fgtpwd_desc">
+        Please enter the email associated with your account and we will send an email to reset your password.</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

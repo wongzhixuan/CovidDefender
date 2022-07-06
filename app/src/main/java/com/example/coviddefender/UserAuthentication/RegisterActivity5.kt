@@ -11,24 +11,19 @@ import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity5:AppCompatActivity() {
 
-    lateinit var et_password : TextInputEditText
-    lateinit var et_confirm_password: TextInputEditText
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_5)
 
         //next button
-        val btn_login: Button = findViewById<Button>(R.id.btn_login)
-        btn_login?.setOnClickListener(View.OnClickListener{
-            val intent = Intent (this, LoginActivity::class.java).apply{
-
-            }
+        val btn_login: Button = findViewById(R.id.btn_login)
+        btn_login.setOnClickListener(View.OnClickListener{
+            val intent = Intent (this, LoginActivity::class.java)
             startActivity(intent)
         })
 
-        val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
-        register_back?.setOnClickListener(View.OnClickListener{
+        val register_back: ImageButton = findViewById(R.id.register_back)
+        register_back.setOnClickListener(View.OnClickListener{
             finish()
         })
     }

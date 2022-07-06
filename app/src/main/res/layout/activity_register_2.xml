@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_title"
         android:max="100"
-        android:progress="50"
+        android:progress="40"
         android:progressBackgroundTint="@color/dim_grey_light"
         android:progressTint="@color/prussian_blue"
         android:progressDrawable="@drawable/progress_bar_theme"/>
@@ -151,42 +151,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tv_register_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:text="Email"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txt_field_email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:hint="Please enter your email"
-                app:endIconMode="clear_text"
-                app:errorEnabled="true"
-                app:startIconDrawable="@drawable/ic_mail"
-                app:startIconTint="@color/dim_grey">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_mail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:inputType="textEmailAddress" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
                 android:id="@+id/tv_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:text="Gender"/>
-
 
                 <RadioGroup
                     android:id="@+id/radio_group_gender"
@@ -214,7 +184,6 @@
                         android:textColor="@color/dim_grey"
                         android:textSize="16sp"/>
                 </RadioGroup>
-
 
             <TextView
                 android:id="@+id/tv_register_age"

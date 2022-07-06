@@ -28,7 +28,12 @@ class RegisterActivity3:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_3)
 
-        var id = intent.getStringExtra("DOCUMENT_ID")
+        val email = intent.getStringExtra("email")
+        val name = intent.getStringExtra("name")
+        val nric = intent.getStringExtra("nric")
+        val gender = intent.getStringExtra("gender")
+        val age = intent.getStringExtra("age")
+        val nationality = intent.getStringExtra("nationality")
 
         et_address = findViewById(R.id.et_address)
         et_postcode = findViewById(R.id.et_postcode)
@@ -48,9 +53,7 @@ class RegisterActivity3:AppCompatActivity() {
                 DialogInterface.OnClickListener { dialogInterface, i ->
                     checkedItems_state[0] = i
                     et_state.setText(states[i])
-                    if (id != null) {
-                        db.collection("users").document(id).update("state", states[i])
-                    }
+                    intent.putExtra("state", states[i])
                     dialogInterface.dismiss()
                 })
             builder.setNegativeButton(
@@ -74,13 +77,16 @@ class RegisterActivity3:AppCompatActivity() {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
                     .show()
             } else{
-                if (id != null) {
-                    db.collection("users").document(id).update("address", add)
-                    db.collection("users").document(id).update("postcode", postcode)
-                }
-
-                startActivity(Intent(this,RegisterActivity5::class.java).apply {
-                    putExtra("DOCUMENT_ID",id)
+                startActivity(Intent(this,RegisterActivity4::class.java).apply {
+                    putExtra("name",name)
+                    putExtra("email",email)
+                    putExtra("gender",gender)
+                    putExtra("nric",nric)
+                    putExtra("address", add)
+                    putExtra("postcode",postcode)
+                    putExtra("age",age)
+                    putExtra("nationality",nationality)
+                    putExtra("state",state)
                 })
             }
         })

@@ -5,21 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/register_back_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="Back"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
         android:fontFamily="@font/gilroy_extrabold"
         android:text="@string/register"
         android:textColor="@color/prussian_blue"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@id/register_back_4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/register_pb"
+        android:id="@+id/register_pb_4"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,95 +45,89 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_title"
         android:max="100"
-        android:progress="20"
+        android:progress="80"
         android:progressBackgroundTint="@color/dim_grey_light"
         android:progressTint="@color/prussian_blue"
         android:progressDrawable="@drawable/progress_bar_theme"/>
-    <!--android:indeterminate="true-->
-
-    <ImageView
-        android:id="@+id/register_illustration"
-        android:layout_width="343dp"
-        android:layout_height="173dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:src="@drawable/covid_illustration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_pb" />
 
     <TextView
-        android:id="@+id/tv_register_email"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_register_password"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/gilroy_semibold"
-        android:text="Email Address"
-        android:textColor="@color/prussian_blue"
-        android:textSize="24sp"
+        android:layout_marginTop="15dp"
+        android:text="Password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_illustration" />
+        app:layout_constraintTop_toBottomOf="@+id/register_pb_4" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_field_email"
+        android:id="@+id/txt_field_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email Address"
-        app:endIconMode="clear_text"
-        app:errorEnabled="true"
         android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:hint="Please enter password"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_email"
-        app:startIconDrawable="@drawable/ic_mail"
-        app:startIconTint="@color/dim_grey">
+        app:layout_constraintTop_toBottomOf="@id/tv_register_password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter"
-            android:inputType="textEmailAddress"
-            android:textAppearance="@style/state_progress_title"
-            tools:layout_editor_absoluteX="13dp"
-            tools:layout_editor_absoluteY="523dp" />
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_register_postcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Confirm Password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_field_password" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_field_confirm_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:hint="Please enter password again"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_register_postcode">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
     <Button
-        android:id="@+id/btn_verify"
+        android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/light_coral"
         android:fontFamily="@font/gilroy_extrabold"
-        android:text="Verify"
+        android:text="Next Page"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
-
-    <TextView
-        android:id="@+id/login_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:fontFamily="@font/gilroy_light"
-        android:gravity="center"
-        android:text="@string/loginlink"
-        android:textColor="@color/prussian_blue"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_verify" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_field_confirm_password"
+        app:layout_constraintVertical_bias="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
