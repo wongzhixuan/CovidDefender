@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.RecyclerViewAdapter.QuestionAdapter
 import com.example.coviddefender.entity.Question
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
