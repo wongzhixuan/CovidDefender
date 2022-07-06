@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.Question
 import com.google.android.material.button.MaterialButton
 
 class QuestionAdapter ( var questions: ArrayList<Question>) :

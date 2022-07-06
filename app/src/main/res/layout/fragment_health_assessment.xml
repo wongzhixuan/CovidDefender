@@ -23,7 +23,7 @@
             app:tint="@color/prussian_blue" />
 
         <TextView
-            android:id="@+id/tv_check_in_title"
+            android:id="@+id/tv_health_assessment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -35,44 +35,105 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Linear progress indicator-->
-        <ProgressBar
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_health_assessment_title">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="80dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:gravity="center">
+    <ProgressBar
             android:id="@+id/progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
             android:indeterminate="false"
             android:max="100"
-            android:progress="20"
+            android:progress="10"
             android:progressDrawable="@drawable/progress_bar_theme"
             app:indicatorColor="@color/prussian_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_check_in_title" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_bar">
+            <TextView
+                android:id="@+id/tv_question_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="Have you experienced any of the following symptoms of COVID-19 within the last 48 hours?\n• Fever\n• Chills\n• Body ache\n• Headache\n• Sore throat\n• Diarrhea\n• Vomitting \n• Fatigue\n• Nasal congestion"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/questions_recyclerview"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="180dp"
-                />
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_answer_no"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    android:backgroundTint="@color/light_coral"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:text="@string/no"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black_70"
+                    app:strokeWidth="2dp"
+                    android:checkable="true"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_answer_yes"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/light_green"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:text="@string/yes"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black_70"
+                    app:strokeWidth="2dp"
+                    android:checkable="true"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp"
+                android:text="Submit"
+                android:textSize="18sp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_next"
+                app:iconGravity="end"
+                app:iconPadding="10dp"
+                app:iconSize="20dp" />
+        </LinearLayout>
 
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
