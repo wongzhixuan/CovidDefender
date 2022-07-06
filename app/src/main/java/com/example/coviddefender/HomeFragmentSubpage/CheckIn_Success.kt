@@ -14,12 +14,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
+import com.example.coviddefender.entity.CovidStatus
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 
 class CheckIn_Success : Fragment() {
@@ -138,14 +140,29 @@ class CheckIn_Success : Fragment() {
             "UserStatus",
             Context.MODE_APPEND
         )
-        // get value, default as empty string
-        var covid_status = sharedPreferences?.getString("covid_status", "")
-        var vaccine_status = sharedPreferences?.getString("vaccine_status", "")
+        // get risk status
+        var covid_status: String = ""
+        val docRefCovidStatus:DocumentReference = firestore.collection("covid_status").document(userId)
+        docRefCovidStatus.get().addOnSuccessListener { document ->
+            var covidStatus: CovidStatus = document.toObject<CovidStatus>()!!
+            covid_status = covidStatus.covid_status
+            // covid status
+            tv_risk_status.text = covid_status
 
+        }
+
+        // get vaccine status
+        var vaccine_status: String = ""
+        val docRefVaccineStatus = firestore.collection("appointment").document(userId)
+        docRefVaccineStatus.get().addOnSuccessListener { document ->
+            if(document.exists()) {
+                vaccine_status = document.get("vaccine_status").toString()
+                // vaccine status
+                tv_vaccine_status.text = vaccine_status
+            }
+        }
         // set up Text View
         tv_no_ppl.text = total_ppl.toString()
-        tv_risk_status.text = covid_status
-        tv_vaccine_status.text = vaccine_status
 
     }
 

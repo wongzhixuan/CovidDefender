@@ -1,10 +1,8 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 import android.app.AlertDialog
-import android.content.Context.MODE_APPEND
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -143,11 +141,13 @@ class CheckInFragment : Fragment() {
 
         // get vaccine status
         var vaccine_status: String = ""
-        val docRefVaccineStatus = firestore.collection("vaccine_status").document(userId)
+        val docRefVaccineStatus = firestore.collection("appointment").document(userId)
         docRefVaccineStatus.get().addOnSuccessListener { document ->
-            vaccine_status = document.get("vaccine_status").toString()
-            // vaccine status
-            vaccine_status_text.text = vaccine_status
+            if(document.exists()) {
+                vaccine_status = document.get("vaccine_status").toString()
+                // vaccine status
+                vaccine_status_text.text = vaccine_status
+            }
         }
 
     }
@@ -183,7 +183,8 @@ class CheckInFragment : Fragment() {
                         )
                         val datetime = time.toDate()
                         // show dialog
-                        setProgressDialog(result.contents.toString(), datetime.toString())
+                        setProgressDialog(result.contents.toString(), datetime.toString(),
+                            documentReference.id.toString())
                     }
                     .addOnFailureListener { e ->
                         Log.w(
@@ -196,7 +197,7 @@ class CheckInFragment : Fragment() {
         }
     }
 
-    private fun setProgressDialog(location: String, time: String) {
+    private fun setProgressDialog(location: String, time: String, docId: String) {
 
         val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
         dialog.setCancelable(false)
@@ -204,7 +205,7 @@ class CheckInFragment : Fragment() {
         dialog.setMessage("Location: $location\nTime: $time")
         dialog.setPositiveButton("Proceed", DialogInterface.OnClickListener { _, _ ->
             // prepare bundle with value to pass to next fragment
-            val bundle = bundleOf("location" to location, "time" to time)
+            val bundle = bundleOf("location" to location, "time" to time, "docId" to docId)
             // navigate to check in success fragment
             findNavController().navigate(R.id.checkIn_Success, bundle)
         })

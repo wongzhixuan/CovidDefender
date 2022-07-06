@@ -9,12 +9,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.VaccineCert
-import com.google.android.material.button.MaterialButton
+import com.example.coviddefender.entity.Vaccination
+import com.google.firebase.Timestamp
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 
 class VaccineStatusFragment : Fragment() {
@@ -79,7 +81,7 @@ class VaccineStatusFragment : Fragment() {
 
         // set up firestore
         firestore = FirebaseFirestore.getInstance()
-        docRef = firestore.collection("vaccine_status").document(userId)
+        docRef = firestore.collection("appointment").document(userId)
 
         // get data from firebase and set up text view
         setUpTextView()
@@ -106,34 +108,35 @@ class VaccineStatusFragment : Fragment() {
             tv_userIC_cert.text = id
         }
 
+
+
         docRef.get().addOnSuccessListener { document ->
-            var vaccineCert: VaccineCert = VaccineCert(
-                name, id,
-                document.getTimestamp("dose1_date")?.toDate().toString(),
-                document.get("dose1_manufacturer").toString(),
-                document.get("dose1_facility").toString(),
-                document.get("dose1_batch").toString(),
-                document.getTimestamp("dose2_date")?.toDate().toString(),
-                document.get("dose2_manufacturer").toString(),
-                document.get("dose2_facility").toString(),
-                document.get("dose2_batch").toString(),
-            )
-            tv_username.text = name
-            tv_username_cert.text = name
+            if(document.exists()) {
+                var vaccinaton: Vaccination = document.toObject<Vaccination>()!!
 
-            // dose 1
-            tv_dose1_date.text = vaccineCert.dose1_date
-            tv_dose1_batch.text = vaccineCert.dose1_batch
-            tv_dose1_manufacturer.text = vaccineCert.dose1_manufacturer
-            tv_dose1_facility.text = vaccineCert.dose1_facility
+                tv_username.text = name
+                tv_username_cert.text = name
 
-            // dose 2
-            tv_dose2_batch.text = vaccineCert.dose2_batch
-            tv_dose2_date.text = vaccineCert.dose2_date
-            tv_dose2_manufacturer.text = vaccineCert.dose2_manufacturer
-            tv_dose2_facility.text = vaccineCert.dose2_facility
+                // dose 1
+                var dose1: Map<String, Object> = document.get("dose1") as Map<String, Object>
+                var time: Timestamp = dose1.get("time") as Timestamp
+                var dose1_time = time.toDate().toString()
+                tv_dose1_date.text = dose1_time
+                tv_dose1_batch.text = dose1.get("batch").toString()
+                tv_dose1_manufacturer.text = dose1.get("manufacturer").toString()
+                tv_dose1_facility.text = dose1.get("location").toString()
 
-            tv_vaccine_status.text = document.get("vaccine_status").toString()
+                // dose 2
+                var dose2: Map<String, Object> = document.get("dose2") as Map<String, Object>
+                var time_dose2: Timestamp = dose2.get("time") as Timestamp
+                var dose2_time = time_dose2.toDate().toString()
+                tv_dose2_date.text = dose2_time
+                tv_dose2_batch.text = dose2.get("batch").toString()
+                tv_dose2_manufacturer.text = dose2.get("manufacturer").toString()
+                tv_dose2_facility.text = dose2.get("location").toString()
+
+                tv_vaccine_status.text = document.get("vaccine_status").toString()
+            }
 
         }
     }
