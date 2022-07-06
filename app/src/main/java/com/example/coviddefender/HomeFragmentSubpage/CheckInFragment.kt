@@ -115,7 +115,13 @@ class CheckInFragment : Fragment() {
         tv_profile_name.text = currentUser.displayName
 
         // user IC number
-        tv_profile_id.text = ""
+        var docRefUsers :DocumentReference = firestore.collection("users").document(currentUser.uid)
+        docRefUsers.get().addOnSuccessListener {
+                document->
+            var id = document.get("nric").toString()
+            tv_profile_id.text =  id
+        }
+
 
         // user profile image
         if (currentUser.photoUrl != null) {

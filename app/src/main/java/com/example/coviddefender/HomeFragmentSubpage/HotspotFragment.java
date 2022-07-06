@@ -60,7 +60,8 @@ public class HotspotFragment extends Fragment {
     private FirebaseFirestore firestore;
     private DocumentReference docRef;
 
-    ArrayList<Marker> allMarkers = new ArrayList<Marker>();
+    Marker[] allMarkers;
+    ArrayList<LatLng> positions = new ArrayList<LatLng>();
     Marker marker;
     GoogleMap googleMap;
 
@@ -88,7 +89,7 @@ public class HotspotFragment extends Fragment {
         firestore = FirebaseFirestore.getInstance();
         docRef = firestore.collection("hotspot").document("testing");
 
-        // Retrieve marker data from database
+        // Retrieve marker hotspot data from firebase firestore
         getData();
 
         // Check permission
@@ -121,13 +122,12 @@ public class HotspotFragment extends Fragment {
             return;
         }
         //initialize location
-        @SuppressLint("MissingPermission") Task<Location> task = fusedLocationProviderClient.getLastLocation();
+        Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
                 if(location != null){
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @SuppressLint("MissingPermission")
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
                             Toast.makeText(getContext(), "Map is connected", Toast.LENGTH_SHORT).show();
@@ -148,7 +148,30 @@ public class HotspotFragment extends Fragment {
                             googleMap.setMyLocationEnabled(true);
 
                             // get marker data
-                            getMarker();
+                            docRef.collection("mapMarkers").get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if(task.isSuccessful()){
+                                                for(QueryDocumentSnapshot documentSnapshot: task.getResult()){
+                                                    // get geopoint data from firebase
+                                                    GeoPoint geoPoint = documentSnapshot.getGeoPoint("marker");
+                                                    // convert geopoint to LatLng
+                                                    Double lat = geoPoint.getLatitude();
+                                                    Double lng = geoPoint.getLongitude();
+                                                    LatLng latLng = new LatLng(lat, lng);
+                                                    Log.d("marker",latLng.toString());
+
+                                                    // add markers
+                                                    googleMap.addMarker(new MarkerOptions().title("Confirmed cases").position(latLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+
+                                                }
+                                            }
+                                            else{
+                                                Log.d("mapMarkers", task.getException().getMessage().toString());
+                                            }
+                                        }
+                                    });
 
                         }
                     });
@@ -158,40 +181,12 @@ public class HotspotFragment extends Fragment {
 
     }
 
-    private void getMarker(){
-        docRef.collection("mapMarkers").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for(QueryDocumentSnapshot documentSnapshot: task.getResult()){
-                                // get geopoint data from firebase
-                                GeoPoint geoPoint = documentSnapshot.getGeoPoint("marker");
-                                // convert geopoint to LatLng
-                                Double lat = geoPoint.getLatitude();
-                                Double lng = geoPoint.getLongitude();
-                                LatLng latLng = new LatLng(lat, lng);
-
-                                // add markers
-                                googleMap.addMarker(new MarkerOptions().position(latLng).title("Confirmed")
-
-                                );
-
-                            }
-                        }
-                        else{
-                            Log.d("mapMarkers", task.getException().getMessage().toString());
-                        }
-                    }
-                });
-    }
-
     private void getData(){
         // get hotspot data
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Hotspot hotspot = new Hotspot(documentSnapshot.get("confirmed").toString(), documentSnapshot.get("recovered").toString(), documentSnapshot.get("recovered").toString());
+                Hotspot hotspot = new Hotspot(documentSnapshot.get("confirmed").toString(), documentSnapshot.get("recovered").toString(), documentSnapshot.get("death").toString());
                 // set up view
                 tv_confirmed_number.setText(hotspot.getConfirmed_num());
                 tv_recovered_number.setText(hotspot.getRecovered_num());

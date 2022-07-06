@@ -1,6 +1,8 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +12,10 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.entity.Question
 import com.google.android.material.button.MaterialButton
+import com.google.common.io.Resources
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
@@ -43,6 +44,8 @@ class HealthAssessmentFragment : Fragment() {
 
     // current question id
     private var questionId: Int = 1
+
+    public lateinit var answers: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,35 +90,69 @@ class HealthAssessmentFragment : Fragment() {
 
         // get question data
         questions = arrayListOf()
-        getQuestionData()
+        questions = getQuestionData()
 
         // set up text view
-        setUpQuestionView()
+        setUpQuestionView(questions, questionId)
+
+        answers = arrayOf()
 
         btn_answer_yes.setOnClickListener {
             btn_answer_yes.isChecked = true
             btn_answer_no.isChecked = false
-            btn_answer_yes.setBackgroundResource(R.color.light_orange)
-            btn_answer_no.setBackgroundResource(R.color.light_coral)
+            btn_answer_yes.setStrokeColorResource(R.color.light_orange)
+            btn_answer_no.setStrokeColorResource(R.color.black)
         }
 
         btn_answer_no.setOnClickListener {
             btn_answer_no.isChecked = true
             btn_answer_yes.isChecked = false
-            btn_answer_yes.setBackgroundResource(R.color.light_green)
-            btn_answer_no.setBackgroundResource(R.color.light_orange)
+            btn_answer_yes.setStrokeColorResource(R.color.black)
+            btn_answer_no.setStrokeColorResource(R.color.light_orange)
         }
 
         btn_submit.setOnClickListener {
             if(btn_answer_yes.isChecked && !btn_answer_no.isChecked){
-
+                answers[questionId-1] = "Yes"
                 questionId += 1
+                setUpQuestionView(questions, questionId)
             }
             else if (btn_answer_no.isChecked && !btn_answer_yes.isChecked){
+                answers[questionId-1] = "No"
                 questionId += 1
+                setUpQuestionView(questions, questionId)
             }
             else{
                 Toast.makeText(context, "Please select an answer",Toast.LENGTH_SHORT).show()
+            }
+            if(questionId == questions.size){
+                var num_no = 0
+                var num_yes = 0
+                for(answer in answers){
+                    when(answer){
+                        "No" -> num_no += 1
+                        "Yes" -> num_yes += 1
+                    }
+                }
+                var docRef: DocumentReference = firestore.collection("covid_status").document(userId)
+                if(num_no < num_yes){
+                    docRef.update("covid_status", "High Risk").addOnSuccessListener {
+                    }
+                }
+                else{
+                    docRef.update("covid_status","Low Risk").addOnSuccessListener{
+
+                    }
+
+                }
+                var docRefRecords: DocumentReference = firestore.collection("health_assessment_records").document(userId)
+                var data = hashMapOf(
+                    "answer" to answers
+                )
+                docRefRecords.collection("records").add(data).addOnSuccessListener {
+                    Toast.makeText(context,"Successfully Completed Health Assessment",Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.home)
+                }
             }
         }
 
@@ -125,24 +162,32 @@ class HealthAssessmentFragment : Fragment() {
     private fun resetButtons() {
         btn_answer_yes.isChecked = false
         btn_answer_no.isChecked = false
-        btn_answer_yes.setBackgroundResource(R.color.light_green)
-        btn_answer_no.setBackgroundResource(R.color.light_coral)
+        btn_answer_yes.setStrokeColorResource(R.color.black)
+        btn_answer_no.setStrokeColorResource(R.color.black)
     }
 
-    private fun setUpQuestionView() {
-        var current_question: Question = questions[questionId]
+    private fun setUpQuestionView(questions: ArrayList<Question>, questionId: Int) {
+        var current_question: Question = this.questions.get(questionId-1)
         var current_question_title: String = current_question.question
         tv_question_title.text = current_question_title
     }
 
-    private fun getQuestionData() {
+    private fun getQuestionData(): ArrayList<Question> {
+        var questions:ArrayList<Question> = arrayListOf()
         firestore.collection("health_assessment").orderBy("id",Query.Direction.ASCENDING).get()
             .addOnSuccessListener { documents->
                 for(document in documents){
                     var question: Question = document.toObject(Question::class.java)
                     questions.add(question)
+                    Log.d("questions",questions.toString())
                 }
+
+                Log.d("questions",questions.toString())
+            }.addOnFailureListener { e->
+                Log.e("questions", "Failed on: "+e.message)
             }
+        return questions
+
     }
 
     companion object {
