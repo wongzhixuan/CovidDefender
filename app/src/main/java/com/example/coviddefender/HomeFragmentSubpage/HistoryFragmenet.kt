@@ -70,6 +70,7 @@ class HistoryFragmenet : Fragment() {
 
         })
         return view
+
     }
 
     private fun setUpRecyclerView() {
@@ -81,7 +82,6 @@ class HistoryFragmenet : Fragment() {
 
         historyListAdapter = HistoryListAdapter(options)
 
-        history_recyclerview.setHasFixedSize(true)
         // setting layout malinger to recycler view
         history_recyclerview.layoutManager = LinearLayoutManager(
             view?.context,
@@ -103,25 +103,6 @@ class HistoryFragmenet : Fragment() {
         historyListAdapter.stopListening()
     }
 
-    private fun getAllData() {
-        var query:Query = docRef.collection("historyItem").orderBy("time", Query.Direction.DESCENDING)
-
-        query.get().addOnCompleteListener(OnCompleteListener {
-                    task ->
-                if (task.isSuccessful) {
-                    var querySnapshot: QuerySnapshot? = task.result
-                    querySnapshot?.forEach { queryDocumentSnapshot ->
-
-                        Log.d("HistoryList", queryDocumentSnapshot.data.toString())
-                    }
-                } else {
-                    Log.d("HistoryList", task.exception.toString())
-                }
-            })
-            .addOnFailureListener { exception ->
-                Log.d("HistoryList", exception.message.toString())
-            }
-    }
 
     companion object {
 

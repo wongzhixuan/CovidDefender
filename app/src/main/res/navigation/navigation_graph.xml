@@ -117,11 +117,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/scan"
-        android:name="com.example.coviddefender.BtnNavFragment.FragmentScan"
-        android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" />
-    <fragment
         android:id="@+id/covid_status"
         android:name="com.example.coviddefender.HomeFragmentSubpage.CovidStatusFragment"
         android:label="fragment_covid_status"
@@ -161,7 +156,14 @@
             app:destination="@id/home" />
         <action
             android:id="@+id/action_checkIn_to_checkIn_Success"
-            app:destination="@id/checkIn_Success" />
+            app:destination="@id/checkIn_Success" >
+            <argument
+                android:name="location"
+                app:argType="string" />
+            <argument
+                android:name="time"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn"
@@ -219,6 +221,12 @@
         <action
             android:id="@+id/action_checkIn_Success_to_checkIn"
             app:destination="@id/checkIn" />
+        <argument
+            android:name="location"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/viewAppointment"

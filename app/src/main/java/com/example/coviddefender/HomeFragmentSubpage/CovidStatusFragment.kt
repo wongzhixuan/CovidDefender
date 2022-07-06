@@ -1,7 +1,7 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 
-import android.annotation.SuppressLint
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,13 +14,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.example.coviddefender.entity.CovidStatus
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
+
 
 
 class CovidStatusFragment : Fragment() {
@@ -33,11 +33,15 @@ class CovidStatusFragment : Fragment() {
     lateinit var covidstatus_qr_code: ImageView
     lateinit var tv_location_risk: TextView
     lateinit var tv_dependent_risk: TextView
-    // Firebase
-    private lateinit var auth: FirebaseAuth
-    // Cloud Firestore
-    lateinit var firestore:FirebaseFirestore
-    lateinit var docRef: DocumentReference
+
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
+
     // Covid Status data
     lateinit var covidStatus: CovidStatus
 
@@ -49,14 +53,16 @@ class CovidStatusFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_covid_status, container, false)
-        // initialize firebase
+
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+        }
+
+        // set up firestore
         firestore = FirebaseFirestore.getInstance()
-        //auth = Firebase.auth
-        //val currentUser = auth.currentUser
-        //var userId: String = currentUser?.uid.toString()
-        // for testing
-        var userId = "testing"
-        docRef = firestore.collection("covid_status").document(userId)
+        docRef = firestore.collection("covid_status").document("testing")
 
         // link widgets
         val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
@@ -77,17 +83,17 @@ class CovidStatusFragment : Fragment() {
             // fetch data from firebase
             getData()
             // update tv_update_time
-            var current = LocalDateTime.now()
-            var formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-            var update_time = current.format(formatter)
-            tv_update_time.text = update_time
+            val timestamp = Timestamp.now()
+            val update_time = timestamp.toDate()
+
+            tv_update_time.text = update_time.toString()
 
             // update data to Firebase
             val updated = mapOf(
-                "update_time" to update_time.toString()
+                "update_time" to timestamp
             )
             docRef.update(updated).addOnSuccessListener { unused ->
-                Log.d(TAG, update_time + "updated")
+                Log.d(TAG, "Updated: $update_time")
             }.addOnFailureListener { exception ->
                 Log.d(TAG, "Update Failed!", exception)
             }
@@ -100,27 +106,28 @@ class CovidStatusFragment : Fragment() {
         })
         return view
     }
-    @SuppressLint("ResourceAsColor")
+
     private fun getData()
     {
         docRef.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot != null) {
                     covidStatus = documentSnapshot.toObject<CovidStatus>()!!
-                    Log.d(TAG, covidStatus.update_time + " " + covidStatus.covid_status+" "+covidStatus.dependent_risk + " "+covidStatus.location_risk)
-                    tv_update_time.text = covidStatus.update_time
+                    var timestamp: Timestamp = covidStatus.update_time
+                    var update_time = timestamp.toDate()
+                    tv_update_time.text = update_time.toString()
                     tv_covid_status.text = covidStatus.covid_status
                     tv_dependent_risk.text = covidStatus.dependent_risk
                     tv_location_risk.text = covidStatus.location_risk
                     when (covidStatus.covid_status) {
                         "Low Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_green)
+                            view_status_color.setBackgroundResource(R.color.light_green)
                         }
                         "High Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_coral)
+                            view_status_color.setBackgroundResource(R.color.light_coral)
                         }
                         else -> {
-                            view_status_color.setBackgroundColor(R.color.light_orange)
+                            view_status_color.setBackgroundResource(R.color.light_orange)
                         }
                     }
                 }
@@ -135,6 +142,11 @@ class CovidStatusFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        getData()
+    }
+
+    override fun onStart() {
+        super.onStart()
         getData()
     }
 

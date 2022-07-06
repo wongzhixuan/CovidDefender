@@ -37,4 +37,6 @@
     <color name="blue_200">#296D98</color>
     <color name="blue_500">#296D98</color>
     <color name="blue_700">#296D98</color>
+
+    <color name="blue_light_variant">#2196F3</color>
 </resources>

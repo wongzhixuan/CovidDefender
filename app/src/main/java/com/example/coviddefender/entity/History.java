@@ -1,12 +1,21 @@
 package com.example.coviddefender.entity;
 
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.PropertyName;
+
+import java.util.Date;
 
 public class History {
-
+    @PropertyName("location")
     public String location;
+    @PropertyName("time")
     public Timestamp time;
+    @PropertyName("IsCheckOut")
     public Boolean IsCheckOut;
+
+    public History(){
+        // empty constructor required
+    }
 
     public History(Boolean IsCheckOut, String location, Timestamp time){
         this.IsCheckOut = IsCheckOut;

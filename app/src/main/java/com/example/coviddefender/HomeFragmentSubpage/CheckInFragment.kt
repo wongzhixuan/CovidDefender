@@ -1,18 +1,27 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 
@@ -26,6 +35,13 @@ class CheckInFragment : Fragment() {
     lateinit var covid_status_text: TextView
     lateinit var vaccine_status_text: TextView
 
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +63,19 @@ class CheckInFragment : Fragment() {
         covid_status_text = view.findViewById(R.id.covid_status_text)
         vaccine_status_text = view.findViewById(R.id.vaccine_status_text)
 
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+        }
+
+        // set up firestore
+        firestore = FirebaseFirestore.getInstance()
+        docRef = firestore.collection("history").document("testing")
+
         btn_check_in.setOnClickListener(View.OnClickListener {
-            findNavController().navigate(R.id.checkIn_Success)
-            var integrator :IntentIntegrator = IntentIntegrator.forSupportFragment(this@CheckInFragment)
+            var integrator: IntentIntegrator =
+                IntentIntegrator.forSupportFragment(this@CheckInFragment)
             integrator.setOrientationLocked(false)
             integrator.setPrompt("Scan QR code")
             integrator.setBeepEnabled(false) // no beep sound when scanning
@@ -59,7 +85,7 @@ class CheckInFragment : Fragment() {
 
 
         // back button
-        val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
+        val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_checkIn_to_home)
 
@@ -81,9 +107,45 @@ class CheckInFragment : Fragment() {
             if (result.getContents() == null) {
                 Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.checkIn_Success)
+
+                var time = Timestamp.now()
+                var data = hashMapOf(
+                    "IsCheckOut" to false,
+                    "location" to result.contents.toString().trim(),
+                    "time" to time
+                )
+
+                docRef.collection("historyItem")
+                    .add(data)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(
+                            "AddHistory",
+                            "DocumentSnapshot written with ID: " + documentReference.getId()
+                        )
+                        val datetime = time.toDate()
+                        setProgressDialog(result.contents.toString(), datetime.toString())
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(
+                            "AddHistory",
+                            "Error adding document" +
+                                    e.message.toString()
+                        )
+                    }
             }
         }
+    }
+
+    private fun setProgressDialog(location: String, time: String) {
+
+        val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
+        dialog.setCancelable(false)
+        dialog.setTitle("Successfully Check In")
+        dialog.setMessage("Location: $location\nTime: $time")
+        dialog.setPositiveButton("Proceed", DialogInterface.OnClickListener { _, _ ->
+            val bundle = bundleOf("location" to location, "time" to time)
+            findNavController().navigate(R.id.checkIn_Success, bundle)
+        })
+        dialog.create().show()
     }
 }

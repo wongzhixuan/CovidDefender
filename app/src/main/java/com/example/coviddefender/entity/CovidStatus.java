@@ -1,13 +1,24 @@
 package com.example.coviddefender.entity;
 
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.PropertyName;
+
 public class CovidStatus {
-    private String update_time;
+    @PropertyName("update_time")
+    public Timestamp update_time;
+    @PropertyName("covid_status")
     private String covid_status;
+    @PropertyName("location_risk")
     private String location_risk;
+    @PropertyName("dependent_risk")
     private String dependent_risk;
 
+    public CovidStatus(){
+        // empty constructor required
+    }
+
     // Constructor
-    public CovidStatus(String covid_status, String dependent_risk,  String location_risk, String update_time)
+    public CovidStatus(String covid_status, String dependent_risk,  String location_risk, Timestamp update_time)
     {
         this.update_time = update_time;
         this.covid_status = covid_status;
@@ -15,7 +26,7 @@ public class CovidStatus {
         this.dependent_risk = dependent_risk;
     }
 
-    public String getUpdate_time() {
+    public Timestamp getUpdate_time() {
         return update_time;
     }
 
@@ -31,7 +42,7 @@ public class CovidStatus {
         return location_risk;
     }
 
-    public void setUpdate_time(String update_time) {
+    public void setUpdate_time(Timestamp update_time) {
         this.update_time = update_time;
     }
 
