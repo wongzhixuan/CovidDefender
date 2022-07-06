@@ -4,13 +4,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.google.android.material.button.MaterialButton
@@ -22,8 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class CheckIn_Success : Fragment() {
-    lateinit var btn_check_out : MaterialButton
-    lateinit var btn_back : ImageButton
+    lateinit var btn_check_out: MaterialButton
+    lateinit var btn_back: ImageButton
     lateinit var tv_no_ppl: TextView
     lateinit var tv_check_in_location_name: TextView
     lateinit var tv_check_in_time: TextView
@@ -31,7 +30,7 @@ class CheckIn_Success : Fragment() {
     lateinit var tv_risk_status: TextView
     lateinit var tv_vaccine_status: TextView
 
-    lateinit var location:String
+    lateinit var location: String
     lateinit var time: String
     private lateinit var docId: String
 
@@ -53,7 +52,7 @@ class CheckIn_Success : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View =  inflater.inflate(R.layout.fragment_check_in__success, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_check_in__success, container, false)
 
         // set up firebase auth
         mAuth = FirebaseAuth.getInstance()
@@ -77,7 +76,7 @@ class CheckIn_Success : Fragment() {
 
         // get bundle
         var bundle: Bundle? = this.arguments
-        if(bundle != null){
+        if (bundle != null) {
             docId = bundle.getString("docId").toString()
             location = bundle.getString("location").toString()
             time = bundle.getString("time").toString()
@@ -96,7 +95,7 @@ class CheckIn_Success : Fragment() {
                 .addOnSuccessListener {
                     setUpProgressDialog()
                 }
-                .addOnFailureListener { e->
+                .addOnFailureListener { e ->
                     Log.w("CheckOut", "Error updating document", e);
                 }
 
@@ -110,29 +109,28 @@ class CheckIn_Success : Fragment() {
 
     private fun getAllData() {
         var total_ppl: Int = 0
-        var docRefHistory = firestore.collection("history").get()
-        docRefHistory.addOnSuccessListener {
-            documents->
-            for(document in documents){
+        var IsSamePlace = false
+        var docRefHistory = firestore.collection("history")
+        docRefHistory.get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                IsSamePlace = false
+                docRefHistory.document(document.id).collection("historyItem")
+                    .whereEqualTo("location", location).whereEqualTo("IsCheckOut", false).get()
+                    .addOnSuccessListener {
+                        IsSamePlace = true
+                    }
+                if (IsSamePlace) {
+                    total_ppl += 1
+                }
                 Log.d("GetHistoryData", document.data.toString())
             }
         }
-//        docRef.collection("historyItem").whereEqualTo("location", location).whereEqualTo("IsCheckOut",false).get()
-//            .addOnSuccessListener {
-//                documents->
-//                for(document in documents){
-//                    total_ppl += 1
-//                }
-//            }
-//            .addOnFailureListener { exception->
-//                Log.w("CheckInSuccess_Countppl", "Error getting documents: ", exception)
-//            }
+
         tv_no_ppl.text = total_ppl.toString()
 
         var covid_status: String = ""
         val docRefCovidStatus = firestore.collection("covid_status").document("testing")
-        docRefCovidStatus.get().addOnSuccessListener {
-            document->
+        docRefCovidStatus.get().addOnSuccessListener { document ->
             covid_status = document.get("covid_status").toString()
             tv_risk_status.text = covid_status
         }
@@ -146,7 +144,7 @@ class CheckIn_Success : Fragment() {
         val time = Timestamp.now()
         val curr_time = time.toDate()
         dialog.setMessage("Location: $location\nAt $curr_time")
-        dialog.setPositiveButton("Proceed", DialogInterface.OnClickListener{ _, _ ->
+        dialog.setPositiveButton("Proceed", DialogInterface.OnClickListener { _, _ ->
             findNavController().navigate(R.id.action_checkIn_Success_to_checkIn)
         })
         dialog.create().show()

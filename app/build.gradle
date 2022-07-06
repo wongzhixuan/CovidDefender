@@ -4,7 +4,6 @@ plugins {
     // google maps api
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'com.google.gms.google-services'
-    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -65,7 +64,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
 
-    // QR scanner
+    // QR code
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 
     // state progress bar

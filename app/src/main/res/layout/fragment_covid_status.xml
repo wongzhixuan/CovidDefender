@@ -126,7 +126,7 @@
            android:layout_height="250dp"
            android:layout_marginTop="10dp"
            android:scaleType="centerInside"
-           android:src="@drawable/dummy_qr"
+           android:src=""
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/view_status_color" />
@@ -192,6 +192,19 @@
                android:textColor="@color/white"
                android:textSize="16sp" />
        </LinearLayout>
+
+       <ProgressBar
+           android:id="@+id/progressBar"
+           style="?android:attr/progressBarStyle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:indeterminate="true"
+           android:indeterminateDrawable="@drawable/progress_back"
+           android:visibility="gone"
+           app:layout_constraintBottom_toBottomOf="@+id/covidstatus_qr_code"
+           app:layout_constraintEnd_toEndOf="@+id/covidstatus_qr_code"
+           app:layout_constraintStart_toStartOf="@+id/covidstatus_qr_code"
+           app:layout_constraintTop_toTopOf="@+id/covidstatus_qr_code" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 
