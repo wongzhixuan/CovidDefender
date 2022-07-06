@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.dependent.Dependent
+import com.example.coviddefender.entity.Dependent
 import com.google.android.material.checkbox.MaterialCheckBox
 
 class DependentAdapter(var dependents: ArrayList<Dependent>):RecyclerView.Adapter<DependentAdapter.DependentViewHolder>() {

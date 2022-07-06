@@ -1,10 +1,18 @@
-package com.example.coviddefender.db.hotspot;
+package com.example.coviddefender.entity;
+
+import com.google.firebase.firestore.PropertyName;
 
 public class Hotspot {
-
+    @PropertyName("confirmed")
     String confirmed_num;
+    @PropertyName("recovered")
     String recovered_num;
+    @PropertyName("death")
     String death_num;
+
+    public Hotspot(){
+        // empty constructor required
+    }
 
     public Hotspot(String confirmed_num,
                    String recovered_num,

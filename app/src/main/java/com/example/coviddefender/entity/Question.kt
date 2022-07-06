@@ -1,3 +1,3 @@
-package com.example.coviddefender.db.questions
+package com.example.coviddefender.entity
 
 data class Question (var question_title: String)

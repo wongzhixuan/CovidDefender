@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.RecyclerViewAdapter.VaccineInfoAdapter
-import com.example.coviddefender.db.vaccine_info.Vaccine_Info
+import com.example.coviddefender.entity.Vaccine_Info
 import com.google.android.material.button.MaterialButton
 
 

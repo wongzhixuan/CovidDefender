@@ -14,10 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.R
-import com.example.coviddefender.db.announcement.Announcement
+import com.example.coviddefender.entity.Announcement
 import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class FragmentHome : Fragment() {
@@ -35,6 +39,14 @@ class FragmentHome : Fragment() {
     lateinit var drawer_layout: DrawerLayout
     lateinit var drawer_nav_view: NavigationView
     lateinit var btn_drawer: ImageButton
+
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

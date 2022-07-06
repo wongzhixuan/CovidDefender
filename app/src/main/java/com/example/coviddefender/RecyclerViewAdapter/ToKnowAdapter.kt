@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.toknow.ToKnow
+import com.example.coviddefender.entity.ToKnow
 
 class ToKnowAdapter(var toknow: ArrayList<ToKnow>) :
     RecyclerView.Adapter<ToKnowAdapter.ToKnowViewHolder>()  // interface

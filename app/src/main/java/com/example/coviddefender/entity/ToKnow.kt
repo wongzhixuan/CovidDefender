@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.toknow
+package com.example.coviddefender.entity
 import androidx.annotation.DrawableRes
 
 data class ToKnow (

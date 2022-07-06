@@ -1,27 +1,35 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 
-import android.annotation.SuppressLint
+
+import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
-import com.example.coviddefender.db.covidstatus.CovidStatus
+import com.example.coviddefender.entity.CovidStatus
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
-
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import com.google.zxing.common.BitMatrix
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class CovidStatusFragment : Fragment() {
     val TAG: String = "CovidStatus"
@@ -33,15 +41,22 @@ class CovidStatusFragment : Fragment() {
     lateinit var covidstatus_qr_code: ImageView
     lateinit var tv_location_risk: TextView
     lateinit var tv_dependent_risk: TextView
-    // Firebase
-    private lateinit var auth: FirebaseAuth
-    // Cloud Firestore
-    lateinit var firestore:FirebaseFirestore
-    lateinit var docRef: DocumentReference
+    lateinit var progressBar: ProgressBar
+
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
+
     // Covid Status data
-    lateinit var covidStatus: CovidStatus
-
-
+    private lateinit var covidStatus: CovidStatus
+    private lateinit var update_time_string: String
+    private lateinit var covid_status_string: String
+    private lateinit var location_risk_string: String
+    private lateinit var dependent_risk_string:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,14 +64,16 @@ class CovidStatusFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_covid_status, container, false)
-        // initialize firebase
+
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+        }
+
+        // set up firestore
         firestore = FirebaseFirestore.getInstance()
-        //auth = Firebase.auth
-        //val currentUser = auth.currentUser
-        //var userId: String = currentUser?.uid.toString()
-        // for testing
-        var userId = "testing"
-        docRef = firestore.collection("covid_status").document(userId)
+        docRef = firestore.collection("covid_status").document("testing")
 
         // link widgets
         val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
@@ -67,27 +84,31 @@ class CovidStatusFragment : Fragment() {
         covidstatus_qr_code = view.findViewById<ImageView>(R.id.covidstatus_qr_code)
         tv_location_risk = view.findViewById<TextView>(R.id.tv_location_risk)
         tv_dependent_risk = view.findViewById<TextView>(R.id.tv_dependent_risk)
+        progressBar = view.findViewById(R.id.progressBar)
 
         // set up view
         // fetch data from firebase
         getData()
+
+        // generate QR code
+        generateQRCode()
 
         // btn_refresh pressed
         btn_refresh.setOnClickListener {
             // fetch data from firebase
             getData()
             // update tv_update_time
-            var current = LocalDateTime.now()
-            var formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-            var update_time = current.format(formatter)
-            tv_update_time.text = update_time
+            val timestamp = Timestamp.now()
+            val update_time = timestamp.toDate()
+
+            tv_update_time.text = update_time.toString()
 
             // update data to Firebase
             val updated = mapOf(
-                "update_time" to update_time.toString()
+                "update_time" to timestamp
             )
             docRef.update(updated).addOnSuccessListener { unused ->
-                Log.d(TAG, update_time + "updated")
+                Log.d(TAG, "Updated: $update_time")
             }.addOnFailureListener { exception ->
                 Log.d(TAG, "Update Failed!", exception)
             }
@@ -100,27 +121,59 @@ class CovidStatusFragment : Fragment() {
         })
         return view
     }
-    @SuppressLint("ResourceAsColor")
+
+    private fun generateQRCode() {
+        // load progress bar
+        progressBar.visibility = View.VISIBLE
+        // get data
+        covid_status_string = covidStatus.covid_status
+        update_time_string = covidStatus.update_time.toDate().toString()
+        location_risk_string = covidStatus.location_risk
+        dependent_risk_string = covidStatus.dependent_risk
+        var userName = currentUser.displayName
+
+        var QR_info: String = "User: $userName, Covid Status: $covid_status_string, Location Risk: $location_risk_string, High Dependent Risk: $dependent_risk_string"
+        // initialize multi format writer
+        var writer:MultiFormatWriter = MultiFormatWriter()
+
+        try {
+            // Initialize Bit matrix
+            var matrix: BitMatrix = writer.encode(QR_info, BarcodeFormat.QR_CODE, 250, 250)
+            // Initialize barcode encoder
+            var encoder: BarcodeEncoder = BarcodeEncoder()
+            // Initialize Bitmap
+            var bitmap: Bitmap = encoder.createBitmap(matrix)
+            // set bitmap on image view
+            covidstatus_qr_code.setImageBitmap(bitmap)
+            progressBar.visibility = View.GONE
+        }
+        catch (exception:WriterException){
+            Log.d("GenerateQrCode", exception.message.toString())
+
+        }
+    }
+
     private fun getData()
     {
         docRef.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot != null) {
                     covidStatus = documentSnapshot.toObject<CovidStatus>()!!
-                    Log.d(TAG, covidStatus.update_time + " " + covidStatus.covid_status+" "+covidStatus.dependent_risk + " "+covidStatus.location_risk)
-                    tv_update_time.text = covidStatus.update_time
+                    var timestamp: Timestamp = covidStatus.update_time
+                    var update_time = timestamp.toDate()
+                    tv_update_time.text = update_time.toString()
                     tv_covid_status.text = covidStatus.covid_status
                     tv_dependent_risk.text = covidStatus.dependent_risk
                     tv_location_risk.text = covidStatus.location_risk
                     when (covidStatus.covid_status) {
                         "Low Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_green)
+                            view_status_color.setBackgroundResource(R.color.light_green)
                         }
                         "High Risk" -> {
-                            view_status_color.setBackgroundColor(R.color.light_coral)
+                            view_status_color.setBackgroundResource(R.color.light_coral)
                         }
                         else -> {
-                            view_status_color.setBackgroundColor(R.color.light_orange)
+                            view_status_color.setBackgroundResource(R.color.light_orange)
                         }
                     }
                 }
@@ -131,11 +184,19 @@ class CovidStatusFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Failed: ", exception)
             }
+
     }
 
     override fun onResume() {
         super.onResume()
         getData()
+        generateQRCode()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        getData()
+        generateQRCode()
     }
 
     companion object {

@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.faq.FAQ
+import com.example.coviddefender.entity.FAQ
 import com.example.coviddefender.RecyclerViewAdapter.FAQAdapter
 
 class FragmentFAQ : Fragment() {

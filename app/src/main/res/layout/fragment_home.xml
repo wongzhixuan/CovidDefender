@@ -112,7 +112,7 @@
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/gilroy_bold"
                                 android:gravity="center"
-                                android:text="Low Risk No Symptom"
+                                android:text="Covid Status"
                                 android:textColor="@color/prussian_blue" />
                         </LinearLayout>
 

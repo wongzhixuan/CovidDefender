@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.announcement.Announcement
+import com.example.coviddefender.entity.Announcement
 
 class AnnouncementAdapter(var announcements: ArrayList<Announcement>) :
     RecyclerView.Adapter<AnnouncementAdapter.AnnouncementViewHolder>()  // interface

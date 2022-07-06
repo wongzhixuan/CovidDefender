@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.coviddefender.R
-import com.example.coviddefender.db.announcement.Announcement
+import com.example.coviddefender.entity.Announcement
 import com.example.coviddefender.RecyclerViewAdapter.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

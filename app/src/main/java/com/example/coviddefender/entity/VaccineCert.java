@@ -1,4 +1,4 @@
-package com.example.coviddefender.db.vaccinecert;
+package com.example.coviddefender.entity;
 
 public class VaccineCert {
     String username;

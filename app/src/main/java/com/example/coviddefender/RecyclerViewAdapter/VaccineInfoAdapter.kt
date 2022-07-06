@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.db.vaccine_info.Vaccine_Info
+import com.example.coviddefender.entity.Vaccine_Info
 
 class VaccineInfoAdapter(var infos:ArrayList<Vaccine_Info>) :
 RecyclerView.Adapter<VaccineInfoAdapter.VaccineInfoViewHolder>()
