@@ -173,10 +173,9 @@ public class HotspotFragment extends Fragment {
                                 LatLng latLng = new LatLng(lat, lng);
 
                                 // add markers
-                                allMarkers.add(googleMap.addMarker(new MarkerOptions()
-                                        .position(latLng)
-                                        .title("Confirmed")
-                                ));
+                                googleMap.addMarker(new MarkerOptions().position(latLng).title("Confirmed")
+
+                                );
 
                             }
                         }
