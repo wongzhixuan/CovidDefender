@@ -73,6 +73,9 @@ dependencies {
     // Volley
     implementation 'com.android.volley:volley:1.2.1'
 
+    // Picasso - for image download
+    implementation 'com.squareup.picasso:picasso:2.8'
+
     // For Room database
     implementation 'androidx.room:room-runtime:2.4.2'
     annotationProcessor 'androidx.room:room-compiler:2.4.2'

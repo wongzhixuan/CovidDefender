@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.coviddefender.R;
+import com.example.coviddefender.entity.Hotspot;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,8 +31,19 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 public class HotspotFragment extends Fragment {
     SupportMapFragment supportMapFragment;
@@ -39,11 +52,24 @@ public class HotspotFragment extends Fragment {
     TextView tv_recovered_number;
     TextView tv_death_number;
 
+    // Firebase Authentication
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+
+    // Firestore
+    private FirebaseFirestore firestore;
+    private DocumentReference docRef;
+
+    ArrayList<Marker> allMarkers = new ArrayList<Marker>();
+    Marker marker;
+    GoogleMap googleMap;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hotspot, container, false);
+
         // link widgets
         tv_confirmed_number = view.findViewById(R.id.tv_confirmed_number);
         tv_recovered_number = view.findViewById(R.id.tv_recovered_number);
@@ -54,7 +80,16 @@ public class HotspotFragment extends Fragment {
         // Initialize fused location
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
 
-        // Database (pending)
+        // set Up Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        // set up Firebase Firestore
+        firestore = FirebaseFirestore.getInstance();
+        docRef = firestore.collection("hotspot").document("testing");
+
+        // Retrieve marker data from database
+        getData();
 
         // Check permission
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
@@ -112,19 +147,8 @@ public class HotspotFragment extends Fragment {
                             //Current location tools
                             googleMap.setMyLocationEnabled(true);
 
-                            // Retrieve marker data from database (pending)
-                            // dummy data
-                            LatLng latLng1 = new LatLng(2.832448981219289, 101.70670331454318);
-                            LatLng latLng2 = new LatLng(2.83267401150246, 101.70551886297173);
-                            LatLng latLng3 = new LatLng(2.833867331923264, 101.70637327426014);
-                            Marker marker1;
-                            Marker marker2;
-                            Marker marker3;
-                            // Add some markers to the map, and add a data object to each marker.
-                            marker1 = googleMap.addMarker(new MarkerOptions().position(latLng1).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-                            marker2 = googleMap.addMarker(new MarkerOptions().position(latLng2).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-                            marker3 = googleMap.addMarker(new MarkerOptions().position(latLng3).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-
+                            // get marker data
+                            getMarker();
 
                         }
                     });
@@ -133,6 +157,51 @@ public class HotspotFragment extends Fragment {
         });
 
     }
+
+    private void getMarker(){
+        docRef.collection("mapMarkers").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot documentSnapshot: task.getResult()){
+                                // get geopoint data from firebase
+                                GeoPoint geoPoint = documentSnapshot.getGeoPoint("marker");
+                                // convert geopoint to LatLng
+                                Double lat = geoPoint.getLatitude();
+                                Double lng = geoPoint.getLongitude();
+                                LatLng latLng = new LatLng(lat, lng);
+
+                                // add markers
+                                allMarkers.add(googleMap.addMarker(new MarkerOptions()
+                                        .position(latLng)
+                                        .title("Confirmed")
+                                ));
+
+                            }
+                        }
+                        else{
+                            Log.d("mapMarkers", task.getException().getMessage().toString());
+                        }
+                    }
+                });
+    }
+
+    private void getData(){
+        // get hotspot data
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Hotspot hotspot = new Hotspot(documentSnapshot.get("confirmed").toString(), documentSnapshot.get("recovered").toString(), documentSnapshot.get("recovered").toString());
+                // set up view
+                tv_confirmed_number.setText(hotspot.getConfirmed_num());
+                tv_recovered_number.setText(hotspot.getRecovered_num());
+                tv_death_number.setText(hotspot.getDeath_num());
+            }
+        });
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

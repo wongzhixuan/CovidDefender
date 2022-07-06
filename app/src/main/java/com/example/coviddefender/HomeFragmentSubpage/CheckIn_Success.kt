@@ -1,7 +1,9 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,6 +35,7 @@ class CheckIn_Success : Fragment() {
     lateinit var location: String
     lateinit var time: String
     private lateinit var docId: String
+    private lateinit var userId: String
 
     // Firebase Authentication
     private lateinit var mAuth: FirebaseAuth
@@ -58,6 +61,8 @@ class CheckIn_Success : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         if (mAuth.currentUser != null) {
             currentUser = mAuth.currentUser!!
+//            userId = currentUser.uid
+            userId = "testing"
         }
 
         // set up firestore
@@ -82,6 +87,7 @@ class CheckIn_Success : Fragment() {
             time = bundle.getString("time").toString()
         }
 
+        // get data from firebase and set up text view
         getAllData()
 
         // set up text view
@@ -108,6 +114,7 @@ class CheckIn_Success : Fragment() {
     }
 
     private fun getAllData() {
+        // calculate total people in the same place
         var total_ppl: Int = 0
         var IsSamePlace = false
         var docRefHistory = firestore.collection("history")
@@ -126,14 +133,19 @@ class CheckIn_Success : Fragment() {
             }
         }
 
-        tv_no_ppl.text = total_ppl.toString()
+        // retrieve value from shared preferences
+        var sharedPreferences: SharedPreferences? = context?.getSharedPreferences(
+            "UserStatus",
+            Context.MODE_APPEND
+        )
+        // get value, default as empty string
+        var covid_status = sharedPreferences?.getString("covid_status", "")
+        var vaccine_status = sharedPreferences?.getString("vaccine_status", "")
 
-        var covid_status: String = ""
-        val docRefCovidStatus = firestore.collection("covid_status").document("testing")
-        docRefCovidStatus.get().addOnSuccessListener { document ->
-            covid_status = document.get("covid_status").toString()
-            tv_risk_status.text = covid_status
-        }
+        // set up Text View
+        tv_no_ppl.text = total_ppl.toString()
+        tv_risk_status.text = covid_status
+        tv_vaccine_status.text = vaccine_status
 
     }
 
