@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import com.google.type.Date
 
 
 class CheckIn_Success : Fragment() {
@@ -37,6 +38,7 @@ class CheckIn_Success : Fragment() {
     lateinit var location: String
     lateinit var time: String
     private lateinit var docId: String
+    private lateinit var timestamp: String
     private lateinit var userId: String
 
     // Firebase Authentication
@@ -87,6 +89,7 @@ class CheckIn_Success : Fragment() {
             docId = bundle.getString("docId").toString()
             location = bundle.getString("location").toString()
             time = bundle.getString("time").toString()
+//            timestamp = bundle.getString("timestamp").toString()
         }
 
         // get data from firebase and set up text view
@@ -104,7 +107,7 @@ class CheckIn_Success : Fragment() {
                     setUpProgressDialog()
                 }
                 .addOnFailureListener { e ->
-                    Log.w("CheckOut", "Error updating document", e);
+                    Log.w("CheckOut", "Error updating document", e)
                 }
 
         }
@@ -135,11 +138,6 @@ class CheckIn_Success : Fragment() {
             }
         }
 
-        // retrieve value from shared preferences
-        var sharedPreferences: SharedPreferences? = context?.getSharedPreferences(
-            "UserStatus",
-            Context.MODE_APPEND
-        )
         // get risk status
         var covid_status: String = ""
         val docRefCovidStatus:DocumentReference = firestore.collection("covid_status").document(userId)
