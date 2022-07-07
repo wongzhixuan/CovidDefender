@@ -64,6 +64,8 @@ public class HistoryListAdapter extends FirestoreRecyclerAdapter<History, Histor
         holder.btn_check_out.setEnabled(!model.getCheckOut().toString().equals("true"));
 
         setAnimation(holder.itemView, position);
+
+        // check out button pressed
         holder.btn_check_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,11 +82,13 @@ public class HistoryListAdapter extends FirestoreRecyclerAdapter<History, Histor
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                        // get docid to check out
                                         docId = documentSnapshot.getId();
                                         Bundle bundle = new Bundle();
                                         bundle.putString("location", model.getLocation());
                                         bundle.putString("docId", docId);
                                         bundle.putString("time", model.getTime().toDate().toString());
+                                        // navigate to checkin success and pass data
                                         Navigation.findNavController(view).navigate(id.checkIn_Success, bundle);
                                     }
                                 }

@@ -58,8 +58,10 @@ class HistoryFragmenet : Fragment() {
         pb_loading = view.findViewById(R.id.pb_loading)
         pb_loading.visibility = View.VISIBLE
 
+        // set up recycler view
         setUpRecyclerView()
 
+        // back button
         val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_history_to_home)

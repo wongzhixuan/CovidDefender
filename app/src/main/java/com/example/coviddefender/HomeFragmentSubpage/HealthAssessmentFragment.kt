@@ -78,17 +78,22 @@ class HealthAssessmentFragment : Fragment() {
 
         }
 
+        // set up recycler view
         setUpRecyclerView()
 
         btn_submit.setOnClickListener {
             val selectedList: ArrayList<AnswerSelected> = questionAdapter.selected
             var isCompleted: Boolean = true
+
+            // check if answer array list size ==  total question
             if (selectedList.size.equals(questionAdapter.itemCount)) {
                 isCompleted = true
             } else {
+                // if not equal, user didnt answer every question
                 isCompleted = false
             }
 
+            // if all question is answered, save record to firebase
             if (isCompleted) {
                 var docRef: DocumentReference =
                     firestore.collection("health_assessment_records").document(userId)
@@ -110,14 +115,14 @@ class HealthAssessmentFragment : Fragment() {
                     .show()
             }
 
-            // count number of
+            // count number of yes and no answer
             var num_yes: Int = 0
             for (i in 0 until selectedList.size) {
                 if (selectedList.get(i).answer.equals("yes")) {
                     num_yes += 1
                 }
             }
-            // if yes > no, High Risk
+            // if yes > no, High Risk, update firebase
             if (num_yes > questionAdapter.itemCount - num_yes) {
                 var docRef: DocumentReference =
                     firestore.collection("covid_status").document(userId)
@@ -127,7 +132,7 @@ class HealthAssessmentFragment : Fragment() {
                     Log.d("covidstatus", "High Risk")
                 }
             }
-            // if no >= yes, Low Risk
+            // if no >= yes, Low Risk, update firebase
             else {
                 var docRef: DocumentReference =
                     firestore.collection("covid_status").document(userId)
@@ -161,26 +166,6 @@ class HealthAssessmentFragment : Fragment() {
             false
         )
         question_rv.adapter = questionAdapter
-
-
-    }
-
-
-    private fun getQuestionData(): ArrayList<Question> {
-        var questions: ArrayList<Question> = arrayListOf()
-        firestore.collection("health_assessment").orderBy("id", Query.Direction.ASCENDING).get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    var question: Question = document.toObject(Question::class.java)
-                    questions.add(question)
-                    Log.d("questions", questions.toString())
-                }
-
-                Log.d("questions", questions.toString())
-            }.addOnFailureListener { e ->
-                Log.e("questions", "Failed on: " + e.message)
-            }
-        return questions
 
     }
 

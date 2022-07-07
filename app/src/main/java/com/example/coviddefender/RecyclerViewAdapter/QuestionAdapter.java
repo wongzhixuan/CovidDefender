@@ -41,9 +41,12 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
                 Boolean hasDuplicate = false;
                 holder.btn_answer_yes.setChecked(true);
                 holder.btn_answer_no.setChecked(false);
+
+                // check if their has duplicated record
                 for (int i = 0; i < selected.size(); i++) {
                     AnswerSelected ans = selected.get(i);
                     if (ans.getPosition() == model.getId()) {
+                        // update at duplicated position
                         hasDuplicate = true;
                         selected.set(i, new AnswerSelected(model.getId(), true, "yes"));
                     }
@@ -62,12 +65,14 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
 
                 holder.btn_answer_yes.setChecked(false);
                 holder.btn_answer_no.setChecked(true);
+
+                // check if their has duplicated record
                 for (int i = 0; i < selected.size(); i++) {
                     AnswerSelected ans = selected.get(i);
                     if (ans.getPosition() == model.getId()) {
+                        // update at duplicated position
                         hasDuplicate = true;
                         selected.set(i, new AnswerSelected(model.getId(), true, "no"));
-
                     }
                 }
                 if (hasDuplicate == false) {

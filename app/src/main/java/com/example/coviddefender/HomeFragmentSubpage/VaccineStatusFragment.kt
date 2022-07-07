@@ -24,7 +24,7 @@ class VaccineStatusFragment : Fragment() {
     lateinit var tv_username: TextView
     lateinit var tv_vaccine_status: TextView
 
-    //    lateinit var btn_download: MaterialButton
+
     lateinit var tv_username_cert: TextView
     lateinit var tv_userIC_cert: TextView
     lateinit var tv_dose1_date: TextView
@@ -60,7 +60,6 @@ class VaccineStatusFragment : Fragment() {
         btn_back = view.findViewById<ImageButton>(R.id.btn_back)
         tv_username = view.findViewById(R.id.tv_username)
         tv_vaccine_status = view.findViewById(R.id.tv_vaccine_status)
-//        btn_download = view.findViewById(R.id.btn_download)
         tv_username_cert = view.findViewById(R.id.tv_username_cert)
         tv_userIC_cert = view.findViewById(R.id.tv_userIC_cert)
         tv_dose1_date = view.findViewById(R.id.tv_dose1_date)
@@ -91,11 +90,7 @@ class VaccineStatusFragment : Fragment() {
             findNavController().navigate(R.id.action_vaccineStatus_to_home)
 
         })
-//        btn_download.setOnClickListener {
-//            val inflater = LayoutInflater.from(context)
-//
-//
-//        }
+
         return view
     }
 
@@ -109,7 +104,7 @@ class VaccineStatusFragment : Fragment() {
         }
 
 
-
+        // get data of vaccination from firebase
         docRef.get().addOnSuccessListener { document ->
             if (document.exists()) {
                 var vaccinaton: Vaccination = document.toObject<Vaccination>()!!

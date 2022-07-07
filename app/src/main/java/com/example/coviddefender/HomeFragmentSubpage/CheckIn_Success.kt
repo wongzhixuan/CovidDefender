@@ -97,10 +97,11 @@ class CheckIn_Success : Fragment() {
         tv_check_in_time.text = time
         tv_check_in_person.text = currentUser.displayName
 
-
+        // update check out state
         btn_check_out.setOnClickListener {
             docRef.collection("historyItem").document(docId).update("IsCheckOut", true)
                 .addOnSuccessListener {
+                    // display dialog of check out information
                     setUpProgressDialog()
                 }
                 .addOnFailureListener { e ->
