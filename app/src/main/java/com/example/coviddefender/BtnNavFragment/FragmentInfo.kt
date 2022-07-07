@@ -102,6 +102,16 @@ class FragmentInfo : Fragment() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        announcementAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        announcementAdapter.stopListening()
+    }
+
     companion object {
 
         @JvmStatic
