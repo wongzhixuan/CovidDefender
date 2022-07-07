@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.coviddefender.R
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
@@ -36,6 +37,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_1)
+        FirebaseApp.initializeApp(this)
 
         //set up firebase auth
         mAuth = FirebaseAuth.getInstance()

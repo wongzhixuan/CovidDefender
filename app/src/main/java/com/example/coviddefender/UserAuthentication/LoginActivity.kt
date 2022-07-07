@@ -12,6 +12,7 @@ import com.example.coviddefender.Navigation
 import com.example.coviddefender.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
@@ -50,11 +51,12 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        FirebaseApp.initializeApp(this)
 
         //set up firebase auth
         // initialize firebase auth
         mAuth = FirebaseAuth.getInstance()
-        currentUser = mAuth.getCurrentUser()
+        currentUser = mAuth.currentUser
 
         // if user already logged in, skip login
         if(currentUser != null){
@@ -70,8 +72,8 @@ class LoginActivity : AppCompatActivity() {
 
         // btn login on click
         btn_login.setOnClickListener(View.OnClickListener {
-            email = et_login_email.getText().toString()
-            password = et_login_password.getText().toString()
+            email = et_login_email.text.toString()
+            password = et_login_password.text.toString()
 
             if (validateInputs()) {
 
@@ -136,27 +138,28 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+
     // check user inputs
     private fun validateInputs(): Boolean {
-        txt_email.setError(null)
-        txt_password.setError(null)
+        txt_email.error = null
+        txt_password.error = null
         if (email == KEY_EMPTY) {
-            txt_email.setError(emptyField)
+            txt_email.error = emptyField
             txt_email.requestFocus()
             return false
         }
         if (!Pattern.compile(regexPattern).matcher(email).matches()) {
-            txt_email.setError("Invalid email format")
+            txt_email.error = "Invalid email format"
             txt_email.requestFocus()
             return false
         }
         if (password == KEY_EMPTY) {
-            txt_password.setError(emptyField)
+            txt_password.error = emptyField
             txt_password.requestFocus()
             return false
         }
-        if (password!!.length < 6) {
-            txt_password.setError("Password must be >= 6 characters")
+        if (password.length < 6) {
+            txt_password.error = "Password must be >= 6 characters"
             txt_password.requestFocus()
             return false
         }
@@ -171,7 +174,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }

@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.coviddefender.UserAuthentication.LoginActivity
+import com.google.firebase.FirebaseApp
 
 class LoadScreen : AppCompatActivity() {
     var loading_time = 2000
@@ -13,6 +14,7 @@ class LoadScreen : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_screen)
+        FirebaseApp.initializeApp(this);
 
         // Splash Screen
         Handler().postDelayed({ // transition from one activity to another
