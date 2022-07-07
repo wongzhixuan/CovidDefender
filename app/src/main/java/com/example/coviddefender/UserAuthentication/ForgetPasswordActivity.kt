@@ -98,7 +98,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
 
     private fun reload() {
         if (currentUser != null) {
-            val intent = Intent(applicationContext, Navigation::class.java)
+            val intent = Intent(applicationContext, ForgetPasswordActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -2,6 +2,7 @@ package com.example.coviddefender.HomeFragmentSubpage
 
 import android.app.AlertDialog
 import android.content.Context.MODE_APPEND
+import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
@@ -73,8 +74,8 @@ class CheckInFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         if (mAuth.currentUser != null) {
             currentUser = mAuth.currentUser!!
-//            userId = currentUser.uid
-            userId = "testing"
+            userId = currentUser.uid
+            //userId = "testing"
         }
 
         // set up firestore
@@ -124,7 +125,7 @@ class CheckInFragment : Fragment() {
 
         // retrieve value from shared preferences
         var sharedPreferences: SharedPreferences? =
-            context?.getSharedPreferences("UserStatus", MODE_APPEND)
+            context?.getSharedPreferences("UserStatus", MODE_PRIVATE)
         // get value, default as empty string
         var covid_status = sharedPreferences?.getString("covid_status", "")
         var vaccine_status = sharedPreferences?.getString("vaccine_status", "")

@@ -128,4 +128,12 @@
         <item>Invalid</item>
     </string-array>
 
+    <string-array name="document_items">
+        <item>Take Photo</item>
+        <item>Choose from Gallery</item>
+    </string-array>
+
+
+
+
 </resources>

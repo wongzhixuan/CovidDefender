@@ -12,8 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.entity.FAQ
 import com.example.coviddefender.RecyclerViewAdapter.FAQAdapter
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class FragmentFAQ : Fragment() {
+
+    val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +29,7 @@ class FragmentFAQ : Fragment() {
         // Dummy data for recycler view
         var faq: ArrayList<FAQ> = arrayListOf(
             FAQ(
-               "FAQ 1",
+               db.collection("faq").document("testing").get().toString(),
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             ),
             FAQ(

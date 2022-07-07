@@ -26,7 +26,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 
 class Navigation : AppCompatActivity() {
-    var isFromActivity: Boolean = false
+   var isFromActivity: Boolean = false
     lateinit var navController: NavController
 
     // Firebase Authentication

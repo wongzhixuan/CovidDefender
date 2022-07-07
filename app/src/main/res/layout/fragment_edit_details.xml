@@ -218,40 +218,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/tv_profile_phone_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:text="Phone Number"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txt_field_phone_number"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:hint="+60123456789"
-                    app:endIconDrawable="@drawable/ic_edit"
-                    app:endIconMode="custom"
-                    app:errorEnabled="true"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone_number"
-                    app:startIconDrawable="@drawable/ic_contact_no"
-                    app:startIconTint="@color/dim_grey">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_phone_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter"
-                        android:inputType="number" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <Button
                     android:id="@+id/btn_save"
                     android:layout_width="match_parent"
@@ -268,7 +234,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_field_phone_number" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_field_email" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

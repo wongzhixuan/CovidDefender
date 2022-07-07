@@ -8,6 +8,15 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <queries>
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,11 +29,8 @@
         tools:targetApi="31">
         <activity
             android:name=".Navigation"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:exported="false">
+
         </activity>
         <activity
             android:name=".LoadScreen"
@@ -32,16 +38,21 @@
         </activity>
 
 
-
         <activity android:name=".UserAuthentication.LoginActivity"
             android:exported="false"/>
         <activity android:name=".UserAuthentication.RegisterActivity"
-            android:exported="false"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".UserAuthentication.RegisterActivity2"
             android:exported="false"/>
         <activity android:name=".UserAuthentication.RegisterActivity3"
             android:exported="false"/>
-
+        <activity android:name=".UserAuthentication.RegisterActivity4"
+            android:exported="false"/>
         <activity android:name=".UserAuthentication.RegisterActivity5"
             android:exported="false"/>
         <activity android:name=".UserAuthentication.ForgetPasswordActivity"
@@ -63,5 +74,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
 </manifest>
