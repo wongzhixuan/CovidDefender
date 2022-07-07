@@ -1,4 +1,4 @@
-package com.example.coviddefender.HomeFragmentSubpage
+package com.example.coviddefender.futureimprovement
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

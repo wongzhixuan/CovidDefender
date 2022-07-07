@@ -167,7 +167,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn"
-        android:name="com.example.coviddefender.HomeFragmentSubpage.GroupCheckInFragment"
+        android:name="com.example.coviddefender.futureimprovement.GroupCheckInFragment"
         android:label="fragment_group_check_in"
         tools:layout="@layout/fragment_group_check_in" >
         <action
@@ -206,7 +206,7 @@
     </fragment>
     <fragment
         android:id="@+id/groupCheckIn_AddDependent"
-        android:name="com.example.coviddefender.HomeFragmentSubpage.GroupCheckIn_AddDependentFragment"
+        android:name="com.example.coviddefender.futureimprovement.GroupCheckIn_AddDependentFragment"
         android:label="fragment_add_dependent"
         tools:layout="@layout/fragment_add_dependent" >
         <action

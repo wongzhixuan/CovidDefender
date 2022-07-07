@@ -1,4 +1,4 @@
-package com.example.coviddefender.HomeFragmentSubpage
+package com.example.coviddefender.futureimprovement
 
 import android.content.Intent
 import android.os.Bundle

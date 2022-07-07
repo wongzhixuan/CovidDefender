@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -18,12 +19,14 @@ import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.entity.Announcement
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.squareup.picasso.Picasso
 
 
 class FragmentHome : Fragment() {
@@ -84,6 +87,23 @@ class FragmentHome : Fragment() {
             }
         }
 
+        // link drawer widgets
+        var header : View = drawer_nav_view.getHeaderView(0)
+        var profile_image = header.findViewById<ShapeableImageView>(R.id.profile_image)
+        var tv_profile_name = header.findViewById<TextView>(R.id.tv_profile_name)
+        var tv_profile_id = header.findViewById<TextView>(R.id.tv_profile_id)
+
+        tv_profile_name.setText(currentUser.displayName)
+        if(currentUser.photoUrl != null){
+            var photoUrl = currentUser.photoUrl
+            Picasso.get().load(photoUrl).into(profile_image)
+        }
+        var id: String = ""
+        var docRefUsers: DocumentReference = firestore.collection("users").document(currentUser!!.uid)
+        docRefUsers.get().addOnSuccessListener { document ->
+            id = document.get("nric").toString()
+            tv_profile_id.text = id
+        }
 
         // Announcement Recycler View
         announcement_recyclerview =

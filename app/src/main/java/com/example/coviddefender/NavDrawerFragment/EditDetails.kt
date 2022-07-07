@@ -98,7 +98,7 @@ class EditDetails : Fragment() {
         et_full_name.isEnabled = false
 
         profile_image.setOnClickListener{
-
+            selectImageFromGallery()
         }
 
         val btn_save: Button = view.findViewById<Button>(R.id.btn_save)
@@ -150,14 +150,15 @@ class EditDetails : Fragment() {
     private fun selectImageFromGallery() {
         //open gallery
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
         startActivityForResult(intent, 1000)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1000) {
-            if (resultCode == Activity.RESULT_OK) {
-                val imageUri = data!!.data
+            if (resultCode == Activity.RESULT_OK ) {
+                val imageUri: Uri? = data!!.getData()
                 uploadToFirebase(imageUri!!)
             }
         }
@@ -173,8 +174,7 @@ class EditDetails : Fragment() {
                 .build()
             currentUser!!.updateProfile(changeRequest)
             val userDetails: MutableMap<String, Any> = HashMap()
-            userDetails["fullName"] = name
-            userDetails["nric"] = nric
+
             userDetails["emailAdd"] = email
             docRef.update(userDetails).addOnSuccessListener {
                 Toast.makeText(
@@ -213,36 +213,7 @@ class EditDetails : Fragment() {
         }
     }
 
-    private fun getAllData() {
-        // get data from firebase auth
-//        val username = currentUser!!.displayName
-//        if (username != null) {
-//            et_full_name.setText(username)
-//        }
-//        val email = currentUser!!.email
-//        if (email != null) {
-//            et_mail.setText(email)
-//        }
-//        if (currentUser!!.photoUrl != null) {
-//            val photoUrl = currentUser!!.photoUrl
-//            Picasso.get().load(photoUrl).into(profile_image)
-//        }
-//        // get data from firestore
-//        docRef.get().addOnCompleteListener { task ->
-//            if (task.isSuccessful) {
-//                val document = task.result
-//                if (document.exists()) {
-//                    document.getString("fullname")
-//                    document.getString("nric")
-//                    document.getString("emailAdd")
-//                } else {
-//                    Log.d("Firestore", "No such document")
-//                }
-//            } else {
-//                Log.d("Firestore", "get failed with ", task.exception)
-//            }
-//        }
-    }
+
 
     private fun validateInput(): Boolean? {
         txt_field_email.setError(null)
@@ -256,11 +227,11 @@ class EditDetails : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        getAllData()
+        setUpViewWithData()
     }
 
     override fun onStart() {
         super.onStart()
-        getAllData()
+        setUpViewWithData()
     }
 }
