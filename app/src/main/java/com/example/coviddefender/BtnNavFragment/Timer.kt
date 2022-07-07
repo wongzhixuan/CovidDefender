@@ -36,24 +36,29 @@ class Timer : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_timer, container, false)
+
+        // link widgets
         timer_progressbar = view.findViewById(R.id.timer_progressbar)
         tv_time = view.findViewById(R.id.tv_time)
         fab_play = view.findViewById(R.id.fab_play)
         fab_stop = view.findViewById(R.id.fab_stop)
         btn_next = view.findViewById(R.id.btn_next)
 
+        // start timer
         fab_play.setOnClickListener {
             startTimer()
             timerState = TimerState.Running
             updateButtons()
         }
 
+        // stop timer
         fab_stop.setOnClickListener {
             timer.cancel()
             onTimerFinished()
             btn_next.isEnabled = true
         }
 
+        // next page
         btn_next?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_timer_to_test_result)
         })
@@ -74,6 +79,7 @@ class Timer : Fragment() {
     }
 
     private fun initTimer() {
+        // initialize timer
         timerState = PrefUtil.getTimerState(requireContext())
         if (timerState == TimerState.Stopped) {
             setNewTimerLength()
@@ -94,6 +100,7 @@ class Timer : Fragment() {
     }
 
     private fun onTimerFinished() {
+        // when timer finished
         timerState = TimerState.Stopped
 
         setNewTimerLength()
@@ -107,6 +114,7 @@ class Timer : Fragment() {
     }
 
     private fun startTimer() {
+        // start timer
         timerState = TimerState.Running
 
         timer = object : CountDownTimer(secondsRemaining * 1000, 1000) {
@@ -131,6 +139,7 @@ class Timer : Fragment() {
     }
 
     private fun updateCountdownUI() {
+        // update textview time with count down time
         val minutesUntilFinished = secondsRemaining / 60
         val secondsInMinutesUntilFinished = secondsRemaining - minutesUntilFinished * 60
         val secondsStr = secondsInMinutesUntilFinished.toString()
@@ -142,6 +151,7 @@ class Timer : Fragment() {
     }
 
     private fun updateButtons() {
+        // update button state based on timer state
         when (timerState) {
             TimerState.Running -> {
                 fab_play.isEnabled = false

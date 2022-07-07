@@ -17,12 +17,6 @@ class PrefUtil {
             return preferences.getLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, 0)
         }
 
-        fun setPreviousTimerLengthSeconds(seconds: Long, context: Context) {
-            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
-            editor.putLong(PREVIOUS_TIMER_LENGTH_SECONDS_ID, seconds)
-            editor.apply()
-        }
-
         private const val TIMER_STATE_ID =
             "com.example.coviddefender.BtnNavFragment.Timer.timer_state"
 
@@ -30,13 +24,6 @@ class PrefUtil {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             var ordinal = preferences.getInt(TIMER_STATE_ID, 0)
             return Timer.TimerState.values()[ordinal]
-        }
-
-        fun setTimerState(state: Timer.TimerState, context: Context) {
-            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
-            var ordinal = state.ordinal
-            editor.putInt(TIMER_STATE_ID, ordinal)
-            editor.apply()
         }
 
         private const val SECONDS_REMAINING_ID =

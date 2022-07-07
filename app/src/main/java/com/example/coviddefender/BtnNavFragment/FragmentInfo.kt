@@ -75,12 +75,14 @@ class FragmentInfo : Fragment() {
         announcement_recyclerview =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
 
+        // set up announcement recycler view with data from firebase
         setUpRecyclerView()
 
         return view
     }
 
     private fun setUpRecyclerView() {
+        // set query for firestore
         var query: Query =
             firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
         var options: FirestoreRecyclerOptions<Announcement> =

@@ -79,8 +79,10 @@ class ViewAppointment : Fragment() {
     }
 
     private fun setUpViewWithFirebase() {
+        // username
         tv_username.text = currentUser.displayName
 
+        // get appointment data from firebase
         docRef.get().addOnSuccessListener { document ->
             if (document.exists()) {
                 var vaccinaton: Vaccination = document.toObject<Vaccination>()!!
@@ -100,19 +102,24 @@ class ViewAppointment : Fragment() {
                     var eligible_time = vaccinaton.eligible_for_vaccine.toDate()
                     eligible_time_string = dateFormat.format(eligible_time).toString()
 
+                    // user have taken dose1
                     if (vaccinaton.dose1.get("time") != null) {
                         var time: Timestamp = vaccinaton.dose1.get("time") as Timestamp
                         var dose1_time = time.toDate()
                         dose1_time_string = dateFormat.format(dose1_time).toString()
+
+                        // user have taken dose2
                         if (vaccinaton.dose2.get("time") != null) {
                             var time: Timestamp = vaccinaton.dose2.get("time") as Timestamp
                             var dose2_time = time.toDate()
                             dose2_time_string = dateFormat.format(dose2_time).toString()
 
+                            // user have taken booster
                             if (vaccinaton.booster.get("time") != null) {
                                 var time: Timestamp = vaccinaton.booster.get("time") as Timestamp
                                 var booster_time = time.toDate()
                                 booster_time_string = dateFormat.format(booster_time).toString()
+                                // add all appointment item to stepper
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, register_time_string,
@@ -156,7 +163,9 @@ class ViewAppointment : Fragment() {
                                         ""
                                     )
                                 )
-                            } else {
+                            }
+                            // user havent take booster but have finished all previous vaccine
+                            else {
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, register_time_string,
@@ -186,7 +195,9 @@ class ViewAppointment : Fragment() {
                                     )
                                 )
                             }
-                        } else {
+                        }
+                        // user havent take dose2 but have finished all previous vaccine
+                        else {
                             items.add(
                                 AppointmentAdapter.MyItem(
                                     false, register_time_string, "Registered", ""
@@ -207,7 +218,9 @@ class ViewAppointment : Fragment() {
                                 )
                             )
                         }
-                    } else {
+                    }
+                    // user havent take dose1 but have finished all previous action
+                    else {
                         items.add(
                             AppointmentAdapter.MyItem(
                                 false, register_time_string, "Registered", ""
@@ -226,6 +239,8 @@ class ViewAppointment : Fragment() {
                         )
                     )
                 }
+
+                // set stepper adapter
                 appointment_stepper.setAdapter(AppointmentAdapter(items))
 
             }

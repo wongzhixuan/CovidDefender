@@ -78,7 +78,8 @@ class SelfTestResult : Fragment() {
             val month = cldr[Calendar.MONTH]
             val year = cldr[Calendar.YEAR]
             // date picker dialog
-            val picker = DatePickerDialog(requireContext(),
+            val picker = DatePickerDialog(
+                requireContext(),
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                     et_date.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
                 }, year, month, day
@@ -107,7 +108,6 @@ class SelfTestResult : Fragment() {
                 "Cancel",
                 DialogInterface.OnClickListener { dialogInterface, i -> })
             val custom_dialog: AlertDialog = builder.create()
-//            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
 
@@ -131,7 +131,6 @@ class SelfTestResult : Fragment() {
                 "Cancel",
                 DialogInterface.OnClickListener { dialogInterface, i -> })
             val custom_dialog: AlertDialog = builder.create()
-//            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
 

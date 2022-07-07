@@ -110,12 +110,14 @@ class HealthAssessmentFragment : Fragment() {
                     .show()
             }
 
+            // count number of
             var num_yes: Int = 0
             for (i in 0 until selectedList.size) {
                 if (selectedList.get(i).answer.equals("yes")) {
                     num_yes += 1
                 }
             }
+            // if yes > no, High Risk
             if (num_yes > questionAdapter.itemCount - num_yes) {
                 var docRef: DocumentReference =
                     firestore.collection("covid_status").document(userId)
@@ -124,7 +126,9 @@ class HealthAssessmentFragment : Fragment() {
                         .show()
                     Log.d("covidstatus", "High Risk")
                 }
-            } else {
+            }
+            // if no >= yes, Low Risk
+            else {
                 var docRef: DocumentReference =
                     firestore.collection("covid_status").document(userId)
                 docRef.update("covid_status", "Low Risk").addOnSuccessListener {

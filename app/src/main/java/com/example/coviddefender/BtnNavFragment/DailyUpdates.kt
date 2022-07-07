@@ -37,6 +37,8 @@ class DailyUpdates : Fragment() {
         tv_active_case = view.findViewById(R.id.tv_card_1_1)
         tv_death = view.findViewById(R.id.tv_card_3_1)
         tv_recover = view.findViewById(R.id.tv_card_4_1)
+
+        // get statistic data from volley api
         val url: String = "https://disease.sh/v3/covid-19/all"
         val request: StringRequest = StringRequest(
             Request.Method.GET,

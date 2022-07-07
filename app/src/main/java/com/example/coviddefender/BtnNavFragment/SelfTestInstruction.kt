@@ -18,7 +18,7 @@ class SelfTestInstruction : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_self_test_instruction, container, false)
-
+        // start timer
         val btn_start_timer: Button = view.findViewById<Button>(R.id.btn_start_timer)
         btn_start_timer?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instruction_to_timer)

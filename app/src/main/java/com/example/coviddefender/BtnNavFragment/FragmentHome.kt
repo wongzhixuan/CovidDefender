@@ -93,6 +93,7 @@ class FragmentHome : Fragment() {
         var tv_profile_name = header.findViewById<TextView>(R.id.tv_profile_name)
         var tv_profile_id = header.findViewById<TextView>(R.id.tv_profile_id)
 
+        // get data from firebase auth and firestore to set up drawer header
         tv_profile_name.setText(currentUser.displayName)
         if(currentUser.photoUrl != null){
             var photoUrl = currentUser.photoUrl
@@ -108,6 +109,8 @@ class FragmentHome : Fragment() {
         // Announcement Recycler View
         announcement_recyclerview =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
+
+        // set up recycler view with data from firebase
         setUpRecyclerView()
 
 
@@ -118,8 +121,6 @@ class FragmentHome : Fragment() {
 
         card_checkin = view.findViewById<MaterialCardView>(R.id.card_checkin)
         card_history = view.findViewById<MaterialCardView>(R.id.card_history)
-//        card_group = view.findViewById<MaterialCardView>(R.id.card_group)
-
         card_vaccine_status = view.findViewById<MaterialCardView>(R.id.card_vaccine_status)
         card_appointment = view.findViewById<MaterialCardView>(R.id.card_appointment)
 
@@ -152,6 +153,7 @@ class FragmentHome : Fragment() {
     }
 
     private fun setUpRecyclerView() {
+        // set up recycler view with firebase firestore ui recyclerview adapter
         var query: Query =
             firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
         var options: FirestoreRecyclerOptions<Announcement> =
@@ -160,11 +162,15 @@ class FragmentHome : Fragment() {
                 .build()
 
         announcementAdapter = AnnouncementAdapter(options)
+
+        // set linear layout manager
         announcement_recyclerview?.layoutManager = LinearLayoutManager(
             view?.context,
             LinearLayoutManager.VERTICAL,
             false
         )
+
+        // set adapter
         announcement_recyclerview.adapter = announcementAdapter
     }
 
@@ -177,7 +183,7 @@ class FragmentHome : Fragment() {
         super.onStop()
         announcementAdapter.stopListening()
     }
-
+    // drawer listener
     private val drawerListener =
         NavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
