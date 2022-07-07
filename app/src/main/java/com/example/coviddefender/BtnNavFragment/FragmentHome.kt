@@ -12,12 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.R
 import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
-import com.example.coviddefender.RecyclerViewAdapter.VaccineInfoAdapter
+import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.entity.Announcement
-import com.example.coviddefender.entity.Vaccine_Info
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
@@ -53,7 +51,7 @@ class FragmentHome : Fragment() {
     // Firestore
     private lateinit var firestore: FirebaseFirestore
     private lateinit var docRef: DocumentReference
-    private lateinit var userId:String
+    private lateinit var userId: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -85,7 +83,6 @@ class FragmentHome : Fragment() {
                 drawer_layout.openDrawer(GravityCompat.START)
             }
         }
-
 
 
         // Announcement Recycler View
@@ -135,10 +132,12 @@ class FragmentHome : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        var query: Query = firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
-        var options: FirestoreRecyclerOptions<Announcement> = FirestoreRecyclerOptions.Builder<Announcement>()
-            .setQuery(query, Announcement::class.java)
-            .build()
+        var query: Query =
+            firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Announcement> =
+            FirestoreRecyclerOptions.Builder<Announcement>()
+                .setQuery(query, Announcement::class.java)
+                .build()
 
         announcementAdapter = AnnouncementAdapter(options)
         announcement_recyclerview?.layoutManager = LinearLayoutManager(
@@ -175,7 +174,7 @@ class FragmentHome : Fragment() {
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }
                 R.id.log_out -> {
-                    val intent: Intent = Intent(context , LoginActivity:: class.java)
+                    val intent: Intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }

@@ -69,9 +69,11 @@ class LoginActivity : AppCompatActivity() {
 
                 // sign in user with email and password
                 mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
-                    // if user
+                    // if user successfully login
                     currentUser = it.user
                     userId = it.user?.uid
+
+                    // get users data
                     var docRef = db.collection("users").document(userId!!)
                     docRef.get().addOnCompleteListener { task ->
                         if (task.isSuccessful) {
@@ -82,6 +84,8 @@ class LoginActivity : AppCompatActivity() {
                                     "Sign In Sucessful",
                                     Toast.LENGTH_LONG
                                 ).show()
+
+                                // navigate to navigation activity
                                 startActivity(Intent(this, Navigation::class.java))
                             } else {
                                 Toast.makeText(
@@ -102,19 +106,21 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
-
+        // navigate to register activity
         register_link = findViewById(R.id.register_link)
         register_link.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         })
 
+        // navigate to register activity
         val login_back: ImageButton = findViewById<ImageButton>(R.id.login_back)
         login_back.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         })
 
+        // navigate to forget password
         fgtpwd_link = findViewById(R.id.fgtpwd_link)
         fgtpwd_link.setOnClickListener {
             val intent = Intent(this, ForgetPasswordActivity::class.java)
@@ -122,6 +128,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // check user inputs
     private fun validateInputs(): Boolean {
         txt_email.setError(null)
         txt_password.setError(null)

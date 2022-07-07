@@ -10,8 +10,10 @@ public class Vaccine_Info {
     @PropertyName("url")
     String url;
 
-    public Vaccine_Info(){}
-    public Vaccine_Info(String image, String description, String url){
+    public Vaccine_Info() {
+    }
+
+    public Vaccine_Info(String image, String description, String url) {
         this.description = description;
         this.url = url;
         this.image = image;

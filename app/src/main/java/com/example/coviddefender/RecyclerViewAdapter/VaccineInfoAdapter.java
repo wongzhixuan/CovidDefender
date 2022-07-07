@@ -31,13 +31,14 @@ public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info, V
 
     @Override
     protected void onBindViewHolder(@NonNull VaccineInfoAdapter.VaccineInfoViewHolder holder, int position, @NonNull Vaccine_Info model) {
-
+        // set up text view
         holder.tv_description.setText(model.getDescription());
 
         Uri url = Uri.parse(model.getUrl());
         holder.card_vaccine_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // open browser with link
                 Intent intent = new Intent(Intent.ACTION_VIEW, url);
                 view.getContext().startActivity(Intent.createChooser(intent, "Browse with"));
 

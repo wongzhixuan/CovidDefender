@@ -3,7 +3,6 @@ package com.example.coviddefender.entity;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.PropertyName;
 
-
 import java.util.Map;
 
 public class Vaccination {
@@ -14,11 +13,11 @@ public class Vaccination {
     @PropertyName("eligible_for_vaccine")
     Timestamp eligible_for_vaccine;
     @PropertyName("dose1")
-    Map<String,Object> dose1;
+    Map<String, Object> dose1;
     @PropertyName("dose2")
-    Map<String,Object> dose2;
+    Map<String, Object> dose2;
     @PropertyName("booster")
-    Map<String,Object> booster;
+    Map<String, Object> booster;
     @PropertyName("vaccine_status")
     String vaccine_status;
 
@@ -29,9 +28,9 @@ public class Vaccination {
             Boolean IsRegistered,
             Timestamp registered,
             Timestamp eligible_for_vaccine,
-            Map<String,Object> dose1,
-            Map<String,Object> dose2,
-            Map<String,Object> booster,
+            Map<String, Object> dose1,
+            Map<String, Object> dose2,
+            Map<String, Object> booster,
             String vaccine_status) {
         this.IsRegistered = IsRegistered;
         this.registered_time = registered;
@@ -50,15 +49,15 @@ public class Vaccination {
         return registered_time;
     }
 
-    public Map<String,Object> getBooster() {
+    public Map<String, Object> getBooster() {
         return booster;
     }
 
-    public Map<String,Object> getDose1() {
+    public Map<String, Object> getDose1() {
         return dose1;
     }
 
-    public Map<String,Object> getDose2() {
+    public Map<String, Object> getDose2() {
         return dose2;
     }
 

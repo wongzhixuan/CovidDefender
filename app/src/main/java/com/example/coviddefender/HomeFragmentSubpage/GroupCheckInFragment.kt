@@ -2,18 +2,18 @@ package com.example.coviddefender.HomeFragmentSubpage
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.Dependent
 import com.example.coviddefender.RecyclerViewAdapter.DependentAdapter
+import com.example.coviddefender.entity.Dependent
 import com.google.android.material.button.MaterialButton
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
@@ -51,9 +51,10 @@ class GroupCheckInFragment : Fragment() {
             Dependent("Cloud Strife", "Friend", false),
             Dependent("Cloud Strife", "Friend", false),
 
-        )
+            )
         // Dependent Recycler View
-        val dependent_recyclerview: RecyclerView = view.findViewById<RecyclerView>(R.id.dependent_recyclerview)
+        val dependent_recyclerview: RecyclerView =
+            view.findViewById<RecyclerView>(R.id.dependent_recyclerview)
         dependent_recyclerview.layoutManager = LinearLayoutManager(
             view.context,
             LinearLayoutManager.VERTICAL,
@@ -71,7 +72,8 @@ class GroupCheckInFragment : Fragment() {
         // check in
         btn_check_in.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.checkIn_Success)
-            var integrator : IntentIntegrator = IntentIntegrator.forSupportFragment(this@GroupCheckInFragment)
+            var integrator: IntentIntegrator =
+                IntentIntegrator.forSupportFragment(this@GroupCheckInFragment)
             integrator.setOrientationLocked(false)
             integrator.setPrompt("Scan QR code")
             integrator.setBeepEnabled(false) // no beep sound when scanning
@@ -80,7 +82,7 @@ class GroupCheckInFragment : Fragment() {
         })
 
 
-        val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
+        val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_groupCheckIn_to_home)
 
@@ -93,6 +95,7 @@ class GroupCheckInFragment : Fragment() {
         @JvmStatic
         fun newInstance() = GroupCheckInFragment()
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result: IntentResult =
             IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -100,7 +103,8 @@ class GroupCheckInFragment : Fragment() {
             if (result.getContents() == null) {
                 Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Scanned : " + result.getContents(), Toast.LENGTH_LONG)
+                    .show()
                 findNavController().navigate(R.id.checkIn_Success)
             }
         }

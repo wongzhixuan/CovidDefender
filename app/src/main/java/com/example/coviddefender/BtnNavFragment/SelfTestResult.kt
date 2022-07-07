@@ -1,21 +1,11 @@
 package com.example.coviddefender.BtnNavFragment
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.Activity.RESULT_CANCELED
-import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.content.DialogInterface
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.hardware.Camera
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
@@ -24,33 +14,24 @@ import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
-import com.example.coviddefender.UserAuthentication.RegisterActivity5
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE
-import kotlinx.coroutines.launch
 import java.util.*
-import java.util.jar.Manifest
 
 
-class SelfTestResult: Fragment() {
+class SelfTestResult : Fragment() {
 
     // edittext or dropdown
     lateinit var et_date: TextInputEditText
     lateinit var et_result: AutoCompleteTextView
     lateinit var et_document: AutoCompleteTextView
-    lateinit var document_image : ImageView
+    lateinit var document_image: ImageView
     lateinit var et_address: TextInputEditText
     lateinit var et_postcode: TextInputEditText
     lateinit var et_state: AutoCompleteTextView
@@ -63,7 +44,7 @@ class SelfTestResult: Fragment() {
     lateinit var txt_field_postcode: TextInputLayout
     lateinit var txt_field_state: TextInputLayout
 
-    private var  isReadPermissionGranted = false
+    private var isReadPermissionGranted = false
 
     val REQUEST_CODE = 100
     private var resolver = getActivity()?.getContentResolver()
@@ -99,7 +80,9 @@ class SelfTestResult: Fragment() {
             // date picker dialog
             val picker = DatePickerDialog(requireContext(),
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    et_date.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year) }, year, month, day)
+                    et_date.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
+                }, year, month, day
+            )
             picker.show()
         }
 
@@ -112,12 +95,17 @@ class SelfTestResult: Fragment() {
         et_result.setOnClickListener(View.OnClickListener {
             var builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Test Result")
-            builder.setSingleChoiceItems(testresult, checkedItems_testresult[0], DialogInterface.OnClickListener { dialogInterface, i ->
-                checkedItems_testresult[0] = i
-                et_result.setText(testresult[i])
-                dialogInterface.dismiss()
-            })
-            builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->  })
+            builder.setSingleChoiceItems(
+                testresult,
+                checkedItems_testresult[0],
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    checkedItems_testresult[0] = i
+                    et_result.setText(testresult[i])
+                    dialogInterface.dismiss()
+                })
+            builder.setNegativeButton(
+                "Cancel",
+                DialogInterface.OnClickListener { dialogInterface, i -> })
             val custom_dialog: AlertDialog = builder.create()
 //            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
@@ -131,22 +119,27 @@ class SelfTestResult: Fragment() {
             var builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
             builder.setTitle("State")
             builder.setIcon(R.drawable.ic_location_small)
-            builder.setSingleChoiceItems(states, checkedItems_state[0], DialogInterface.OnClickListener { dialogInterface, i ->
-                checkedItems_state[0] = i
-                et_state.setText(states[i])
-                dialogInterface.dismiss()
-            })
-            builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->  })
+            builder.setSingleChoiceItems(
+                states,
+                checkedItems_state[0],
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    checkedItems_state[0] = i
+                    et_state.setText(states[i])
+                    dialogInterface.dismiss()
+                })
+            builder.setNegativeButton(
+                "Cancel",
+                DialogInterface.OnClickListener { dialogInterface, i -> })
             val custom_dialog: AlertDialog = builder.create()
 //            custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
 
         //submit button
-        val btn_submit:Button = view.findViewById<Button>(R.id.btn_submit)
+        val btn_submit: Button = view.findViewById<Button>(R.id.btn_submit)
         btn_submit.setOnClickListener(View.OnClickListener {
-            val date : String = et_date.getText().toString()
-            val result : String = et_result.getText().toString()
+            val date: String = et_date.getText().toString()
+            val result: String = et_result.getText().toString()
             val address: String = et_address.getText().toString()
             val postcode: String = et_postcode.getText().toString()
             val state: String = et_state.getText().toString()

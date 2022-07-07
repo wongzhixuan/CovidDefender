@@ -1,7 +1,6 @@
 package com.example.coviddefender.HomeFragmentSubpage;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -48,22 +47,19 @@ import java.util.ArrayList;
 public class HotspotFragment extends Fragment {
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient fusedLocationProviderClient;
-    TextView tv_confirmed_number ;
+    TextView tv_confirmed_number;
     TextView tv_recovered_number;
     TextView tv_death_number;
-
-    // Firebase Authentication
-    private FirebaseAuth mAuth;
-    private FirebaseUser currentUser;
-
-    // Firestore
-    private FirebaseFirestore firestore;
-    private DocumentReference docRef;
-
     Marker[] allMarkers;
     ArrayList<LatLng> positions = new ArrayList<LatLng>();
     Marker marker;
     GoogleMap googleMap;
+    // Firebase Authentication
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    // Firestore
+    private FirebaseFirestore firestore;
+    private DocumentReference docRef;
 
     @Nullable
     @Override
@@ -115,7 +111,7 @@ public class HotspotFragment extends Fragment {
         return view;
     }
 
-    public void getCurrentLocation(){
+    public void getCurrentLocation() {
         if (ContextCompat.checkSelfPermission(getContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -126,7 +122,7 @@ public class HotspotFragment extends Fragment {
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location != null){
+                if (location != null) {
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -152,22 +148,21 @@ public class HotspotFragment extends Fragment {
                                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if(task.isSuccessful()){
-                                                for(QueryDocumentSnapshot documentSnapshot: task.getResult()){
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                                                     // get geopoint data from firebase
                                                     GeoPoint geoPoint = documentSnapshot.getGeoPoint("marker");
                                                     // convert geopoint to LatLng
                                                     Double lat = geoPoint.getLatitude();
                                                     Double lng = geoPoint.getLongitude();
                                                     LatLng latLng = new LatLng(lat, lng);
-                                                    Log.d("marker",latLng.toString());
+                                                    Log.d("marker", latLng.toString());
 
                                                     // add markers
                                                     googleMap.addMarker(new MarkerOptions().title("Confirmed cases").position(latLng).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
                                                 }
-                                            }
-                                            else{
+                                            } else {
                                                 Log.d("mapMarkers", task.getException().getMessage().toString());
                                             }
                                         }
@@ -181,7 +176,7 @@ public class HotspotFragment extends Fragment {
 
     }
 
-    private void getData(){
+    private void getData() {
         // get hotspot data
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override

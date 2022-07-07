@@ -28,7 +28,7 @@ class FragmentStatistics : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view:View = inflater.inflate(R.layout.fragment_statistics, container, false)
+        var view: View = inflater.inflate(R.layout.fragment_statistics, container, false)
 
         val tab_layout = view.findViewById<TabLayout>(R.id.info_tab)
         val statistics_viewpager = view.findViewById<ViewPager2>(R.id.statistics_viewpager)
@@ -42,8 +42,7 @@ class FragmentStatistics : Fragment() {
         TabLayoutMediator(
             tab_layout,
             statistics_viewpager
-        ) {
-                tab: TabLayout.Tab, position: Int ->
+        ) { tab: TabLayout.Tab, position: Int ->
             tab.text = titles[position]
         }.attach()
 
@@ -58,17 +57,16 @@ class FragmentStatistics : Fragment() {
             url,
             Response.Listener { response ->
                 // Handle the JSON object and handle it inside try and catch
-                try{
+                try {
                     val jsonObj: JSONObject = JSONObject(response.toString())
                     // set text
                     tv_updated_cases.setText(jsonObj.getString("updated"))
 
-                }
-                catch (e: JSONException){
+                } catch (e: JSONException) {
                     e.printStackTrace()
                 }
             },
-            Response.ErrorListener {  })
+            Response.ErrorListener { })
         val request_queue: RequestQueue = Volley.newRequestQueue(context)
         request_queue.add(request)
 

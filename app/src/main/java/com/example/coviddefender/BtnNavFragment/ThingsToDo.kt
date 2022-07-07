@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.ToDo
 import com.example.coviddefender.RecyclerViewAdapter.ToDoAdapter
+import com.example.coviddefender.entity.ToDo
 
 class ThingsToDo : Fragment() {
 
@@ -23,7 +23,7 @@ class ThingsToDo : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view:View = inflater.inflate(R.layout.fragment_things_to_do, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_things_to_do, container, false)
         // Dummy data for recycler view
         var todo: ArrayList<ToDo> = arrayListOf(
             ToDo(
@@ -42,7 +42,7 @@ class ThingsToDo : Fragment() {
 
         //To Do Recycler View
         val todo_recyclerview: RecyclerView? =
-           view.findViewById<RecyclerView>(R.id.todo_recyclerview)
+            view.findViewById<RecyclerView>(R.id.todo_recyclerview)
         todo_recyclerview?.layoutManager = LinearLayoutManager(
             view.context,
             LinearLayoutManager.VERTICAL,

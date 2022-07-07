@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.ToKnow
 import com.example.coviddefender.RecyclerViewAdapter.ToKnowAdapter
+import com.example.coviddefender.entity.ToKnow
 
 class ThingsToKnow : Fragment() {
 
@@ -23,7 +23,7 @@ class ThingsToKnow : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view:View = inflater.inflate(R.layout.fragment_things_to_know, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_things_to_know, container, false)
 
         var toknow: ArrayList<ToKnow> = arrayListOf(
             ToKnow(

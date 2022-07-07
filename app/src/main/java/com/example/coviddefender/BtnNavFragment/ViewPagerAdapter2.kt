@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class ViewPagerAdapter2(fa: FragmentStatistics) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
-        return when(position) {
+        return when (position) {
             0 -> {
                 DailyUpdates.newInstance()
             }

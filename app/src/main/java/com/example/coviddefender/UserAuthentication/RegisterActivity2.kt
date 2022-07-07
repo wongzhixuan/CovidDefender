@@ -34,9 +34,10 @@ class RegisterActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_2)
 
+        // get email pass from previous activity
         var email = intent.getStringExtra("email")
 
-
+        // get edit text data
         et_full_name = findViewById(R.id.et_full_name)
         et_NRIC = findViewById(R.id.et_NRIC)
         et_age = findViewById(R.id.et_age)
@@ -88,7 +89,8 @@ class RegisterActivity2 : AppCompatActivity() {
                         age--
                     }
                     calAge = age
-                }, year, month, day)
+                }, year, month, day
+            )
             picker.show()
         }
 
@@ -118,6 +120,7 @@ class RegisterActivity2 : AppCompatActivity() {
                     radioButton = findViewById<View>(selectedId) as RadioButton
                     val gender: String = radioButton.text.toString()
 
+                    // navigate to register 3 and pass values
                     val intent = Intent(this, RegisterActivity3::class.java).apply {
                         putExtra("email", email)
                         putExtra("name", fullname)

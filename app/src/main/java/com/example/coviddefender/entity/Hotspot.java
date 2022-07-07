@@ -10,7 +10,7 @@ public class Hotspot {
     @PropertyName("death")
     String death_num;
 
-    public Hotspot(){
+    public Hotspot() {
         // empty constructor required
     }
 

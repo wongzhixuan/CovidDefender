@@ -3,8 +3,6 @@ package com.example.coviddefender.entity;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.PropertyName;
 
-import java.util.Date;
-
 public class History {
     @PropertyName("location")
     public String location;
@@ -13,11 +11,11 @@ public class History {
     @PropertyName("IsCheckOut")
     public Boolean IsCheckOut;
 
-    public History(){
+    public History() {
         // empty constructor required
     }
 
-    public History(Boolean IsCheckOut, String location, Timestamp time){
+    public History(Boolean IsCheckOut, String location, Timestamp time) {
         this.IsCheckOut = IsCheckOut;
         this.location = location;
         this.time = time;
@@ -27,20 +25,20 @@ public class History {
         return IsCheckOut;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public Timestamp getTime() {
-        return time;
-    }
-
     public void setCheckOut(Boolean checkOut) {
         IsCheckOut = checkOut;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Timestamp getTime() {
+        return time;
     }
 
     public void setTime(Timestamp time) {

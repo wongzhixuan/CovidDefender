@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.coviddefender.R
-import com.example.coviddefender.RecyclerViewAdapter.*
+import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
 import com.example.coviddefender.entity.Announcement
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.tabs.TabLayout
@@ -35,7 +35,7 @@ class FragmentInfo : Fragment() {
     // Firestore
     private lateinit var firestore: FirebaseFirestore
     private lateinit var docRef: DocumentReference
-    private lateinit var userId:String
+    private lateinit var userId: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,8 +69,7 @@ class FragmentInfo : Fragment() {
         TabLayoutMediator(
             tab_layout,
             viewpager
-        ) {
-                tab: TabLayout.Tab, position: Int ->
+        ) { tab: TabLayout.Tab, position: Int ->
             tab.text = titles[position]
         }.attach()
 
@@ -85,10 +84,12 @@ class FragmentInfo : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        var query: Query = firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
-        var options: FirestoreRecyclerOptions<Announcement> = FirestoreRecyclerOptions.Builder<Announcement>()
-            .setQuery(query, Announcement::class.java)
-            .build()
+        var query: Query =
+            firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Announcement> =
+            FirestoreRecyclerOptions.Builder<Announcement>()
+                .setQuery(query, Announcement::class.java)
+                .build()
 
         announcementAdapter = AnnouncementAdapter(options)
 

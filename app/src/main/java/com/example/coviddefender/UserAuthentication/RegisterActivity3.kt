@@ -28,6 +28,7 @@ class RegisterActivity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_3)
 
+        // get values passed from previous activity
         val email = intent.getStringExtra("email")
         val name = intent.getStringExtra("name")
         val nric = intent.getStringExtra("nric")
@@ -35,6 +36,7 @@ class RegisterActivity3 : AppCompatActivity() {
         val age = intent.getStringExtra("age")
         val nationality = intent.getStringExtra("nationality")
 
+        // get edit text data
         et_address = findViewById(R.id.et_address)
         et_postcode = findViewById(R.id.et_postcode)
         et_state = findViewById(R.id.et_state)
@@ -77,6 +79,7 @@ class RegisterActivity3 : AppCompatActivity() {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
                     .show()
             } else {
+                // navigate to next activity and pass data
                 startActivity(Intent(this, RegisterActivity4::class.java).apply {
                     putExtra("name", name)
                     putExtra("email", email)

@@ -100,17 +100,17 @@ class ViewAppointment : Fragment() {
                     var eligible_time = vaccinaton.eligible_for_vaccine.toDate()
                     eligible_time_string = dateFormat.format(eligible_time).toString()
 
-                    if(vaccinaton.dose1.get("time") != null){
-                        var time:Timestamp = vaccinaton.dose1.get("time") as Timestamp
+                    if (vaccinaton.dose1.get("time") != null) {
+                        var time: Timestamp = vaccinaton.dose1.get("time") as Timestamp
                         var dose1_time = time.toDate()
                         dose1_time_string = dateFormat.format(dose1_time).toString()
-                        if(vaccinaton.dose2.get("time")!=null){
-                            var time:Timestamp = vaccinaton.dose2.get("time") as Timestamp
+                        if (vaccinaton.dose2.get("time") != null) {
+                            var time: Timestamp = vaccinaton.dose2.get("time") as Timestamp
                             var dose2_time = time.toDate()
                             dose2_time_string = dateFormat.format(dose2_time).toString()
 
-                            if(vaccinaton.booster.get("time") != null){
-                                var time:Timestamp = vaccinaton.booster.get("time") as Timestamp
+                            if (vaccinaton.booster.get("time") != null) {
+                                var time: Timestamp = vaccinaton.booster.get("time") as Timestamp
                                 var booster_time = time.toDate()
                                 booster_time_string = dateFormat.format(booster_time).toString()
                                 items.add(
@@ -121,27 +121,31 @@ class ViewAppointment : Fragment() {
                                 )
                                 items.add(
                                     AppointmentAdapter.MyItem(
-                                        false,eligible_time_string,
-                                        "Eligible for Vaccine?",""
-                                    ))
+                                        false, eligible_time_string,
+                                        "Eligible for Vaccine?", ""
+                                    )
+                                )
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, dose1_time_string,
-                                        "1st Dose Appointment\n"+vaccinaton.dose1.get("location").toString(),
+                                        "1st Dose Appointment\n" + vaccinaton.dose1.get("location")
+                                            .toString(),
                                         vaccinaton.dose1.get("address").toString()
                                     )
                                 )
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, dose2_time_string,
-                                        "2nd Dose Appointment\n"+vaccinaton.dose2.get("location").toString(),
+                                        "2nd Dose Appointment\n" + vaccinaton.dose2.get("location")
+                                            .toString(),
                                         vaccinaton.dose2.get("address").toString()
                                     )
                                 )
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, booster_time_string,
-                                        "Booster Appointment\n"+vaccinaton.booster.get("location").toString(),
+                                        "Booster Appointment\n" + vaccinaton.booster.get("location")
+                                            .toString(),
                                         vaccinaton.booster.get("address").toString()
                                     )
                                 )
@@ -152,8 +156,7 @@ class ViewAppointment : Fragment() {
                                         ""
                                     )
                                 )
-                            }
-                            else{
+                            } else {
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, register_time_string,
@@ -162,26 +165,28 @@ class ViewAppointment : Fragment() {
                                 )
                                 items.add(
                                     AppointmentAdapter.MyItem(
-                                        false,eligible_time_string,
-                                        "Eligible for Vaccine?",""
-                                    ))
+                                        false, eligible_time_string,
+                                        "Eligible for Vaccine?", ""
+                                    )
+                                )
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         false, dose1_time_string,
-                                        "1st Dose Appointment\n"+vaccinaton.dose1.get("location").toString(),
+                                        "1st Dose Appointment\n" + vaccinaton.dose1.get("location")
+                                            .toString(),
                                         vaccinaton.dose1.get("address").toString()
                                     )
                                 )
                                 items.add(
                                     AppointmentAdapter.MyItem(
                                         true, dose2_time_string,
-                                        "2nd Dose Appointment\n"+vaccinaton.dose2.get("location").toString(),
+                                        "2nd Dose Appointment\n" + vaccinaton.dose2.get("location")
+                                            .toString(),
                                         vaccinaton.dose2.get("address").toString()
                                     )
                                 )
                             }
-                        }
-                        else{
+                        } else {
                             items.add(
                                 AppointmentAdapter.MyItem(
                                     false, register_time_string, "Registered", ""
@@ -189,16 +194,20 @@ class ViewAppointment : Fragment() {
                             )
                             items.add(
                                 AppointmentAdapter.MyItem(
-                                    false,eligible_time_string,"Eligible for Vaccine?",""
-                                ))
+                                    false, eligible_time_string, "Eligible for Vaccine?", ""
+                                )
+                            )
                             items.add(
                                 AppointmentAdapter.MyItem(
-                                    true, dose1_time_string, "1st Dose Appointment\n"+vaccinaton.dose1.get("location").toString(), vaccinaton.dose1.get("address").toString()
+                                    true,
+                                    dose1_time_string,
+                                    "1st Dose Appointment\n" + vaccinaton.dose1.get("location")
+                                        .toString(),
+                                    vaccinaton.dose1.get("address").toString()
                                 )
                             )
                         }
-                    }
-                    else{
+                    } else {
                         items.add(
                             AppointmentAdapter.MyItem(
                                 false, register_time_string, "Registered", ""
@@ -206,8 +215,9 @@ class ViewAppointment : Fragment() {
                         )
                         items.add(
                             AppointmentAdapter.MyItem(
-                                true,eligible_time_string,"Eligible for Vaccine?",""
-                            ))
+                                true, eligible_time_string, "Eligible for Vaccine?", ""
+                            )
+                        )
                     }
                 } else {
                     items.add(
@@ -220,7 +230,6 @@ class ViewAppointment : Fragment() {
 
             }
         }
-
 
 
     }

@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.FAQ
 import com.example.coviddefender.RecyclerViewAdapter.FAQAdapter
+import com.example.coviddefender.entity.FAQ
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -24,12 +24,12 @@ class FragmentFAQ : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view :View =  inflater.inflate(R.layout.fragment_faq, container, false)
+        var view: View = inflater.inflate(R.layout.fragment_faq, container, false)
 
         // Dummy data for recycler view
         var faq: ArrayList<FAQ> = arrayListOf(
             FAQ(
-               db.collection("faq").document("testing").get().toString(),
+                db.collection("faq").document("testing").get().toString(),
                 "Lorem ipsum dolor sit amet, consectetur adipiscin"
             ),
             FAQ(
@@ -55,7 +55,7 @@ class FragmentFAQ : Fragment() {
         faq_recyclerview?.adapter = FAQAdapter(faq)
 
 
-        val FAQ_back : ImageButton = view.findViewById<ImageButton>(R.id.FAQ_back)
+        val FAQ_back: ImageButton = view.findViewById<ImageButton>(R.id.FAQ_back)
         FAQ_back?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_faq_to_home)
 

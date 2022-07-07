@@ -113,11 +113,10 @@ class CheckInFragment : Fragment() {
         tv_profile_name.text = currentUser.displayName
 
         // user IC number
-        var docRefUsers :DocumentReference = firestore.collection("users").document(currentUser.uid)
-        docRefUsers.get().addOnSuccessListener {
-                document->
+        var docRefUsers: DocumentReference = firestore.collection("users").document(currentUser.uid)
+        docRefUsers.get().addOnSuccessListener { document ->
             var id = document.get("nric").toString()
-            tv_profile_id.text =  id
+            tv_profile_id.text = id
         }
 
 
@@ -130,9 +129,10 @@ class CheckInFragment : Fragment() {
 
         // get risk status
         var covid_status: String = ""
-        val docRefCovidStatus:DocumentReference = firestore.collection("covid_status").document(userId)
+        val docRefCovidStatus: DocumentReference =
+            firestore.collection("covid_status").document(userId)
         docRefCovidStatus.get().addOnSuccessListener { document ->
-            var covidStatus:CovidStatus = document.toObject<CovidStatus>()!!
+            var covidStatus: CovidStatus = document.toObject<CovidStatus>()!!
             covid_status = covidStatus.covid_status
             // covid status
             covid_status_text.text = covid_status
@@ -143,7 +143,7 @@ class CheckInFragment : Fragment() {
         var vaccine_status: String = ""
         val docRefVaccineStatus = firestore.collection("appointment").document(userId)
         docRefVaccineStatus.get().addOnSuccessListener { document ->
-            if(document.exists()) {
+            if (document.exists()) {
                 vaccine_status = document.get("vaccine_status").toString()
                 // vaccine status
                 vaccine_status_text.text = vaccine_status
@@ -183,8 +183,10 @@ class CheckInFragment : Fragment() {
                         )
                         val datetime = time.toDate()
                         // show dialog
-                        setProgressDialog(result.contents.toString(), datetime.toString(),
-                            documentReference.id.toString())
+                        setProgressDialog(
+                            result.contents.toString(), datetime.toString(),
+                            documentReference.id.toString()
+                        )
                     }
                     .addOnFailureListener { e ->
                         Log.w(

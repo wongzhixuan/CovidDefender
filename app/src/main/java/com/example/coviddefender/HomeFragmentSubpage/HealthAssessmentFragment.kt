@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +23,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.auth.User
 
 
 class HealthAssessmentFragment : Fragment() {
@@ -76,7 +73,7 @@ class HealthAssessmentFragment : Fragment() {
         firestore = FirebaseFirestore.getInstance()
 
         // back button
-        btn_back?.setOnClickListener{
+        btn_back?.setOnClickListener {
             findNavController().navigate(R.id.action_health_assessment_to_home)
 
         }
@@ -86,15 +83,15 @@ class HealthAssessmentFragment : Fragment() {
         btn_submit.setOnClickListener {
             val selectedList: ArrayList<AnswerSelected> = questionAdapter.selected
             var isCompleted: Boolean = true
-            if(selectedList.size.equals(questionAdapter.itemCount)){
+            if (selectedList.size.equals(questionAdapter.itemCount)) {
                 isCompleted = true
-            }
-            else{
+            } else {
                 isCompleted = false
             }
 
-            if(isCompleted){
-                var docRef:DocumentReference = firestore.collection("health_assessment_records").document(userId)
+            if (isCompleted) {
+                var docRef: DocumentReference =
+                    firestore.collection("health_assessment_records").document(userId)
                 var time: Timestamp = Timestamp.now()
                 var map = hashMapOf(
                     "submit_time" to time,
@@ -102,35 +99,38 @@ class HealthAssessmentFragment : Fragment() {
                 )
                 docRef.collection("records").add(map)
                     .addOnSuccessListener {
-                        Log.d("HA","Successfully saved answer")
+                        Log.d("HA", "Successfully saved answer")
                         findNavController().navigate(R.id.home)
                     }
-                    .addOnFailureListener { e->
-                        Log.d("HA",e.message.toString())
+                    .addOnFailureListener { e ->
+                        Log.d("HA", e.message.toString())
                     }
-            }
-            else{
-                Toast.makeText(context, "Please complete all the questions", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Please complete all the questions", Toast.LENGTH_SHORT)
+                    .show()
             }
 
             var num_yes: Int = 0
-            for(i in 0 until selectedList.size){
-                if(selectedList.get(i).answer.equals("yes")){
+            for (i in 0 until selectedList.size) {
+                if (selectedList.get(i).answer.equals("yes")) {
                     num_yes += 1
                 }
             }
-            if(num_yes > questionAdapter.itemCount - num_yes){
-                var docRef: DocumentReference = firestore.collection("covid_status").document(userId)
-                docRef.update("covid_status","High Risk").addOnSuccessListener {
-                    Toast.makeText(context, "Your covid status is updated", Toast.LENGTH_SHORT).show()
-                    Log.d("covidstatus","High Risk")
+            if (num_yes > questionAdapter.itemCount - num_yes) {
+                var docRef: DocumentReference =
+                    firestore.collection("covid_status").document(userId)
+                docRef.update("covid_status", "High Risk").addOnSuccessListener {
+                    Toast.makeText(context, "Your covid status is updated", Toast.LENGTH_SHORT)
+                        .show()
+                    Log.d("covidstatus", "High Risk")
                 }
-            }
-            else{
-                var docRef: DocumentReference = firestore.collection("covid_status").document(userId)
-                docRef.update("covid_status","Low Risk").addOnSuccessListener {
-                    Toast.makeText(context, "Your covid status is updated", Toast.LENGTH_SHORT).show()
-                    Log.d("covidstatus","Low Risk")
+            } else {
+                var docRef: DocumentReference =
+                    firestore.collection("covid_status").document(userId)
+                docRef.update("covid_status", "Low Risk").addOnSuccessListener {
+                    Toast.makeText(context, "Your covid status is updated", Toast.LENGTH_SHORT)
+                        .show()
+                    Log.d("covidstatus", "Low Risk")
                 }
             }
 
@@ -140,11 +140,13 @@ class HealthAssessmentFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        var query:Query = firestore.collection("health_assessment").orderBy("id",Query.Direction.ASCENDING)
+        var query: Query =
+            firestore.collection("health_assessment").orderBy("id", Query.Direction.ASCENDING)
 
-        var options: FirestoreRecyclerOptions<Question> = FirestoreRecyclerOptions.Builder<Question>()
-            .setQuery(query, Question::class.java)
-            .build()
+        var options: FirestoreRecyclerOptions<Question> =
+            FirestoreRecyclerOptions.Builder<Question>()
+                .setQuery(query, Question::class.java)
+                .build()
 
         questionAdapter = QuestionAdapter(options)
 
@@ -161,18 +163,18 @@ class HealthAssessmentFragment : Fragment() {
 
 
     private fun getQuestionData(): ArrayList<Question> {
-        var questions:ArrayList<Question> = arrayListOf()
-        firestore.collection("health_assessment").orderBy("id",Query.Direction.ASCENDING).get()
-            .addOnSuccessListener { documents->
-                for(document in documents){
+        var questions: ArrayList<Question> = arrayListOf()
+        firestore.collection("health_assessment").orderBy("id", Query.Direction.ASCENDING).get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
                     var question: Question = document.toObject(Question::class.java)
                     questions.add(question)
-                    Log.d("questions",questions.toString())
+                    Log.d("questions", questions.toString())
                 }
 
-                Log.d("questions",questions.toString())
-            }.addOnFailureListener { e->
-                Log.e("questions", "Failed on: "+e.message)
+                Log.d("questions", questions.toString())
+            }.addOnFailureListener { e ->
+                Log.e("questions", "Failed on: " + e.message)
             }
         return questions
 

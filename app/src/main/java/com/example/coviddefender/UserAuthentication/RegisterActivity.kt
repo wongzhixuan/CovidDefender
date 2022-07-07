@@ -16,6 +16,8 @@ import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
+
+    // initialize variables to hold values
     private val KEY_EMPTY = ""
     var regexPattern = "^(.+)@(\\S+)$"
     var emptyField = "This field cannot be empty"
@@ -44,8 +46,9 @@ class RegisterActivity : AppCompatActivity() {
             reload()
         }
 
+        // get text from edit text
         et_email = findViewById(R.id.et_email)
-        // btn_terms_agree = findViewById(R.id.btn_terms_agree)
+
         //verify button
         btn_verify = findViewById(R.id.btn_verify)
         btn_verify.setOnClickListener {
@@ -58,6 +61,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
+        // navigate to login
         login_link = findViewById(com.example.coviddefender.R.id.login_link)
         login_link.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -65,6 +69,7 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
+    // check user inputs
     private fun validateInputs(): Boolean {
         et_email.setError(null)
         if (et_email.getText().toString().trim { it <= ' ' } == KEY_EMPTY) {

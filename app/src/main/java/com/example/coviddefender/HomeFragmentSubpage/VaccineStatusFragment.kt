@@ -23,7 +23,8 @@ class VaccineStatusFragment : Fragment() {
     lateinit var btn_back: ImageButton
     lateinit var tv_username: TextView
     lateinit var tv_vaccine_status: TextView
-//    lateinit var btn_download: MaterialButton
+
+    //    lateinit var btn_download: MaterialButton
     lateinit var tv_username_cert: TextView
     lateinit var tv_userIC_cert: TextView
     lateinit var tv_dose1_date: TextView
@@ -101,9 +102,8 @@ class VaccineStatusFragment : Fragment() {
     private fun setUpTextView() {
         var name: String? = currentUser.displayName
         var id: String = ""
-        var docRefUsers :DocumentReference = firestore.collection("users").document(currentUser.uid)
-        docRefUsers.get().addOnSuccessListener {
-            document->
+        var docRefUsers: DocumentReference = firestore.collection("users").document(currentUser.uid)
+        docRefUsers.get().addOnSuccessListener { document ->
             id = document.get("nric").toString()
             tv_userIC_cert.text = id
         }
@@ -111,7 +111,7 @@ class VaccineStatusFragment : Fragment() {
 
 
         docRef.get().addOnSuccessListener { document ->
-            if(document.exists()) {
+            if (document.exists()) {
                 var vaccinaton: Vaccination = document.toObject<Vaccination>()!!
 
                 tv_username.text = name

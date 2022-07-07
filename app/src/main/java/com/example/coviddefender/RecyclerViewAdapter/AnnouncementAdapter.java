@@ -29,9 +29,9 @@ public class AnnouncementAdapter extends FirestoreRecyclerAdapter<Announcement, 
         holder.announcement_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // open browser with link
                 Intent intent = new Intent(Intent.ACTION_VIEW, url);
                 view.getContext().startActivity(Intent.createChooser(intent, "Browse with"));
-
             }
         });
     }

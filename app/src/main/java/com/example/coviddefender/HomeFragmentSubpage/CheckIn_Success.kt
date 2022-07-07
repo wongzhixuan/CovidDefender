@@ -1,9 +1,7 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,7 +20,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import com.google.type.Date
 
 
 class CheckIn_Success : Fragment() {
@@ -140,7 +137,8 @@ class CheckIn_Success : Fragment() {
 
         // get risk status
         var covid_status: String = ""
-        val docRefCovidStatus:DocumentReference = firestore.collection("covid_status").document(userId)
+        val docRefCovidStatus: DocumentReference =
+            firestore.collection("covid_status").document(userId)
         docRefCovidStatus.get().addOnSuccessListener { document ->
             var covidStatus: CovidStatus = document.toObject<CovidStatus>()!!
             covid_status = covidStatus.covid_status
@@ -153,7 +151,7 @@ class CheckIn_Success : Fragment() {
         var vaccine_status: String = ""
         val docRefVaccineStatus = firestore.collection("appointment").document(userId)
         docRefVaccineStatus.get().addOnSuccessListener { document ->
-            if(document.exists()) {
+            if (document.exists()) {
                 vaccine_status = document.get("vaccine_status").toString()
                 // vaccine status
                 tv_vaccine_status.text = vaccine_status

@@ -21,9 +21,9 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 
 public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, QuestionAdapter.QuestionViewHolder> {
+    private final ArrayList<AnswerSelected> selected = new ArrayList<AnswerSelected>();
     int lastPos = -1;
     int questionId = 0;
-    private final ArrayList<AnswerSelected> selected = new ArrayList<AnswerSelected>();
 
     public QuestionAdapter(@NonNull FirestoreRecyclerOptions<Question> options) {
         super(options);
@@ -41,15 +41,15 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
                 Boolean hasDuplicate = false;
                 holder.btn_answer_yes.setChecked(true);
                 holder.btn_answer_no.setChecked(false);
-                for (int i = 0; i < selected.size(); i ++) {
+                for (int i = 0; i < selected.size(); i++) {
                     AnswerSelected ans = selected.get(i);
-                    if(ans.getPosition() == model.getId()){
+                    if (ans.getPosition() == model.getId()) {
                         hasDuplicate = true;
-                        selected.set(i, new AnswerSelected(model.getId(),true, "yes"));
+                        selected.set(i, new AnswerSelected(model.getId(), true, "yes"));
                     }
                 }
-                if(hasDuplicate == false){
-                    selected.add(new AnswerSelected(model.getId(),true, "yes"));
+                if (hasDuplicate == false) {
+                    selected.add(new AnswerSelected(model.getId(), true, "yes"));
                 }
 
 
@@ -62,16 +62,16 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
 
                 holder.btn_answer_yes.setChecked(false);
                 holder.btn_answer_no.setChecked(true);
-                for (int i = 0; i < selected.size(); i ++) {
+                for (int i = 0; i < selected.size(); i++) {
                     AnswerSelected ans = selected.get(i);
-                    if(ans.getPosition() == model.getId()){
+                    if (ans.getPosition() == model.getId()) {
                         hasDuplicate = true;
-                        selected.set(i, new AnswerSelected(model.getId(),true, "no"));
+                        selected.set(i, new AnswerSelected(model.getId(), true, "no"));
 
                     }
                 }
-                if(hasDuplicate == false){
-                    selected.add(new AnswerSelected(model.getId(),true, "no"));
+                if (hasDuplicate == false) {
+                    selected.add(new AnswerSelected(model.getId(), true, "no"));
                 }
             }
         });
@@ -103,6 +103,10 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
         return super.getItemCount();
     }
 
+    public ArrayList<AnswerSelected> getSelected() {
+        return selected;
+    }
+
     public class QuestionViewHolder extends RecyclerView.ViewHolder {
         private final TextView tv_question_title;
         private final MaterialButton btn_answer_no, btn_answer_yes;
@@ -115,9 +119,6 @@ public class QuestionAdapter extends FirestoreRecyclerAdapter<Question, Question
             btn_answer_yes = view.findViewById(R.id.btn_answer_yes);
         }
 
-    }
-    public ArrayList<AnswerSelected> getSelected() {
-        return selected;
     }
 
 

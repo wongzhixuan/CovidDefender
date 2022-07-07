@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 
-class SelfTestInstruction: Fragment() {
+class SelfTestInstruction : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +24,7 @@ class SelfTestInstruction: Fragment() {
             findNavController().navigate(R.id.action_instruction_to_timer)
         })
         // back button
-        val self_test_back_2 : ImageButton = view.findViewById<ImageButton>(R.id.self_test_back_2)
+        val self_test_back_2: ImageButton = view.findViewById<ImageButton>(R.id.self_test_back_2)
         self_test_back_2?.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_instruction_to_self_test)
 

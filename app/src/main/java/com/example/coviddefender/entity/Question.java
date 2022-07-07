@@ -8,11 +8,11 @@ public class Question {
     @PropertyName("question")
     String question;
 
-    public Question(){
+    public Question() {
         //Empty constructor required
     }
 
-    public Question(Integer id, String question){
+    public Question(Integer id, String question) {
         this.id = id;
         this.question = question;
     }
@@ -21,12 +21,12 @@ public class Question {
         return id;
     }
 
-    public String getQuestion() {
-        return question;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
     }
 
     public void setQuestion(String question) {

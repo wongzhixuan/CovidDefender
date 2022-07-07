@@ -11,10 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.google.android.material.imageview.ShapeableImageView
@@ -51,15 +49,16 @@ class EditDetails : Fragment() {
 
     }
 
-    lateinit var et_NRIC:TextInputEditText
-    lateinit var et_full_name:TextInputEditText
-    lateinit var et_mail:TextInputEditText
-    lateinit var txt_field_email:TextInputLayout
-    lateinit var profile_image:ShapeableImageView
+    lateinit var et_NRIC: TextInputEditText
+    lateinit var et_full_name: TextInputEditText
+    lateinit var et_mail: TextInputEditText
+    lateinit var txt_field_email: TextInputLayout
+    lateinit var profile_image: ShapeableImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View {
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_edit_details, container, false)
         et_full_name = view.findViewById(R.id.et_full_name)
@@ -92,20 +91,21 @@ class EditDetails : Fragment() {
         et_NRIC.isEnabled = false
         et_full_name.isEnabled = false
 
-        val btn_save : Button = view.findViewById<Button>(R.id.btn_save)
+        val btn_save: Button = view.findViewById<Button>(R.id.btn_save)
         btn_save.setOnClickListener(View.OnClickListener {
             updateFirebase()
             findNavController().navigate(R.id.action_editdetails_to_editprofile)
 
         })
 
-        val btn_back : ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
+        val btn_back: ImageButton = view.findViewById<ImageButton>(R.id.btn_back)
         btn_back.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_editdetails_to_editprofile)
 
         })
         return view
     }
+
     companion object {
 
         @JvmStatic
@@ -131,8 +131,8 @@ class EditDetails : Fragment() {
     private fun updateFirebase() {
         if (validateInput()!!) {
             val name = et_full_name.getText().toString().trim { it <= ' ' }
-            val email= et_mail.getText().toString().trim { it <= ' ' }
-            val nric= et_NRIC.getText().toString().trim { it <= ' ' }
+            val email = et_mail.getText().toString().trim { it <= ' ' }
+            val nric = et_NRIC.getText().toString().trim { it <= ' ' }
             val changeRequest = UserProfileChangeRequest.Builder()
                 .setDisplayName(name)
                 .build()

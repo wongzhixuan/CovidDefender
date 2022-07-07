@@ -121,6 +121,7 @@ class CovidStatusFragment : Fragment() {
         })
         return view
     }
+
     private fun getData() {
         docRef.get()
             .addOnSuccessListener { documentSnapshot ->
@@ -185,7 +186,6 @@ class CovidStatusFragment : Fragment() {
 
         }
     }
-
 
 
     override fun onResume() {

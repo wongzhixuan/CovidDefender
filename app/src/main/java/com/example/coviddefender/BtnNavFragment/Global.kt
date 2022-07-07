@@ -30,7 +30,7 @@ class Global : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view:View = inflater.inflate(R.layout.fragment_global, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_global, container, false)
 
         // link widgets
         tv_active_case = view.findViewById(R.id.tv_card_1_1)
@@ -43,7 +43,7 @@ class Global : Fragment() {
             Request.Method.GET,
             url,
             Response.Listener { response ->
-                try{
+                try {
                     val jsonObj: JSONObject = JSONObject(response.toString())
                     // set text
                     tv_active_case.setText(jsonObj.getString("active"))
@@ -51,12 +51,11 @@ class Global : Fragment() {
                     tv_death.setText(jsonObj.getString("deaths"))
                     tv_recover.setText(jsonObj.getString("recovered"))
 
-                }
-                catch (e: JSONException){
+                } catch (e: JSONException) {
                     e.printStackTrace()
                 }
             },
-            Response.ErrorListener {  })
+            Response.ErrorListener { })
         val request_queue: RequestQueue = Volley.newRequestQueue(context)
         request_queue.add(request)
         return view

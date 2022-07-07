@@ -52,6 +52,8 @@ class RegisterActivity4:AppCompatActivity() {
             reload()
         }
 
+
+        // get edit text data
         et_password = findViewById(R.id.et_password)
         et_confirm_password = findViewById(R.id.et_confirm_password)
         register_back = findViewById(R.id.register_back_4)
@@ -61,6 +63,7 @@ class RegisterActivity4:AppCompatActivity() {
 
         //next button
         btn_next.setOnClickListener(View.OnClickListener{
+            // get data passed from previous activity
             val password : String = et_password.getText().toString()
             val email = intent.getStringExtra("email").toString()
             val name = intent.getStringExtra("name").toString()
@@ -78,8 +81,10 @@ class RegisterActivity4:AppCompatActivity() {
                         object : OnSuccessListener<AuthResult?> {
                             override fun onSuccess(authResult: AuthResult?) {
                                 Toast.makeText(getApplicationContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                                // set current user
                                 currentUser = mAuth.getCurrentUser()
                                 val userId : String = currentUser!!.getUid()
+                                // set username
                                 val profileChangeRequest = UserProfileChangeRequest.Builder()
                                     .setDisplayName(name)
                                     .setPhotoUri(null)
@@ -132,7 +137,7 @@ class RegisterActivity4:AppCompatActivity() {
             finish()
         })
     }
-
+    // check user input
     private fun validateInputs(): Boolean {
         txt_password.setError(null)
         txt_confirm_password.setError(null)
