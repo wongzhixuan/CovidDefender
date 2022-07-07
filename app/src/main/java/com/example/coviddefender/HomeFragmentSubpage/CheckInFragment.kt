@@ -1,11 +1,8 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 import android.app.AlertDialog
-import android.content.Context.MODE_APPEND
-import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +16,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
+import com.example.coviddefender.entity.CovidStatus
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.Timestamp
@@ -26,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 import com.squareup.picasso.Picasso
@@ -74,8 +73,8 @@ class CheckInFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         if (mAuth.currentUser != null) {
             currentUser = mAuth.currentUser!!
-            userId = currentUser.uid
-            //userId = "testing"
+//            userId = currentUser.uid
+            userId = "testing"
         }
 
         // set up firestore
@@ -114,7 +113,13 @@ class CheckInFragment : Fragment() {
         tv_profile_name.text = currentUser.displayName
 
         // user IC number
-        tv_profile_id.text = ""
+        var docRefUsers :DocumentReference = firestore.collection("users").document(currentUser.uid)
+        docRefUsers.get().addOnSuccessListener {
+                document->
+            var id = document.get("nric").toString()
+            tv_profile_id.text =  id
+        }
+
 
         // user profile image
         if (currentUser.photoUrl != null) {
@@ -123,18 +128,28 @@ class CheckInFragment : Fragment() {
             Picasso.get().load(photoURL).into(profile_image)
         }
 
-        // retrieve value from shared preferences
-        var sharedPreferences: SharedPreferences? =
-            context?.getSharedPreferences("UserStatus", MODE_PRIVATE)
-        // get value, default as empty string
-        var covid_status = sharedPreferences?.getString("covid_status", "")
-        var vaccine_status = sharedPreferences?.getString("vaccine_status", "")
+        // get risk status
+        var covid_status: String = ""
+        val docRefCovidStatus:DocumentReference = firestore.collection("covid_status").document(userId)
+        docRefCovidStatus.get().addOnSuccessListener { document ->
+            var covidStatus:CovidStatus = document.toObject<CovidStatus>()!!
+            covid_status = covidStatus.covid_status
+            // covid status
+            covid_status_text.text = covid_status
 
-        // covid status
-        covid_status_text.text = covid_status
+        }
 
-        // vaccine status
-        vaccine_status_text.text = vaccine_status
+        // get vaccine status
+        var vaccine_status: String = ""
+        val docRefVaccineStatus = firestore.collection("appointment").document(userId)
+        docRefVaccineStatus.get().addOnSuccessListener { document ->
+            if(document.exists()) {
+                vaccine_status = document.get("vaccine_status").toString()
+                // vaccine status
+                vaccine_status_text.text = vaccine_status
+            }
+        }
+
     }
 
     companion object {
@@ -168,7 +183,8 @@ class CheckInFragment : Fragment() {
                         )
                         val datetime = time.toDate()
                         // show dialog
-                        setProgressDialog(result.contents.toString(), datetime.toString())
+                        setProgressDialog(result.contents.toString(), datetime.toString(),
+                            documentReference.id.toString())
                     }
                     .addOnFailureListener { e ->
                         Log.w(
@@ -181,7 +197,7 @@ class CheckInFragment : Fragment() {
         }
     }
 
-    private fun setProgressDialog(location: String, time: String) {
+    private fun setProgressDialog(location: String, time: String, docId: String) {
 
         val dialog: AlertDialog.Builder = AlertDialog.Builder(context)
         dialog.setCancelable(false)
@@ -189,7 +205,7 @@ class CheckInFragment : Fragment() {
         dialog.setMessage("Location: $location\nTime: $time")
         dialog.setPositiveButton("Proceed", DialogInterface.OnClickListener { _, _ ->
             // prepare bundle with value to pass to next fragment
-            val bundle = bundleOf("location" to location, "time" to time)
+            val bundle = bundleOf("location" to location, "time" to time, "docId" to docId)
             // navigate to check in success fragment
             findNavController().navigate(R.id.checkIn_Success, bundle)
         })

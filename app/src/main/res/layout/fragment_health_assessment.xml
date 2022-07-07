@@ -20,10 +20,11 @@
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/prussian_blue" />
+            app:tint="@color/prussian_blue"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/tv_check_in_title"
+            android:id="@+id/tv_health_assessment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -35,44 +36,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Linear progress indicator-->
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="20"
-            android:progressDrawable="@drawable/progress_bar_theme"
-            app:indicatorColor="@color/prussian_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_check_in_title" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
+            android:fillViewport="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress_bar">
+            app:layout_constraintTop_toBottomOf="@+id/tv_health_assessment_title">
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/questions_recyclerview"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="180dp"
-                />
+                android:paddingBottom="120dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="30dp">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/question_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="300dp"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:text="Submit"
+                    android:textSize="18sp"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_next"
+                    app:iconGravity="end"
+                    app:iconPadding="10dp"
+                    app:iconSize="20dp" />
+
+
+            </LinearLayout>
 
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

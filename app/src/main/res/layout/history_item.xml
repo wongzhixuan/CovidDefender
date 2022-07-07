@@ -58,23 +58,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_check_out"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_state"
-            android:backgroundTint="@null"
+            android:clickable="false"
             android:drawableTint="@color/white"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="Check Out"
             android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:backgroundTint="@null"
-            app:cornerRadius="5dp"
+            android:textColor="@color/btn_checkout_state"
+            android:textSize="10sp"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="#00000000"
-            app:strokeWidth="2dp" />
+            app:strokeColor="@color/btn_checkout_state"
+            app:strokeWidth="3dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

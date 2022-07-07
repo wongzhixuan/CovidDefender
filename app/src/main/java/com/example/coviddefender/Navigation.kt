@@ -86,55 +86,8 @@ class Navigation : AppCompatActivity() {
 
         })
 
-        // set up some key sharedPreferences
-        setUpFrequentlyUsedData()
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        setUpFrequentlyUsedData()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        setUpFrequentlyUsedData()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setUpFrequentlyUsedData()
-    }
-
-    private fun setUpFrequentlyUsedData() {
-        // get risk status
-        var covid_status: String = ""
-        val docRefCovidStatus = firestore.collection("covid_status").document(userId)
-        docRefCovidStatus.get().addOnSuccessListener { document ->
-            covid_status = document.get("covid_status").toString()
-        }
-
-        // get vaccine status
-        var vaccine_status: String = ""
-        val docRefVaccineStatus = firestore.collection("vaccine_status").document(userId)
-        docRefVaccineStatus.get().addOnSuccessListener { document ->
-            vaccine_status = document.get("vaccine_status").toString()
-        }
-
-        // get user id
-
-
-        // store data to shared preferences
-        var sharedPreferences: SharedPreferences = getSharedPreferences("UserStatus", MODE_PRIVATE)
-        // Creating an Editor object to edit(write to the file)
-        var editor: SharedPreferences.Editor = sharedPreferences.edit()
-
-        // store key and values fetch from firebase
-        editor.putString("covid_status", covid_status)
-        editor.putString("vaccine_status", vaccine_status)
-
-        // commit changes
-        editor.commit()
-    }
 
     // return to login activity if user not logged in (firebase user == null)
     private fun reload() {

@@ -1,20 +1,16 @@
 package com.example.coviddefender.HomeFragmentSubpage
 
 
-
-import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
@@ -56,7 +52,7 @@ class CovidStatusFragment : Fragment() {
     private lateinit var update_time_string: String
     private lateinit var covid_status_string: String
     private lateinit var location_risk_string: String
-    private lateinit var dependent_risk_string:String
+    private lateinit var dependent_risk_string: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,6 +81,10 @@ class CovidStatusFragment : Fragment() {
         tv_location_risk = view.findViewById<TextView>(R.id.tv_location_risk)
         tv_dependent_risk = view.findViewById<TextView>(R.id.tv_dependent_risk)
         progressBar = view.findViewById(R.id.progressBar)
+        covid_status_string = ""
+        update_time_string = ""
+        location_risk_string = ""
+        dependent_risk_string = ""
 
         // set up view
         // fetch data from firebase
@@ -115,46 +115,13 @@ class CovidStatusFragment : Fragment() {
         }
 
         // btn_back pressed: return to homepage
-        btn_back?.setOnClickListener(View.OnClickListener {
+        btn_back.setOnClickListener(View.OnClickListener {
             findNavController().navigate(R.id.action_covid_status_to_home)
 
         })
         return view
     }
-
-    private fun generateQRCode() {
-        // load progress bar
-        progressBar.visibility = View.VISIBLE
-        // get data
-        covid_status_string = covidStatus.covid_status
-        update_time_string = covidStatus.update_time.toDate().toString()
-        location_risk_string = covidStatus.location_risk
-        dependent_risk_string = covidStatus.dependent_risk
-        var userName = currentUser.displayName
-
-        var QR_info: String = "User: $userName, Covid Status: $covid_status_string, Location Risk: $location_risk_string, High Dependent Risk: $dependent_risk_string"
-        // initialize multi format writer
-        var writer:MultiFormatWriter = MultiFormatWriter()
-
-        try {
-            // Initialize Bit matrix
-            var matrix: BitMatrix = writer.encode(QR_info, BarcodeFormat.QR_CODE, 250, 250)
-            // Initialize barcode encoder
-            var encoder: BarcodeEncoder = BarcodeEncoder()
-            // Initialize Bitmap
-            var bitmap: Bitmap = encoder.createBitmap(matrix)
-            // set bitmap on image view
-            covidstatus_qr_code.setImageBitmap(bitmap)
-            progressBar.visibility = View.GONE
-        }
-        catch (exception:WriterException){
-            Log.d("GenerateQrCode", exception.message.toString())
-
-        }
-    }
-
-    private fun getData()
-    {
+    private fun getData() {
         docRef.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot != null) {
@@ -176,8 +143,8 @@ class CovidStatusFragment : Fragment() {
                             view_status_color.setBackgroundResource(R.color.light_orange)
                         }
                     }
-                }
-                else {
+
+                } else {
                     Log.d(TAG, "Document Not Exist!")
                 }
             }
@@ -185,7 +152,41 @@ class CovidStatusFragment : Fragment() {
                 Log.d(TAG, "Failed: ", exception)
             }
 
+
     }
+
+    private fun generateQRCode() {
+        // load progress bar
+        progressBar.visibility = View.VISIBLE
+        // get data from text view
+        covid_status_string = tv_covid_status.text.toString()
+        update_time_string = tv_update_time.text.toString()
+        location_risk_string = tv_location_risk.text.toString()
+        dependent_risk_string = tv_dependent_risk.text.toString()
+        var userName = currentUser.displayName
+
+        var QR_info: String =
+            "User: $userName, Covid Status: $covid_status_string, Location Risk: $location_risk_string, High Dependent Risk: $dependent_risk_string"
+        // initialize multi format writer
+        var writer: MultiFormatWriter = MultiFormatWriter()
+
+        try {
+            // Initialize Bit matrix
+            var matrix: BitMatrix = writer.encode(QR_info, BarcodeFormat.QR_CODE, 700, 700)
+            // Initialize barcode encoder
+            var encoder: BarcodeEncoder = BarcodeEncoder()
+            // Initialize Bitmap
+            var bitmap: Bitmap = encoder.createBitmap(matrix)
+            // set bitmap on image view
+            covidstatus_qr_code.setImageBitmap(bitmap)
+            progressBar.visibility = View.GONE
+        } catch (exception: WriterException) {
+            Log.d("GenerateQrCode", exception.message.toString())
+
+        }
+    }
+
+
 
     override fun onResume() {
         super.onResume()

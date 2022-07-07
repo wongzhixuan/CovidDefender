@@ -31,7 +31,7 @@ class FragmentHome : Fragment() {
 
     var card_checkin: MaterialCardView? = null
     var card_history: MaterialCardView? = null
-    var card_group: MaterialCardView? = null
+//    var card_group: MaterialCardView? = null
 
     var card_vaccine_status: MaterialCardView? = null
     var card_appointment: MaterialCardView? = null
@@ -108,7 +108,7 @@ class FragmentHome : Fragment() {
 
         card_checkin = view.findViewById<MaterialCardView>(R.id.card_checkin)
         card_history = view.findViewById<MaterialCardView>(R.id.card_history)
-        card_group = view.findViewById<MaterialCardView>(R.id.card_group)
+//        card_group = view.findViewById<MaterialCardView>(R.id.card_group)
 
         card_vaccine_status = view.findViewById<MaterialCardView>(R.id.card_vaccine_status)
         card_appointment = view.findViewById<MaterialCardView>(R.id.card_appointment)
@@ -128,9 +128,9 @@ class FragmentHome : Fragment() {
         card_history?.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_history)
         }
-        card_group?.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_groupCheckIn)
-        }
+//        card_group?.setOnClickListener {
+//            findNavController().navigate(R.id.action_home_to_groupCheckIn)
+//        }
         card_vaccine_status?.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_vaccineStatus)
         }
