@@ -15,9 +15,11 @@ import com.example.coviddefender.R;
 import com.example.coviddefender.entity.Vaccine_Info;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info, VaccineInfoAdapter.VaccineInfoViewHolder> {
     int lastPos = -1;
@@ -34,6 +36,18 @@ public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info, V
         // set up text view
         holder.tv_description.setText(model.getDescription());
 
+        // set up image view
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        storageReference.child(model.getImage()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(holder.image);
+            }
+        });
+
+
+        // link when pressed
         Uri url = Uri.parse(model.getUrl());
         holder.card_vaccine_info.setOnClickListener(new View.OnClickListener() {
             @Override

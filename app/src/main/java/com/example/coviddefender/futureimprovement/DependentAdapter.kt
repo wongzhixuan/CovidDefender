@@ -1,4 +1,4 @@
-package com.example.coviddefender.RecyclerViewAdapter
+package com.example.coviddefender.futureimprovement
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.Dependent
 import com.google.android.material.checkbox.MaterialCheckBox
 
 class DependentAdapter(var dependents: ArrayList<Dependent>):RecyclerView.Adapter<DependentAdapter.DependentViewHolder>() {
@@ -29,7 +28,7 @@ class DependentAdapter(var dependents: ArrayList<Dependent>):RecyclerView.Adapte
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.dependent_item, parent, false)
 
-        return DependentAdapter.DependentViewHolder(view)
+        return DependentViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: DependentViewHolder, position: Int) {

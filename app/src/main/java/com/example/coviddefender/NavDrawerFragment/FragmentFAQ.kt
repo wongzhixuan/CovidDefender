@@ -12,12 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.RecyclerViewAdapter.FAQAdapter
 import com.example.coviddefender.entity.FAQ
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class FragmentFAQ : Fragment() {
 
     val db = Firebase.firestore
+    lateinit var faqAdapter: FAQAdapter
+    lateinit var faq_recyclerview: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,34 +30,13 @@ class FragmentFAQ : Fragment() {
         // Inflate the layout for this fragment
         var view: View = inflater.inflate(R.layout.fragment_faq, container, false)
 
-        // Dummy data for recycler view
-        var faq: ArrayList<FAQ> = arrayListOf(
-            FAQ(
-                db.collection("faq").document("testing").get().toString(),
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            FAQ(
-                "FAQ 2",
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            FAQ(
-                "FAQ 3",
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )
-        )
 
         // FAQ Recycler View
-        val faq_recyclerview: RecyclerView? =
+        faq_recyclerview =
             view.findViewById<RecyclerView>(R.id.faq_recyclerview)
-        faq_recyclerview?.layoutManager = LinearLayoutManager(
-            view.context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
 
-        // Adopt data to recycler view using adapter
-        faq_recyclerview?.adapter = FAQAdapter(faq)
-
+        // set up recycler view
+        setUpRecyclerView()
 
         val FAQ_back: ImageButton = view.findViewById<ImageButton>(R.id.FAQ_back)
         FAQ_back?.setOnClickListener(View.OnClickListener {
@@ -61,6 +44,33 @@ class FragmentFAQ : Fragment() {
 
         })
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        faqAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        faqAdapter.stopListening()
+    }
+
+    private fun setUpRecyclerView() {
+        var query: Query =
+            db.collection("faq")
+        var options: FirestoreRecyclerOptions<FAQ> =
+            FirestoreRecyclerOptions.Builder<FAQ>()
+                .setQuery(query, FAQ::class.java)
+                .build()
+
+        faqAdapter = FAQAdapter(options)
+        faq_recyclerview?.layoutManager = LinearLayoutManager(
+            view?.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        faq_recyclerview.adapter = faqAdapter
     }
 
     companion object {

@@ -1,4 +1,4 @@
-package com.example.coviddefender.entity
+package com.example.coviddefender.futureimprovement
 
 data class Dependent (
     var dependent_name: String,

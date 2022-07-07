@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
 import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
+import com.example.coviddefender.RecyclerViewAdapter.ThingsToDoAdapter
 import com.example.coviddefender.entity.Announcement
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +21,7 @@ import com.google.firebase.firestore.Query
 class ThingsToDo : Fragment() {
 
     lateinit var thinsgtodo_recyclerview : RecyclerView
-    lateinit var announcementAdapter: AnnouncementAdapter
+    lateinit var thingsToDoAdapter: ThingsToDoAdapter
 
     // Firebase Authentication
     private lateinit var mAuth: FirebaseAuth
@@ -76,7 +77,7 @@ class ThingsToDo : Fragment() {
             .setQuery(query, Announcement::class.java)
             .build()
 
-        announcementAdapter = AnnouncementAdapter(options)
+        thingsToDoAdapter = ThingsToDoAdapter(options)
 
         thinsgtodo_recyclerview?.layoutManager = LinearLayoutManager(
             view?.context,
@@ -84,18 +85,18 @@ class ThingsToDo : Fragment() {
             false
         )
         // Adopt data to recycler view using adapter
-        thinsgtodo_recyclerview.adapter = announcementAdapter
+        thinsgtodo_recyclerview.adapter = thingsToDoAdapter
 
     }
 
     override fun onStart() {
         super.onStart()
-        announcementAdapter.startListening()
+        thingsToDoAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        announcementAdapter.stopListening()
+        thingsToDoAdapter.stopListening()
     }
 
     companion object {
