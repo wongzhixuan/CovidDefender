@@ -101,28 +101,6 @@ public class HistoryListAdapter extends FirestoreRecyclerAdapter<History, Histor
                                 }
                             }
                         });
-
-//                documentReference.collection("historyItem").document(docId).update("IsCheckOut", true).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        AlertDialog.Builder dialog= new AlertDialog.Builder(view.getContext());
-//                        dialog.setCancelable(false);
-//                        dialog.setTitle("Successfully Check Out");
-//                        Timestamp time = Timestamp.now();
-//                        Date curr_time = time.toDate();
-//                        dialog.setMessage("Location: "+ model.getLocation() + "\nAt " + Timestamp.now().toDate().toString());
-//                        dialog.show();
-//                    }
-//                }).addOnFailureListener(
-//                        new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Log.w("CheckOut", "Error updating document", e);
-//                            }
-//                        }
-//                );
-
-
             }
         });
     }

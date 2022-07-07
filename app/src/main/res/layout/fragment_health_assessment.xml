@@ -20,7 +20,8 @@
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/prussian_blue" />
+            app:tint="@color/prussian_blue"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tv_health_assessment_title"
@@ -35,102 +36,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_health_assessment_title">
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="80dp"
-            android:paddingLeft="30dp"
-            android:paddingTop="20dp"
-            android:paddingRight="30dp"
-            android:gravity="center">
-    <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="10"
-            android:progressDrawable="@drawable/progress_bar_theme"
-            app:indicatorColor="@color/prussian_blue"
+            android:fillViewport="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_check_in_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_health_assessment_title">
 
-            <TextView
-                android:id="@+id/tv_question_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="Have you experienced any of the following symptoms of COVID-19 within the last 48 hours?\n• Fever\n• Chills\n• Body ache\n• Headache\n• Sore throat\n• Diarrhea\n• Vomitting \n• Fatigue\n• Nasal congestion"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:paddingBottom="120dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="30dp">
 
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/question_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_answer_no"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="30dp"
-                    android:backgroundTint="@color/light_coral"
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="300dp"
                     android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/no"
-                    app:cornerRadius="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp"
-                    android:checkable="true"
-                    />
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:text="Submit"
+                    android:textSize="18sp"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_next"
+                    app:iconGravity="end"
+                    app:iconPadding="10dp"
+                    app:iconSize="20dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_answer_yes"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="30dp"
-                    android:backgroundTint="@color/light_green"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/yes"
-                    app:cornerRadius="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:strokeColor="@color/black_70"
-                    app:strokeWidth="2dp"
-                    android:checkable="true"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_submit"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/gilroy_extrabold"
-                android:paddingLeft="28dp"
-                android:paddingRight="28dp"
-                android:text="Submit"
-                android:textSize="18sp"
-                app:cornerRadius="10dp"
-                app:icon="@drawable/ic_next"
-                app:iconGravity="end"
-                app:iconPadding="10dp"
-                app:iconSize="20dp" />
-        </LinearLayout>
+            </LinearLayout>
 
         </ScrollView>
 

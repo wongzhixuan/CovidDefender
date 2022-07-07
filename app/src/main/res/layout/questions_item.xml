@@ -23,7 +23,8 @@
             android:fontFamily="@font/gilroy_bold"
             android:lineHeight="20dp"
             android:text="questions"
-            android:textColor="@color/black_70" />
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,13 +37,14 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"
                 android:backgroundTint="@color/light_coral"
+                android:checkable="true"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:text="@string/no"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/black_70"
+                app:strokeColor="@color/btn_question_selector"
                 app:strokeWidth="2dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -51,13 +53,14 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="@color/light_green"
+                android:checkable="true"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:text="@string/yes"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/black_70"
+                app:strokeColor="@color/btn_question_selector"
                 app:strokeWidth="2dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
