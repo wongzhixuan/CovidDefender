@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -28,6 +29,8 @@ import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 
 class EditDetails : Fragment() {
+    private lateinit var tv_profile_name: TextView
+    private lateinit var tv_profile_id: TextView
 
     // Firebase Authentication
     private var mAuth: FirebaseAuth? = null
@@ -61,11 +64,14 @@ class EditDetails : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_edit_details, container, false)
+
         et_full_name = view.findViewById(R.id.et_full_name)
         et_NRIC = view.findViewById(R.id.et_NRIC)
         et_mail = view.findViewById(R.id.et_mail)
         txt_field_email = view.findViewById(R.id.txt_field_email)
         profile_image = view.findViewById(R.id.profile_image)
+        tv_profile_name = view.findViewById(R.id.tv_profile_name)
+        tv_profile_id = view.findViewById(R.id.tv_profile_id)
 
         // set up firebase auth
         mAuth = FirebaseAuth.getInstance()
@@ -85,11 +91,15 @@ class EditDetails : Fragment() {
             storageReference.child("users/" + mAuth!!.currentUser!!.uid + "/profile.jpg")
 
             // get data from firebase
-            getAllData()
+            setUpViewWithData()
         }
 
         et_NRIC.isEnabled = false
         et_full_name.isEnabled = false
+
+        profile_image.setOnClickListener{
+
+        }
 
         val btn_save: Button = view.findViewById<Button>(R.id.btn_save)
         btn_save.setOnClickListener(View.OnClickListener {
@@ -104,6 +114,31 @@ class EditDetails : Fragment() {
 
         })
         return view
+    }
+
+    private fun setUpViewWithData() {
+        // get data from firebase auth
+        var name: String? = currentUser!!.displayName
+        tv_profile_name.text = name
+        var id: String = ""
+        var docRefUsers: DocumentReference = firestore.collection("users").document(currentUser!!.uid)
+        docRefUsers.get().addOnSuccessListener { document ->
+            id = document.get("nric").toString()
+            tv_profile_id.text = id
+            et_NRIC.setText(id)
+        }
+        var photoUrl = currentUser!!.photoUrl
+        if(photoUrl!=null){
+            Picasso.get().load(photoUrl).into(profile_image)
+        }
+        val username = currentUser!!.displayName
+        if (username != null) {
+            et_full_name.setText(username)
+        }
+        val email = currentUser!!.email
+        if (email != null) {
+            et_mail.setText(email)
+        }
     }
 
     companion object {
@@ -180,33 +215,33 @@ class EditDetails : Fragment() {
 
     private fun getAllData() {
         // get data from firebase auth
-        val username = currentUser!!.displayName
-        if (username != null) {
-            et_full_name.setText(username)
-        }
-        val email = currentUser!!.email
-        if (email != null) {
-            et_mail.setText(email)
-        }
-        if (currentUser!!.photoUrl != null) {
-            val photoUrl = currentUser!!.photoUrl
-            Picasso.get().load(photoUrl).into(profile_image)
-        }
-        // get data from firestore
-        docRef.get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val document = task.result
-                if (document.exists()) {
-                    document.getString("fullname")
-                    document.getString("nric")
-                    document.getString("emailAdd")
-                } else {
-                    Log.d("Firestore", "No such document")
-                }
-            } else {
-                Log.d("Firestore", "get failed with ", task.exception)
-            }
-        }
+//        val username = currentUser!!.displayName
+//        if (username != null) {
+//            et_full_name.setText(username)
+//        }
+//        val email = currentUser!!.email
+//        if (email != null) {
+//            et_mail.setText(email)
+//        }
+//        if (currentUser!!.photoUrl != null) {
+//            val photoUrl = currentUser!!.photoUrl
+//            Picasso.get().load(photoUrl).into(profile_image)
+//        }
+//        // get data from firestore
+//        docRef.get().addOnCompleteListener { task ->
+//            if (task.isSuccessful) {
+//                val document = task.result
+//                if (document.exists()) {
+//                    document.getString("fullname")
+//                    document.getString("nric")
+//                    document.getString("emailAdd")
+//                } else {
+//                    Log.d("Firestore", "No such document")
+//                }
+//            } else {
+//                Log.d("Firestore", "get failed with ", task.exception)
+//            }
+//        }
     }
 
     private fun validateInput(): Boolean? {
