@@ -15,13 +15,11 @@ import com.example.coviddefender.R;
 import com.example.coviddefender.entity.Vaccine_Info;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
-public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info,VaccineInfoAdapter.VaccineInfoViewHolder > {
+public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info, VaccineInfoAdapter.VaccineInfoViewHolder> {
     int lastPos = -1;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -60,6 +58,7 @@ public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info,Va
         private final ImageView image;
         private final TextView tv_description;
         private final MaterialCardView card_vaccine_info;
+
         public VaccineInfoViewHolder(View view) {
             super(view);
             // initialize variables

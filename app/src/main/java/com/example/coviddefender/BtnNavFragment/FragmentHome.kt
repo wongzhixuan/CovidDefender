@@ -14,14 +14,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.UserAuthentication.LoginActivity
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.Announcement
 import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
+import com.example.coviddefender.RecyclerViewAdapter.VaccineInfoAdapter
+import com.example.coviddefender.entity.Announcement
+import com.example.coviddefender.entity.Vaccine_Info
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 
 class FragmentHome : Fragment() {
@@ -39,6 +43,8 @@ class FragmentHome : Fragment() {
     lateinit var drawer_layout: DrawerLayout
     lateinit var drawer_nav_view: NavigationView
     lateinit var btn_drawer: ImageButton
+    lateinit var announcement_recyclerview: RecyclerView
+    lateinit var announcementAdapter: AnnouncementAdapter
 
     // Firebase Authentication
     private lateinit var mAuth: FirebaseAuth
@@ -47,13 +53,24 @@ class FragmentHome : Fragment() {
     // Firestore
     private lateinit var firestore: FirebaseFirestore
     private lateinit var docRef: DocumentReference
-
+    private lateinit var userId:String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+//            userId = currentUser.uid
+            userId = "testing"
+        }
+
+        // set up firestore
+        firestore = FirebaseFirestore.getInstance()
 
         // Drawer
         drawer_layout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -70,36 +87,12 @@ class FragmentHome : Fragment() {
         }
 
 
-        // Dummy data for recycler view
-        var announcements: ArrayList<Announcement> = arrayListOf(
-            Announcement(
-                R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin",
-                ""
-            ),
-            Announcement(
-                R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin",
-                ""
-            ),
-            Announcement(
-                R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin",
-                ""
-            )
-        )
 
         // Announcement Recycler View
-        val announcement_recyclerview: RecyclerView? =
+        announcement_recyclerview =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
-        announcement_recyclerview?.layoutManager = LinearLayoutManager(
-            view.context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
+        setUpRecyclerView()
 
-        // Adopt data to recycler view using adapter
-        announcement_recyclerview?.adapter = AnnouncementAdapter(announcements)
 
         // Link card view widgets
         card_covid_status = view.findViewById<MaterialCardView>(R.id.card_covid_status)
@@ -139,6 +132,31 @@ class FragmentHome : Fragment() {
         }
 
         return view
+    }
+
+    private fun setUpRecyclerView() {
+        var query: Query = firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Announcement> = FirestoreRecyclerOptions.Builder<Announcement>()
+            .setQuery(query, Announcement::class.java)
+            .build()
+
+        announcementAdapter = AnnouncementAdapter(options)
+        announcement_recyclerview?.layoutManager = LinearLayoutManager(
+            view?.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        announcement_recyclerview.adapter = announcementAdapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        announcementAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        announcementAdapter.stopListening()
     }
 
     private val drawerListener =

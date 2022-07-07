@@ -10,15 +10,32 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.coviddefender.R
-import com.example.coviddefender.entity.Announcement
 import com.example.coviddefender.RecyclerViewAdapter.*
+import com.example.coviddefender.entity.Announcement
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 
 class FragmentInfo : Fragment() {
 
     private var pagerAdapter: FragmentStateAdapter? = null
+    lateinit var announcement_recyclerview: RecyclerView
+    lateinit var announcementAdapter: AnnouncementAdapter
+
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
+    private lateinit var userId:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +43,19 @@ class FragmentInfo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_info, container, false)
+
+
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+//            userId = currentUser.uid
+            userId = "testing"
+        }
+
+        // set up firestore
+        firestore = FirebaseFirestore.getInstance()
+
 
         val tab_layout = view.findViewById<TabLayout>(R.id.info_tab)
         val viewpager = view.findViewById<ViewPager2>(R.id.viewpager2)
@@ -44,34 +74,32 @@ class FragmentInfo : Fragment() {
             tab.text = titles[position]
         }.attach()
 
-// Announcement Recycler View
-        // Dummy data for recycler view
-        var announcements: ArrayList<Announcement> = arrayListOf(
-            /*Announcement(
-                R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            Announcement(
-                R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            Announcement(
-                R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )*/
-        )
-        //Recycler View
-        val announcement_recyclerview: RecyclerView? =
+        // Announcement Recycler View
+
+        announcement_recyclerview =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
+
+        setUpRecyclerView()
+
+        return view
+    }
+
+    private fun setUpRecyclerView() {
+        var query: Query = firestore.collection("announcements").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Announcement> = FirestoreRecyclerOptions.Builder<Announcement>()
+            .setQuery(query, Announcement::class.java)
+            .build()
+
+        announcementAdapter = AnnouncementAdapter(options)
+
         announcement_recyclerview?.layoutManager = LinearLayoutManager(
-            view.context,
+            view?.context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
         // Adopt data to recycler view using adapter
-        announcement_recyclerview?.adapter = AnnouncementAdapter(announcements)
+        announcement_recyclerview.adapter = announcementAdapter
 
-        return view
     }
 
     companion object {
