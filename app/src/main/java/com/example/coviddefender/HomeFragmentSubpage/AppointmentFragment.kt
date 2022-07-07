@@ -14,12 +14,14 @@ import com.example.coviddefender.R
 import com.example.coviddefender.RecyclerViewAdapter.VaccineInfoAdapter
 import com.example.coviddefender.entity.Vaccination
 import com.example.coviddefender.entity.Vaccine_Info
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 
 
@@ -29,6 +31,7 @@ class AppointmentFragment : Fragment() {
     lateinit var btn_view_appoitment: MaterialButton
     lateinit var btn_register: MaterialButton
     lateinit var vaccineinfo_recyclerview: RecyclerView
+    lateinit var vaccineInfoAdapter: VaccineInfoAdapter
     lateinit var btn_back : ImageButton
 
     // Firebase Authentication
@@ -73,34 +76,8 @@ class AppointmentFragment : Fragment() {
         // fetch data
         getData()
 
-        // dummy data for recycler view
-        var infos: ArrayList<Vaccine_Info> = arrayListOf(
-            Vaccine_Info(
-                R.drawable.vaccine_illustration,
-                "How does covid-19 vaccine works?"
-            ),
-            Vaccine_Info(
-                R.drawable.myths_about_covid_vaccine,
-                "Myths about Covid-19 vaccine"
-            ),
-            Vaccine_Info(
-                R.drawable.vaccine_illustration,
-                "How does covid-19 vaccine works?"
-            ),
-            Vaccine_Info(
-                R.drawable.myths_about_covid_vaccine,
-                "Myths about Covid-19 vaccine"
-            )
-        )
         // Vaccine Info Recycler view
-        vaccineinfo_recyclerview.layoutManager = LinearLayoutManager(
-            view.context,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        // adopt data to recycler view using adapter
-        vaccineinfo_recyclerview.adapter = VaccineInfoAdapter(infos)
-
+        setUpRecyclerView();
         // btn_register
         btn_register.setOnClickListener {
             // get current time
@@ -125,6 +102,33 @@ class AppointmentFragment : Fragment() {
 
         })
         return view
+    }
+
+    private fun setUpRecyclerView() {
+        var query:Query = firestore.collection("vaccine_info").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Vaccine_Info> = FirestoreRecyclerOptions.Builder<Vaccine_Info>()
+            .setQuery(query, Vaccine_Info::class.java)
+            .build()
+
+        vaccineInfoAdapter = VaccineInfoAdapter(options)
+
+        // setting layout malinger to recycler view
+        vaccineinfo_recyclerview.layoutManager = LinearLayoutManager(
+            view?.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        vaccineinfo_recyclerview.adapter = vaccineInfoAdapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        vaccineInfoAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        vaccineInfoAdapter.stopListening()
     }
 
     private fun getData() {
