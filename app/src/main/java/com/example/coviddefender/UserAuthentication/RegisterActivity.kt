@@ -2,13 +2,10 @@ package com.example.coviddefender.UserAuthentication
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.coviddefender.Navigation
 import com.example.coviddefender.R
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
@@ -19,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
-    private val KEY_EMPTY =""
+    private val KEY_EMPTY = ""
     var regexPattern = "^(.+)@(\\S+)$"
     var emptyField = "This field cannot be empty"
 
@@ -43,18 +40,18 @@ class RegisterActivity : AppCompatActivity() {
         currentUser = mAuth.getCurrentUser()
 
         // if user already logged in, skip login
-        if(currentUser != null){
+        if (currentUser != null) {
             reload()
         }
 
         et_email = findViewById(R.id.et_email)
-       // btn_terms_agree = findViewById(R.id.btn_terms_agree)
+        // btn_terms_agree = findViewById(R.id.btn_terms_agree)
         //verify button
         btn_verify = findViewById(R.id.btn_verify)
         btn_verify.setOnClickListener {
-            if (validateInputs()){
-                val email : String = et_email.getText().toString().trim()
-                val intent = Intent(this,RegisterActivity2::class.java).apply {
+            if (validateInputs()) {
+                val email: String = et_email.getText().toString().trim()
+                val intent = Intent(this, RegisterActivity2::class.java).apply {
                     putExtra("email", email)
                 }
                 startActivity(intent)
@@ -93,9 +90,9 @@ class RegisterActivity : AppCompatActivity() {
         return true
     }
 
-    private fun reload(){
-        if(currentUser != null){
-            val intent = Intent(this,RegisterActivity::class.java)
+    private fun reload() {
+        if (currentUser != null) {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -15,11 +15,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class RegisterActivity3:AppCompatActivity() {
+class RegisterActivity3 : AppCompatActivity() {
 
-    lateinit var et_address : TextInputEditText
-    lateinit var et_postcode : TextInputEditText
-    lateinit var et_state : AutoCompleteTextView
+    lateinit var et_address: TextInputEditText
+    lateinit var et_postcode: TextInputEditText
+    lateinit var et_state: AutoCompleteTextView
     lateinit var register_back: ImageButton
 
     val db = Firebase.firestore
@@ -66,33 +66,33 @@ class RegisterActivity3:AppCompatActivity() {
 
         //next button
         val btn_next: Button = findViewById<Button>(R.id.btn_next)
-        btn_next.setOnClickListener(View.OnClickListener{
+        btn_next.setOnClickListener(View.OnClickListener {
 
-            val add : String = et_address.getText().toString()
-            val postcode : String = et_postcode.getText().toString()
-            val state : String = et_state.getText().toString()
+            val add: String = et_address.getText().toString()
+            val postcode: String = et_postcode.getText().toString()
+            val state: String = et_state.getText().toString()
 
-            if (add.equals("")||postcode.equals("")||state.equals("")) {
+            if (add.equals("") || postcode.equals("") || state.equals("")) {
                 // Check if all fields are filled
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
                     .show()
-            } else{
-                startActivity(Intent(this,RegisterActivity4::class.java).apply {
-                    putExtra("name",name)
-                    putExtra("email",email)
-                    putExtra("gender",gender)
-                    putExtra("nric",nric)
+            } else {
+                startActivity(Intent(this, RegisterActivity4::class.java).apply {
+                    putExtra("name", name)
+                    putExtra("email", email)
+                    putExtra("gender", gender)
+                    putExtra("nric", nric)
                     putExtra("address", add)
-                    putExtra("postcode",postcode)
-                    putExtra("age",age)
-                    putExtra("nationality",nationality)
-                    putExtra("state",state)
+                    putExtra("postcode", postcode)
+                    putExtra("age", age)
+                    putExtra("nationality", nationality)
+                    putExtra("state", state)
                 })
             }
         })
 
         //Back Button
-            register_back.setOnClickListener(View.OnClickListener{
+        register_back.setOnClickListener(View.OnClickListener {
             finish()
         })
     }

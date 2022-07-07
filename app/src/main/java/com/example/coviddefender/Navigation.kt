@@ -3,7 +3,6 @@ package com.example.coviddefender
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -26,7 +25,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 
 class Navigation : AppCompatActivity() {
-   var isFromActivity: Boolean = false
+    var isFromActivity: Boolean = false
     lateinit var navController: NavController
 
     // Firebase Authentication
