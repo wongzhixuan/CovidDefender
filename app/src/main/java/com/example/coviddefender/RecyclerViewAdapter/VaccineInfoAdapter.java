@@ -2,7 +2,6 @@ package com.example.coviddefender.RecyclerViewAdapter;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +15,15 @@ import com.example.coviddefender.R;
 import com.example.coviddefender.entity.Vaccine_Info;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info,VaccineInfoAdapter.VaccineInfoViewHolder > {
     int lastPos = -1;
+    FirebaseStorage storage;
     StorageReference storageReference;
 
     public VaccineInfoAdapter(@NonNull FirestoreRecyclerOptions<Vaccine_Info> options) {
@@ -31,8 +33,6 @@ public class VaccineInfoAdapter extends FirestoreRecyclerAdapter<Vaccine_Info,Va
 
     @Override
     protected void onBindViewHolder(@NonNull VaccineInfoAdapter.VaccineInfoViewHolder holder, int position, @NonNull Vaccine_Info model) {
-        Uri photourl = Uri.parse(model.getImage());
-        Picasso.get().load(photourl).into(holder.image);
 
         holder.tv_description.setText(model.getDescription());
 

@@ -115,7 +115,7 @@ class AppointmentFragment : Fragment() {
         // setting layout malinger to recycler view
         vaccineinfo_recyclerview.layoutManager = LinearLayoutManager(
             view?.context,
-            LinearLayoutManager.VERTICAL,
+            LinearLayoutManager.HORIZONTAL,
             false
         )
         vaccineinfo_recyclerview.adapter = vaccineInfoAdapter
