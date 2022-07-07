@@ -8,10 +8,28 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coviddefender.R
-import com.example.coviddefender.RecyclerViewAdapter.ToKnowAdapter
-import com.example.coviddefender.entity.ToKnow
+import com.example.coviddefender.RecyclerViewAdapter.AnnouncementAdapter
+import com.example.coviddefender.entity.Announcement
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class ThingsToKnow : Fragment() {
+
+    lateinit var thinsgtoknow_recyclerview : RecyclerView
+    lateinit var announcementAdapter: AnnouncementAdapter
+
+    // Firebase Authentication
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+
+    // Firestore
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var docRef: DocumentReference
+    private lateinit var userId:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,25 +38,21 @@ class ThingsToKnow : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
+        savedInstanceState: Bundle?, ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_things_to_know, container, false)
+        val view:View = inflater.inflate(R.layout.fragment_things_to_know, container, false)
 
-        var toknow: ArrayList<ToKnow> = arrayListOf(
-            ToKnow(
-                R.drawable.covid_illustration,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToKnow(
-                R.drawable.myths_about_covid_vaccine,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            ),
-            ToKnow(
-                R.drawable.father_and_son,
-                "Lorem ipsum dolor sit amet, consectetur adipiscin"
-            )
-        )
+        // set up firebase auth
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null) {
+            currentUser = mAuth.currentUser!!
+//            userId = currentUser.uid
+            userId = "testing"
+        }
+
+        // set up firestore
+        firestore = FirebaseFirestore.getInstance()
+
         // Recycler View
         val toknow_recyclerview: RecyclerView? =
             view.findViewById<RecyclerView>(R.id.toknow_recyclerview)
@@ -47,9 +61,41 @@ class ThingsToKnow : Fragment() {
             LinearLayoutManager.VERTICAL,
             false
         )
-        // Adopt data to recycler view using adapter
-        toknow_recyclerview?.adapter = ToKnowAdapter(toknow)
+
+        // To Know Recycler View
+        thinsgtoknow_recyclerview=
+            view.findViewById<RecyclerView>(R.id.toknow_recyclerview)
+
+        setUpRecyclerView()
         return view
+    }
+
+    private fun setUpRecyclerView() {
+        var query: Query = firestore.collection("to_know").orderBy("description", Query.Direction.ASCENDING)
+        var options: FirestoreRecyclerOptions<Announcement> = FirestoreRecyclerOptions.Builder<Announcement>()
+            .setQuery(query, Announcement::class.java)
+            .build()
+
+        announcementAdapter = AnnouncementAdapter(options)
+
+        thinsgtoknow_recyclerview?.layoutManager = LinearLayoutManager(
+            view?.context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        // Adopt data to recycler view using adapter
+        thinsgtoknow_recyclerview.adapter = announcementAdapter
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        announcementAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        announcementAdapter.stopListening()
     }
 
     companion object {

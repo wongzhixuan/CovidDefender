@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -49,9 +50,16 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //set up firebase auth
         // initialize firebase auth
         mAuth = FirebaseAuth.getInstance()
-        currentUser = mAuth.currentUser
+        currentUser = mAuth.getCurrentUser()
+
+        // if user already logged in, skip login
+        if(currentUser != null){
+            reload()
+        }
 
         // link widgets
         et_login_email = findViewById(R.id.et_login_email)
@@ -155,6 +163,13 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
+    private fun reload(){
+        if(currentUser != null){
+            val intent = Intent(this,RegisterActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
 
     override fun onResume() {
         super.onResume()

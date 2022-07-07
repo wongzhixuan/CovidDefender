@@ -47,11 +47,6 @@ class RegisterActivity4:AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         currentUser = mAuth.getCurrentUser()
 
-        // if user already logged in, skip login
-        if (currentUser != null) {
-            reload()
-        }
-
 
         // get edit text data
         et_password = findViewById(R.id.et_password)
@@ -69,7 +64,7 @@ class RegisterActivity4:AppCompatActivity() {
             val name = intent.getStringExtra("name").toString()
             val nric = intent.getStringExtra("nric").toString()
             val gender = intent.getStringExtra("gender").toString()
-            val age = intent.getStringExtra("calAge").toString()
+            val age = intent.getStringExtra("age").toString()
             val nationality = intent.getStringExtra("nationality").toString()
             val address = intent.getStringExtra("address").toString()
             val postcode = intent.getStringExtra("postcode").toString()
@@ -118,7 +113,6 @@ class RegisterActivity4:AppCompatActivity() {
                                     )
                                     startActivity(Intent(applicationContext,RegisterActivity5::class.java))
                                 }.addOnFailureListener { e -> Log.d(TAG, "on Failure: " + e.message) }
-                                reload()
                             }
 
                         }).addOnFailureListener { e ->
@@ -169,14 +163,6 @@ class RegisterActivity4:AppCompatActivity() {
             return false
         }
         return true
-    }
-
-    private fun reload(){
-        if(currentUser != null){
-            val intent = Intent(this,Navigation::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 
     override fun onResume() {

@@ -55,6 +55,21 @@
             android:name=".UserAuthentication.ForgetPasswordActivity"
             android:exported="false" />
 
+        <activity android:name=".UserAuthentication.LoginActivity"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.RegisterActivity"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.RegisterActivity2"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.RegisterActivity3"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.RegisterActivity4"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.RegisterActivity5"
+            android:exported="false"/>
+        <activity android:name=".UserAuthentication.ForgetPasswordActivity"
+            android:exported="false"/>
+
 
         <!-- QR scanner -->
         <activity

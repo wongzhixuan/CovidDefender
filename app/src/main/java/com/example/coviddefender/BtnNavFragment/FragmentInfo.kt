@@ -28,6 +28,7 @@ class FragmentInfo : Fragment() {
     lateinit var announcement_recyclerview: RecyclerView
     lateinit var announcementAdapter: AnnouncementAdapter
 
+
     // Firebase Authentication
     private lateinit var mAuth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
@@ -39,11 +40,9 @@ class FragmentInfo : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_info, container, false)
-
 
         // set up firebase auth
         mAuth = FirebaseAuth.getInstance()
@@ -55,7 +54,6 @@ class FragmentInfo : Fragment() {
 
         // set up firestore
         firestore = FirebaseFirestore.getInstance()
-
 
         val tab_layout = view.findViewById<TabLayout>(R.id.info_tab)
         val viewpager = view.findViewById<ViewPager2>(R.id.viewpager2)
@@ -74,7 +72,6 @@ class FragmentInfo : Fragment() {
         }.attach()
 
         // Announcement Recycler View
-
         announcement_recyclerview =
             view.findViewById<RecyclerView>(R.id.latest_announcement_recyclerview)
 
