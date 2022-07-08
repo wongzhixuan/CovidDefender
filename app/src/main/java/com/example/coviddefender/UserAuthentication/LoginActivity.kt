@@ -1,10 +1,12 @@
 package com.example.coviddefender.UserAuthentication
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +17,13 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.concurrent.Executors
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
+
     //edittext or dropdown
     lateinit var register_link: TextView
     lateinit var et_login_email: TextInputEditText
@@ -59,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         currentUser = mAuth.currentUser
 
         // if user already logged in, skip login
-        if(currentUser != null){
+        if (currentUser != null) {
             reload()
         }
 
@@ -72,13 +74,37 @@ class LoginActivity : AppCompatActivity() {
 
         // btn login on click
         btn_login.setOnClickListener(View.OnClickListener {
+            RunLoginTask()
+        })
+
+        // navigate to register activity
+        register_link = findViewById(R.id.register_link)
+        register_link.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, RegisterBaseActivity::class.java)
+            startActivity(intent)
+        })
+
+        // navigate to forget password
+        fgtpwd_link = findViewById(R.id.fgtpwd_link)
+        fgtpwd_link.setOnClickListener {
+            val intent = Intent(this, ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun RunLoginTask() {
+        val executor = Executors.newSingleThreadExecutor()
+        val handler = Handler(Looper.getMainLooper())
+
+        executor.execute() {
+            // do something in background
             email = et_login_email.text.toString()
             password = et_login_password.text.toString()
 
             if (validateInputs()) {
-
                 // sign in user with email and password
                 mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+
                     // if user successfully login
                     currentUser = it.user
                     userId = it.user?.uid
@@ -89,6 +115,15 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val document = task.result
                             if (document.exists()) {
+                                // store data into sharedPreferences
+                                var sharedPreferences: SharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
+                                // create editor to edit file
+                                var editor: SharedPreferences.Editor = sharedPreferences.edit()
+                                // store key and value
+                                editor.putString("nric", document.get("nric").toString())
+                                // commit
+                                editor.commit()
+
                                 Toast.makeText(
                                     this,
                                     "Sign In Sucessful",
@@ -114,27 +149,12 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-        })
 
-        // navigate to register activity
-        register_link = findViewById(R.id.register_link)
-        register_link.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        })
+        }
 
-        // navigate to register activity
-        val login_back: ImageButton = findViewById<ImageButton>(R.id.login_back)
-        login_back.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        })
+        handler.post() {
+            // do something in UI
 
-        // navigate to forget password
-        fgtpwd_link = findViewById(R.id.fgtpwd_link)
-        fgtpwd_link.setOnClickListener {
-            val intent = Intent(this, ForgetPasswordActivity::class.java)
-            startActivity(intent)
         }
     }
 
@@ -166,9 +186,9 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    private fun reload(){
-        if(currentUser != null){
-            val intent = Intent(this,RegisterActivity::class.java)
+    private fun reload() {
+        if (currentUser != null) {
+            val intent = Intent(this, Navigation::class.java)
             startActivity(intent)
             finish()
         }

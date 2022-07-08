@@ -9,6 +9,11 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -22,14 +27,17 @@
         android:theme="@style/Theme.CovidDefender"
         tools:targetApi="31">
         <activity
+            android:name=".UserAuthentication.RegisterBaseActivity"
+            android:exported="false"></activity>
+        <activity
             android:name=".Navigation"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".LoadScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,28 +45,8 @@
             android:name=".UserAuthentication.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".UserAuthentication.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UserAuthentication.RegisterActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".UserAuthentication.RegisterActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".UserAuthentication.RegisterActivity4"
-            android:exported="false" />
-        <activity
-            android:name=".UserAuthentication.RegisterActivity5"
-            android:exported="false" />
-        <activity
             android:name=".UserAuthentication.ForgetPasswordActivity"
-            android:exported="false" />
-
-
-
-
-        <!-- QR scanner -->
+            android:exported="false" /> <!-- QR scanner -->
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
@@ -74,8 +62,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
 
 </manifest>

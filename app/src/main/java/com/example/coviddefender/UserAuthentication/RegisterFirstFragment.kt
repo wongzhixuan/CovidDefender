@@ -2,12 +2,15 @@ package com.example.coviddefender.UserAuthentication
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.coviddefender.Navigation
 import com.example.coviddefender.R
-import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -16,8 +19,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
-class RegisterActivity : AppCompatActivity() {
 
+class RegisterFirstFragment : Fragment() {
     // initialize variables to hold values
     private val KEY_EMPTY = ""
     var regexPattern = "^(.+)@(\\S+)$"
@@ -26,7 +29,6 @@ class RegisterActivity : AppCompatActivity() {
     //initialize widgets
     lateinit var et_email: TextInputEditText
     lateinit var btn_verify: Button
-    lateinit var btn_terms_agree: MaterialCheckBox
     lateinit var login_link: TextView
 
     //Firebase
@@ -36,8 +38,16 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_1)
-        FirebaseApp.initializeApp(this)
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        var view: View = inflater.inflate(R.layout.fragment_register_first, container, false)
+        FirebaseApp.initializeApp(context!!)
 
         //set up firebase auth
         mAuth = FirebaseAuth.getInstance()
@@ -49,26 +59,26 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         // get text from edit text
-        et_email = findViewById(R.id.et_email)
+        et_email = view.findViewById(R.id.et_email)
 
         //verify button
-        btn_verify = findViewById(R.id.btn_verify)
+        btn_verify = view.findViewById(R.id.btn_verify)
         btn_verify.setOnClickListener {
             if (validateInputs()) {
                 val email: String = et_email.getText().toString().trim()
-                val intent = Intent(this, RegisterActivity2::class.java).apply {
-                    putExtra("email", email)
-                }
-                startActivity(intent)
+                var bundle: Bundle = Bundle()
+                bundle.putString("email", email)
+                findNavController().navigate(R.id.register2, bundle)
             }
         }
 
         // navigate to login
-        login_link = findViewById(com.example.coviddefender.R.id.login_link)
+        login_link = view.findViewById(com.example.coviddefender.R.id.login_link)
         login_link.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(context, LoginActivity::class.java)
             startActivity(intent)
         })
+        return view
     }
 
     // check user inputs
@@ -86,28 +96,19 @@ class RegisterActivity : AppCompatActivity() {
             et_email.requestFocus()
             return false
         }
-        /*if (!btn_terms_agree.isChecked()) {
-            Toast.makeText(
-                applicationContext,
-                "Please check the terms and condition",
-                Toast.LENGTH_SHORT
-            ).show()
-            return false
-        }*/
         return true
     }
 
     private fun reload() {
         if (currentUser != null) {
-            val intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(context, Navigation::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            RegisterFirstFragment()
     }
-
-
 }

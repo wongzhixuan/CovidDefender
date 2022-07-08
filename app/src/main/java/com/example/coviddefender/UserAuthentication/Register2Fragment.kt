@@ -3,13 +3,14 @@ package com.example.coviddefender.UserAuthentication
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.coviddefender.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.ktx.firestore
@@ -17,8 +18,7 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 
 
-class RegisterActivity2 : AppCompatActivity() {
-
+class Register2Fragment : Fragment() {
     lateinit var et_country_code: AutoCompleteTextView
     lateinit var et_full_name: TextInputEditText
     lateinit var et_NRIC: TextInputEditText
@@ -27,30 +27,40 @@ class RegisterActivity2 : AppCompatActivity() {
     lateinit var radioButton: RadioButton
     lateinit var btn_next: Button
 
+    lateinit var email: String
     val db = Firebase.firestore
     var calAge: Int = 0
     var country: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_2)
 
-        // get email pass from previous activity
-        var email = intent.getStringExtra("email")
+    }
 
-        // get edit text data
-        et_full_name = findViewById(R.id.et_full_name)
-        et_NRIC = findViewById(R.id.et_NRIC)
-        et_age = findViewById(R.id.et_age)
-        btn_next = findViewById(R.id.btn_next)
-        radio_group_gender = findViewById(R.id.radio_group_gender)
-        et_country_code = findViewById(R.id.et_country_code)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        var view: View = inflater.inflate(R.layout.fragment_register2, container, false)
+
+        // link widgets
+        et_full_name = view.findViewById(R.id.et_full_name)
+        et_NRIC = view.findViewById(R.id.et_NRIC)
+        et_age = view.findViewById(R.id.et_age)
+        btn_next = view.findViewById(R.id.btn_next)
+        radio_group_gender = view.findViewById(R.id.radio_group_gender)
+        et_country_code = view.findViewById(R.id.et_country_code)
+
+        // get data from previoud page
+        email = arguments?.getString("email").toString()
+
 
         // Nationality
         val countrycode = resources.getStringArray(R.array.country_code_item)
         val checkedItems: Array<Int> = arrayOf(-1) // by default, selected item is null
         et_country_code.setOnClickListener(View.OnClickListener {
-            var builder: AlertDialog.Builder = AlertDialog.Builder(this)
+            var builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle("Nationality")
             builder.setIcon(R.drawable.ic_country_code)
             builder.setSingleChoiceItems(
@@ -66,7 +76,7 @@ class RegisterActivity2 : AppCompatActivity() {
                 "Cancel",
                 DialogInterface.OnClickListener { dialogInterface, i -> })
             val custom_dialog: AlertDialog = builder.create()
-            //            custom_dialog.window?.setBackgroundDrawableResource()
+            // custom_dialog.window?.setBackgroundDrawableResource()
             custom_dialog.show()
         })
 
@@ -78,7 +88,8 @@ class RegisterActivity2 : AppCompatActivity() {
             val month = cldr[Calendar.MONTH]
             val year = cldr[Calendar.YEAR]
             // date picker dialog
-            val picker = DatePickerDialog(this,
+            val picker = DatePickerDialog(
+                context!!,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                     et_age.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
 
@@ -96,9 +107,8 @@ class RegisterActivity2 : AppCompatActivity() {
         }
 
         // Next button
-        val btn_next: Button = findViewById<Button>(R.id.btn_next)
+        val btn_next: Button = view.findViewById<Button>(R.id.btn_next)
         btn_next.setOnClickListener(View.OnClickListener {
-
             val fullname: String = et_full_name.getText().toString()
             val nric: String = et_NRIC.getText().toString()
             var birthdate: String = et_age.getText().toString()
@@ -108,42 +118,49 @@ class RegisterActivity2 : AppCompatActivity() {
                 || radio_group_gender.getCheckedRadioButtonId() == -1 || birthdate.equals("")
             ) {
                 // Check if all fields are filled
-                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Please fill all the fields", Toast.LENGTH_LONG)
                     .show()
             } else {
 
                 if (radio_group_gender == null) {
-                    Toast.makeText(this, "Please select your gender", Toast.LENGTH_LONG)
+                    Toast.makeText(context, "Please select your gender", Toast.LENGTH_LONG)
                         .show()
                 } else {
                     // Gender Validation
                     val selectedId: Int = radio_group_gender.getCheckedRadioButtonId()
-                    radioButton = findViewById<View>(selectedId) as RadioButton
+                    radioButton = view.findViewById<View>(selectedId) as RadioButton
                     val gender: String = radioButton.text.toString()
 
                     // navigate to register 3 and pass values
-                    val intent = Intent(this, RegisterActivity3::class.java).apply {
-                        putExtra("email", email)
-                        putExtra("name", fullname)
-                        putExtra("gender", gender)
-                        putExtra("nric", nric)
-                        putExtra("age", calAge.toString())
-                        putExtra("nationality", country)
-                    }
-                    startActivity(intent)
+                    var bundle: Bundle = Bundle()
+                    bundle.putString("email", email)
+                    bundle.putString("name", fullname)
+                    bundle.putString("gender", gender)
+                    bundle.putString("nric", nric)
+                    bundle.putString("age", calAge.toString())
+                    bundle.putString("nationality", country)
+
+                    findNavController().navigate(R.id.register3, bundle)
                 }
 
             }
         })
 
         //Back Button
-        val register_back: ImageButton = findViewById<ImageButton>(R.id.register_back)
+        val register_back: ImageButton = view.findViewById<ImageButton>(R.id.register_back)
         register_back.setOnClickListener(View.OnClickListener {
-            finish()
+            findNavController().navigate(R.id.register1)
         })
+
+
+        return view
     }
 
-    override fun onResume() {
-        super.onResume()
+
+    companion object {
+
+        @JvmStatic
+        fun newInstance() =
+            Register2Fragment()
     }
 }

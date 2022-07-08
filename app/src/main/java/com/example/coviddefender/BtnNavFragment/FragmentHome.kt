@@ -200,6 +200,7 @@ class FragmentHome : Fragment() {
                     drawer_layout.closeDrawer(GravityCompat.START)
                 }
                 R.id.log_out -> {
+                    mAuth.signOut()
                     val intent: Intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                     drawer_layout.closeDrawer(GravityCompat.START)

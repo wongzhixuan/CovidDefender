@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_register"
+    app:startDestination="@id/register1">
+
+    <fragment
+        android:id="@+id/register2"
+        android:name="com.example.coviddefender.UserAuthentication.Register2Fragment"
+        android:label="fragment_register2"
+        tools:layout="@layout/fragment_register2" />
+    <fragment
+        android:id="@+id/register3"
+        android:name="com.example.coviddefender.UserAuthentication.Register3Fragment"
+        android:label="fragment_register3"
+        tools:layout="@layout/fragment_register3" />
+    <fragment
+        android:id="@+id/register4"
+        android:name="com.example.coviddefender.UserAuthentication.Register4Fragment"
+        android:label="fragment_register4"
+        tools:layout="@layout/fragment_register4" />
+    <fragment
+        android:id="@+id/register5"
+        android:name="com.example.coviddefender.UserAuthentication.Register5Fragment"
+        android:label="fragment_register5"
+        tools:layout="@layout/fragment_register5" />
+
+    <fragment
+        android:id="@+id/register1"
+        android:name="com.example.coviddefender.UserAuthentication.RegisterFirstFragment"
+        android:label="fragment_register_first"
+        tools:layout="@layout/fragment_register_first" />
+</navigation>
