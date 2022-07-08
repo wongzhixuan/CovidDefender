@@ -125,13 +125,13 @@ class FragmentHome : Fragment() {
         card_appointment = view.findViewById<MaterialCardView>(R.id.card_appointment)
 
         card_covid_status?.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_covid_status)
+            findNavController().navigate(R.id.covid_status)
         }
         card_health_assessment?.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_health_assessment)
+            findNavController().navigate(R.id.health_assessment)
         }
         card_hotspot?.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_hotspot)
+            findNavController().navigate(R.id.hotspot)
         }
         card_checkin?.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_checkIn)
