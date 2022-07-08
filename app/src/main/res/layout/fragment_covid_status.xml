@@ -134,10 +134,12 @@
            android:id="@+id/location_risk_view"
            android:layout_width="180dp"
            android:layout_height="60dp"
-           android:layout_marginStart="20dp"
+           android:layout_marginStart="5dp"
            android:layout_marginTop="10dp"
+           android:layout_marginEnd="5dp"
            android:background="@drawable/risk_bg"
            android:orientation="vertical"
+           app:layout_constraintEnd_toStartOf="@+id/risk_dependent_view"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/covidstatus_qr_code">
 
@@ -165,11 +167,13 @@
            android:id="@+id/risk_dependent_view"
            android:layout_width="180dp"
            android:layout_height="60dp"
+           android:layout_marginStart="5dp"
            android:layout_marginTop="10dp"
-           android:layout_marginEnd="20dp"
+           android:layout_marginEnd="5dp"
            android:background="@drawable/risk_bg"
            android:orientation="vertical"
            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toEndOf="@+id/location_risk_view"
            app:layout_constraintTop_toBottomOf="@+id/covidstatus_qr_code">
 
            <TextView
